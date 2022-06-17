@@ -9,6 +9,6 @@ class AboutUsController extends Controller
 {
     public function index()
     {
-        return view('front.pages.about.about');
+        return view('front.pages.about.index');
     }
 }

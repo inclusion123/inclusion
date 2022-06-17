@@ -1,6 +1,6 @@
         <div class="container-fluid position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
-                <a href="index.html" class="navbar-brand p-0">
+                <a href="{{ route ('front.index') }}" class="navbar-brand p-0">
                     <!-- <h1 class="m-0"><i class="fa fa-user-tie me-2"></i>Startup</h1> -->
                     <img class="logo-white" src=" {{ asset('front/img/logo-white.png') }}" />
                     <img class="logo-black" src="{{ asset('front/img/logo.png ') }}" />
@@ -15,20 +15,13 @@
                         <div class="nav-item dropdown">
                             <a href="{{ route('front.service') }}" class="nav-link dropdown-toggle">Services</a>
                             <div class="dropdown-menu m-0">
-                                <a href="{{ route('front.service.mobile_development') }}"
-                                    class="dropdown-item">Mobile
-                                    Development</a>
-                                <a href="{{ route('front.service.web_development') }}" class="dropdown-item">Web
-                                    Development</a>
-                                <a href="{{ route('front.service.game_development') }}" class="dropdown-item">Game Development</a>
-                                <a href="{{ route('front.service.mvp_development') }}" class="dropdown-item">MVP Development</a>
-                                <a href="{{ route('front.service.hire_developers') }}" class="dropdown-item">Hire Developers</a>
-                                <a href="{{ route('front.service.ecommerce_development') }}" class="dropdown-item">E-commerce
-                                    Development</a>
-                                <a href="{{ route('front.service.cms_development') }}" class="dropdown-item">CMS Development</a>
-                                <a href="{{ route('front.service.digital_marketing') }}" class="dropdown-item">Digital Marketing
-                                    Services</a>
-                                <a href="{{ route('front.service.software_testing') }}" class="dropdown-item">Software Testing</a>
+                                @foreach ($navbars as $navbar)
+                                    
+
+                                    <a href="{{ url('service-detail') }}/{{$navbar->slug}}"
+                                        class="dropdown-item">{{$navbar->name}}</a>
+
+                                @endforeach
                             </div>
                         </div>
                         <div class="nav-item dropdown">

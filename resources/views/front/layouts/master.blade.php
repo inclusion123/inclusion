@@ -27,7 +27,7 @@
 
 
     @yield('content')
-    @include('front.layouts.vendor')
+    {{-- @include('front.layouts.vendor') --}}
     @include('front.layouts.footer')
     @include('front.layouts.back_to_top')
     @include('front.layouts.js_imports')

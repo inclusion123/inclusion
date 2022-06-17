@@ -29,6 +29,6 @@ class ContactMail extends Mailable
      */
     public function build()
     {
-        return $this->view('front.email.contactmail');
+        return $this->view('email.contactmail');
     }
 }

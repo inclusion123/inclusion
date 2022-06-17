@@ -1,7 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Redirect;
+use App\Http\Controllers\Admin\AdminContactController;
+use App\Http\Controllers\Admin\AdminAuthController;
+use App\Http\Controllers\Admin\ChildServiceController;
+use App\Http\Controllers\Admin\ServiceController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::name('front.')->group(function () {
     Route::get('/', function () {
-        return view('front.index');
+        return view('front.landing_page');
     })->name('index');
 
     // AboutUs Pages Route 
@@ -26,15 +30,10 @@ Route::name('front.')->group(function () {
 
     // Service Pages Route 
     Route::get('services', [App\Http\Controllers\front\pages\ServicesController::class, 'index'])->name('service');
-    Route::get('mobile-development', [App\Http\Controllers\front\pages\ServicesController::class, 'mobile_development'])->name('service.mobile_development');
-    Route::get('web-development', [App\Http\Controllers\front\pages\ServicesController::class, 'web_development'])->name('service.web_development');
-    Route::get('game-development', [App\Http\Controllers\front\pages\ServicesController::class, 'game_development'])->name('service.game_development');
-    Route::get('mvp-development', [App\Http\Controllers\front\pages\ServicesController::class, 'mvp_development'])->name('service.mvp_development');
-    Route::get('hire-developers', [App\Http\Controllers\front\pages\ServicesController::class, 'hire_developers'])->name('service.hire_developers');
-    Route::get('e-commerce-development', [App\Http\Controllers\front\pages\ServicesController::class, 'ecommerce_development'])->name('service.ecommerce_development');
-    Route::get('cms-development', [App\Http\Controllers\front\pages\ServicesController::class, 'cms_development'])->name('service.cms_development');
-    Route::get('digital-marketing', [App\Http\Controllers\front\pages\ServicesController::class, 'digital_marketing'])->name('service.digital_marketing');
-    Route::get('software-testing', [App\Http\Controllers\front\pages\ServicesController::class, 'software_testing'])->name('service.software_testing');
+
+    Route::get('service-detail/{slug}', [App\Http\Controllers\front\pages\ServicesController::class, 'service_detail']);
+
+ 
 
     // Blog Pages Route
     Route::get('blogs', [App\Http\Controllers\front\pages\BlogController::class, 'blog_grid'])->name('blog_grid');
@@ -44,23 +43,41 @@ Route::name('front.')->group(function () {
     Route::get('feature', [App\Http\Controllers\front\pages\CompanyController::class, 'feature'])->name('feature');
     Route::get('team-members', [App\Http\Controllers\front\pages\CompanyController::class, 'team_members'])->name('team_members');
     Route::get('testimonial', [App\Http\Controllers\front\pages\CompanyController::class, 'testimonial'])->name('testimonial');
-    Route::get('quote', [App\Http\Controllers\front\pages\CompanyController::class, 'quote'])->name('quote');
+
+    Route::get('quote', [App\Http\Controllers\front\pages\QuoteController::class, 'create'])->name('quote');
+    Route::post('quote-store', [App\Http\Controllers\front\pages\QuoteController::class, 'store'])->name('quote.store');
 
     //Contact Page
     Route::get('contact', [App\Http\Controllers\front\pages\ContactController::class, 'index'])->name('contact');
     Route::post('contact-send-message', [App\Http\Controllers\front\pages\ContactController::class, 'contact_save'])->name('contact.save');
-
 });
 
 
-// Auth::routes();
-Route::get('admin-login', [App\Http\Controllers\Auth\LoginController::class,'showLoginForm'])->name('login');
-Route::post('login', [App\Http\Controllers\Auth\LoginController::class,'login']);
+Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+    Route::get('/', [App\Http\Controllers\Admin\AdminAuthcontroller::class, 'showLoginForm'])->name('login-root');
+    Route::get('/login', [App\Http\Controllers\Admin\AdminAuthcontroller::class, 'showLoginForm'])->name('login');
+    Route::post('login', [App\Http\Controllers\Admin\AdminAuthcontroller::class, 'login'])->name('login.post');
+    Route::post('logout', [AdminAuthcontroller::class, 'logout'])->name('logout');
+    Route::middleware('auth')->group(function () {
+        Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+        Route::get('/contact', [AdminContactController::class, 'index'])->name('contact');
+        Route::get('/contact-list', [AdminContactController::class, 'contact_list'])->name('contact.list');
 
+        Route::get('/service', [ServiceController::class, 'index'])->name('service');
+        Route::get('/service-list', [ServiceController::class, 'getModels'])->name('service.list');
+        Route::get('/service-create', [ServiceController::class, 'create'])->name('service.create');
+        Route::post('/service-store', [ServiceController::class, 'store'])->name('service.store');
+        Route::post('/service-change-status', [ServiceController::class, 'changeStatus'])->name('service.changeStatus');
+        Route::get('/service-detail/{id}', [ServiceController::class, 'detail'])->name('service.detail');
+        Route::get('/service-edit/{id}', [ServiceController::class, 'edit'])->name('service.edit');
+        Route::put('/service-update/{id}', [ServiceController::class, 'update'])->name('service.update');
+        Route::post('/service-delete', [ServiceController::class, 'destroy'])->name('service.destroy');
 
-Route::get('register', [App\Http\Controllers\Auth\RegisterController::class,'showRegistrationForm'])->name('register');
-Route::post('register', [App\Http\Controllers\Auth\RegisterController::class,'register']);
+        Route::resource('childservices', ChildServiceController::class);
+        Route::get('/child-services/{id}', [ChildServiceController::class, 'index'])->name('childservices.indexpage');
+        Route::get('/childservices-list/{id}', [ChildServiceController::class, 'getModels'])->name('childservices.list');
+         Route::get('/childservices/{id}/create_child',[ChildServiceController::class,'create_child'])->name('childservices.create_child');
+        
+    });
+});
 
-Route::post('logout',  [App\Http\Controllers\Auth\LoginController::class,'logout'])->name('logout');
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

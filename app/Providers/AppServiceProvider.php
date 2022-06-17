@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
+use App\Models\Service;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 
+use View;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -25,5 +27,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+        View::composer('*', function($view)
+        {
+            $navbars = Service::whereStatus(Service::ACTIVE)->orderBy('id')->get();
+            $view->with('navbars', $navbars);
+        });
     }
 }
