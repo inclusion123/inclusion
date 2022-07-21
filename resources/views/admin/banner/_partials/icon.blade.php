@@ -1,0 +1,1 @@
+<img src="{{asset('/images') }}/{{$row->image}}" alt="Team Member" class="img-round img-size-32 mr-2" style="width: 50px;height: 50px;object-fit: cover;">

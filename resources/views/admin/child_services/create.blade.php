@@ -11,7 +11,7 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
                             <li class="breadcrumb-item active">Create Child Service </li>
                         </ol>
                     </div><!-- /.col -->
@@ -27,7 +27,7 @@
                 <div class="card card-primary">
 
                     <div class="pull-right" style="margin: 20px;">
-                        <a class="btn btn-primary" href="{{ route('admin.childservices.indexpage',$id) }}"> Back </a>
+                        <a class="btn btn-primary" href="{{ route('admin.childservices.indexpage', $id) }}"> Back </a>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
@@ -48,26 +48,26 @@
 
                             <div class="form-group">
                                 <label>Description</label>
-                                <textarea id="summernote" class="form-control" name="desc" rows="3" placeholder="Enter ..." required value="{{ old('desc') }}"></textarea>
+                                <textarea id="summernote" class="form-control" name="desc" rows="3" placeholder="Enter ..." required
+                                    value="{{ old('desc') }}"></textarea>
 
 
                                 <div class="form-group">
                                     <label for="childServiceImage">Image</label>
-                                    <div class="input-group">
-                                        <div class="custom-file">
-                                            <input type="file" name="image" class="custom-file-input" id="childServiceImage"
-                                                required>
-                                            <label class="custom-file-label" for="childServiceImage">Choose file</label>
-                                        </div>
 
-                                    </div>
-
+                                    <input type="file" name="image" class="form-control" id="childServiceImage"
+                                        required>
+                                       
                                 </div>
-                                <!-- /.card-body -->
 
-                                <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </div>
+                            </div>
+
+                        </div>
+                        <!-- /.card-body -->
+
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
                     </form>
                 </div>
             </div>

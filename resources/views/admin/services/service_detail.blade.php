@@ -11,7 +11,7 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
                             <li class="breadcrumb-item active">Service Detail</li>
                         </ol>
                     </div><!-- /.col -->
@@ -29,13 +29,13 @@
                     <div class="box">
                         <div class="box-header" >
                             <div class="">
-                                <a class="btn btn-primary" href="{{ route('admin.service') }}"> Back</a>
+                                <a class="btn btn-primary" href="{{ route('admin.service.index') }}"> Back</a>
                             </div>
                         </div>
                         {{-- <div class="pull-right"
                         style="text-align: -webkit-right;
                                                 ">
-                        <a class="btn btn-primary" href="{{ route('admin.service.edit', $details->id) }}"> Edit</a> --}}
+                        <a class="btn btn-primary" href="{{ route('.edit', $details->id) }}"> Edit</a> --}}
                     </div>
                         <!-- /.box-header -->
                     </div>
@@ -53,6 +53,18 @@
                                         <tr>
                                             <th>{{ __("Page Name") }}</th>
                                             <td>{{$details->page_name}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>{{ __("Meta-Title") }}</th>
+                                            <td>{{$details->meta_title}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>{{ __("Meta-Keywords") }}</th>
+                                            <td>{{$details->meta_keywords}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>{{ __("Meta-Description") }}</th>
+                                            <td>{{$details->meta_description}}</td>
                                         </tr>
                                         <tr>
                                             <th>{{ __("Title") }}</th>

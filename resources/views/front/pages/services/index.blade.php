@@ -1,4 +1,10 @@
 @extends('front.layouts.master')
+
+{{-- @section('title', $post->title)
+@section('meta_keywords', $post->meta_keywords)
+@section('meta_description', $post->meta_description) --}}
+
+
 @section('carousel')
     {{-- <div class="container-fluid position-relative p-0"> --}}
 
@@ -20,5 +26,5 @@
 @include('front.pages.services._partials.our_service_page')
 
 
-@include('front.pages.testimonial.testimonial_page')
+@include('front.pages.testimonial._partials.testimonial_page')
 @endsection

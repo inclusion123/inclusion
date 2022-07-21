@@ -30,7 +30,7 @@
                         </div>
                         <div class="ps-4">
                             <h5 class="mb-2">Call to ask any question</h5>
-                            <h4 class="text-primary mb-0">+91 869 9363 865</h4>
+                            <h4 class="text-primary mb-0">{{$setting_helper->mobile}}</h4>
                         </div>
                     </div>
                 </div>

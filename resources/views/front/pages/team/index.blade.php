@@ -1,4 +1,9 @@
 @extends('front.layouts.master')
+@if($seo)
+@section('title', $seo->meta_title)
+@section('meta_keywords', $seo->meta_keywords)
+@section('meta_description', $seo->meta_description)
+@endif
 @section('carousel')
 
         <div class="container-fluid bg-primary py-5 bg-header" style="margin-bottom: 90px;">

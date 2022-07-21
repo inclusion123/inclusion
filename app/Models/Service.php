@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Service extends Model
 {
     use HasFactory;
-    protected $fillable = ['name','page_name','title','icon','slug','description','status','detail_name','detail_description'];
+    protected $fillable = ['name','page_name','meta_description','meta_keywords','meta_title','title','icon','slug','description','status','detail_name','detail_description'];
 
     
     const INACTIVE = 0;

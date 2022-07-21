@@ -1,4 +1,9 @@
 @extends('front.layouts.master')
+@if($seo)
+@section('title', $seo->meta_title)
+@section('meta_keywords', $seo->meta_keywords)
+@section('meta_description', $seo->meta_description)
+@endif
 @section('css')
     <style>
         .error {
@@ -40,7 +45,7 @@
                         </div>
                         <div class="ps-4">
                             <h5 class="mb-2">Call to ask any question</h5>
-                            <h5 class="text-primary mb-0">+91 869 9363 865</h5>
+                            <h5 class="text-primary mb-0">{{$setting_helper->mobile}}</h5>
                         </div>
                     </div>
                 </div>
@@ -52,7 +57,7 @@
                         </div>
                         <div class="ps-4">
                             <h5 class="mb-2">Email to get free quote</h5>
-                            <h5 class="text-primary mb-0">contact@inclusionsoft.com</h5>
+                            <h5 class="text-primary mb-0">{{$setting_helper->email}}</h5>
                         </div>
                     </div>
                 </div>
@@ -64,8 +69,7 @@
                         </div>
                         <div class="ps-4">
                             <h5 class="mb-2">Visit our office</h5>
-                            <h5 class="text-primary mb-0">C-167, 1st Floor, Sector 74, Phase 8-B, SAS Nagar, Punjab 160055,
-                                India</h5>
+                            <h5 class="text-primary mb-0">{{$setting_helper->address}}</h5>
                         </div>
                     </div>
                 </div>

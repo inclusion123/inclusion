@@ -28,3 +28,52 @@
 </script>
 <script src="{{ asset('back/plugins/summernote/summernote-bs4.min.js') }}"></script>
 
+{{-- <script type="text/javascript">
+    $(function () {
+        var params = window.location.pathname;
+        params = params.toLowerCase();
+ 
+        if (params != "/") {
+            $(".nav-sidebar li a").each(function (i) {
+                var obj = this;
+                var url = $(this).attr("href");
+                if (url == "" || url == "#") {
+                    return true;
+                }
+                url = url.toLowerCase();
+                if (url.indexOf(params) > -1) {
+                    $(this).parent().addClass("active open menu-open");
+                    $(this).parent().parent().addClass("active open menu-open");
+                    $(this).parent().parent().parent().addClass("active open menu-open");
+                    $(this).parent().parent().parent().parent().addClass("active open menu-open");
+                    $(this).parent().parent().parent().parent().parent().addClass("active open menu-open");
+                    return false;
+                }
+            });
+        }
+    });
+</script> --}}
+
+//bootstrap-tagsinput CDN 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js"
+integrity="sha512-9UR1ynHntZdqHnwXKTaOm1s6V9fExqejKvg5XMawEMToW4sSw+3jtLrYfZPijvnwnnE8Uol1O9BcAskoxgec+g=="
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script>
+$(function () {
+    var url = window.location;
+    // for single sidebar menu
+    $('ul.nav-sidebar a').filter(function () {
+        return this.href == url;
+    }).addClass('active');
+
+    // for sidebar menu and treeview
+    $('ul.nav-treeview a').filter(function () {
+        return this.href == url;
+    }).parentsUntil(".nav-sidebar > .nav-treeview")
+        .css({'display': 'block'})
+        .addClass('menu-open').prev('a')
+        .addClass('active');
+});
+</script>

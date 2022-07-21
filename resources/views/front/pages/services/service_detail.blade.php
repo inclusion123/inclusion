@@ -1,4 +1,9 @@
 @extends('front.layouts.master')
+
+@section('title', $service->meta_title)
+@section('meta_keywords', $service->meta_keywords)
+@section('meta_description', $service->meta_description)
+
 @section('carousel')
     <div class="container-fluid bg-primary py-5 bg-header" style="margin-bottom: 90px;">
         <div class="row py-5">

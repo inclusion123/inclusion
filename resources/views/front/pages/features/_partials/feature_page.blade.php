@@ -12,26 +12,32 @@
             <div class="row g-5">
                 <div class="col-lg-4">
                     <div class="row g-5">
+                        @php
+                            $feature = \App\Models\Feature::feature(1);
+                        @endphp
+
                         <div class="col-12 wow zoomIn" data-wow-delay="0.2s">
                             <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3"
                                 style="width: 60px; height: 60px">
-                                <i class="fa fa-cubes text-white"></i>
+                                <i class="{{ $feature->icon }} text-white"></i>
                             </div>
-                            <h4>Best In Industry</h4>
+                            <h4>{{ $feature->name }}</h4>
                             <p class="mb-0">
-                                Magna sea eos sit dolor, ipsum amet lorem
-                                diam dolor eos et diam dolor
+                                {!! $feature->description !!}
                             </p>
                         </div>
+
+                        @php
+                            $feature = \App\Models\Feature::feature(2);
+                        @endphp
                         <div class="col-12 wow zoomIn" data-wow-delay="0.6s">
                             <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3"
                                 style="width: 60px; height: 60px">
-                                <i class="fa fa-award text-white"></i>
+                                <i class="{{ $feature->icon }}  text-white"></i>
                             </div>
-                            <h4>Award Winning</h4>
+                            <h4>{{ $feature->name }}</h4>
                             <p class="mb-0">
-                                Magna sea eos sit dolor, ipsum amet lorem
-                                diam dolor eos et diam dolor
+                                {!! $feature->description !!}
                             </p>
                         </div>
                     </div>
@@ -42,28 +48,34 @@
                             src=" {{ asset('front/img/feature.jpg') }}" style="object-fit: cover" />
                     </div>
                 </div>
+
+                @php
+                    $feature = \App\Models\Feature::feature(3);
+                @endphp
                 <div class="col-lg-4">
                     <div class="row g-5">
                         <div class="col-12 wow zoomIn" data-wow-delay="0.4s">
                             <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3"
                                 style="width: 60px; height: 60px">
-                                <i class="fa fa-users-cog text-white"></i>
+                                <i class="{{ $feature->icon }}  text-white"></i>
                             </div>
-                            <h4>Professional Staff</h4>
+                            <h4>{{ $feature->name }}</h4>
                             <p class="mb-0">
-                                Magna sea eos sit dolor, ipsum amet lorem
-                                diam dolor eos et diam dolor
+                                {!! $feature->description !!}
                             </p>
                         </div>
+
+                        @php
+                        $feature = \App\Models\Feature::feature(4);
+                    @endphp
                         <div class="col-12 wow zoomIn" data-wow-delay="0.8s">
                             <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3"
                                 style="width: 60px; height: 60px">
-                                <i class="fa fa-phone-alt text-white"></i>
+                                <i class="{{ $feature->icon }}  text-white"></i>
                             </div>
-                            <h4>24/7 Support</h4>
+                            <h4>{!! $feature->name !!}</h4>
                             <p class="mb-0">
-                                Magna sea eos sit dolor, ipsum amet lorem
-                                diam dolor eos et diam dolor
+                                {!! $feature->description !!}
                             </p>
                         </div>
                     </div>

@@ -103,7 +103,9 @@ class ChildServiceController extends Controller
     {
         // return $request->all();
 
-
+        $this->validate($request, [
+            'image' => 'sometimes|mimes:png,jpeg,gif',
+        ]);
         try {
             $child_service = ChildService::find($id);
 

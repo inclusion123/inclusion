@@ -12,7 +12,7 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
                             <li class="breadcrumb-item active">Create Service </li>
                         </ol>
                     </div><!-- /.col -->
@@ -28,36 +28,66 @@
                 <div class="card card-primary">
 
                     <div class="pull-right" style="margin: 20px">
-                        <a class="btn btn-primary" href="{{ route('admin.service') }}"> Back </a>
+                        <a class="btn btn-primary" href="{{ route('admin.service.index') }}"> Back </a>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
                     <form action="{{ route('admin.service.store') }}" method="post">
                         @csrf
                         <div class="card-body">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="serviceName">Name</label>
+                                    <input type="name" name="name" class="form-control" id="servicename"
+                                        placeholder="Enter ..." value="{{ old('name') }}" required>
+                                </div>
+                                <div class="col-6">
+                                    <label for="serviceName">Page Name</label>
+                                    <input type="name" name="page_name" class="form-control" id="service_page_name"
+                                        placeholder="Enter ..." value="{{ old('page_name') }}"required>
+                                </div>
+                            </div><br>
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="service-meta-title">Meta-Title</label>
+                                    <input type="name" name="meta_title" class="form-control" placeholder="Enter ..."
+                                        value="{{ old('meta_title') }}" required>
+                                </div>
+                                <div class="col-6">
+                                    <label for="service-meta-keywords">Meta-Keywords</label>
+                                    <input type="name" id="metaKeywords" data-role="tagsinput" name="meta_keywords"
+                                        class="form-control" placeholder="Enter ..."
+                                        value="{{ old('meta_keywords') }}"required>
+                                </div>
+
+                            </div><br>
                             <div class="form-group">
-                                <label for="serviceName">Name</label>
-                                <input type="name" name="name" class="form-control" id="servicename"
-                                    placeholder="Enter ..." value="{{ old('name') }}" required>
+                                <label for="service-meta-description">Meta-Description</label>
+                                <input type="name" name="meta_description" class="form-control" placeholder="Enter ..."
+                                    value="{{ old('meta_description') }}"required>
                             </div>
-                            <div class="form-group">
-                                <label for="serviceName">Page Name</label>
-                                <input type="name" name="page_name" class="form-control" id="service_page_name"
-                                    placeholder="Enter ..." value="{{ old('page_name') }}"required>
+                            <br>
+
+
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="serviceName">Title</label>
+                                    <input type="text" name="title" class="form-control" id="servicetitle"
+                                        placeholder="Enter ..." value="{{ old('title') }}"required>
+                                </div>
+                                <div class="col-6">
+                                    <label for="serviceIcon">Icon</label>
+                                    <input type="text" name="icon" class="form-control" id="serviceicon"
+                                        placeholder="Enter ..." value="{{ old('icon') }}"required>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="serviceName">Title</label>
-                                <input type="text" name="title" class="form-control" id="servicetitle"
-                                    placeholder="Enter ..." value="{{ old('title') }}"required>
-                            </div>
-                            <div class="form-group">
-                                <label for="serviceIcon">Icon</label>
-                                <input type="text" name="icon" class="form-control" id="serviceicon"
-                                    placeholder="Enter ..." value="{{ old('icon') }}"required>
-                            </div>
+
                             <div class="form-group">
                                 <label>Description</label>
-                                <textarea id="summernote" class="form-control" name="desc" rows="3" placeholder="Enter ..." value="{{ old('desc') }}"required></textarea>
+                                <textarea id="summernote" class="form-control" name="desc" rows="3" placeholder="Enter ..."
+                                    value="{{ old('desc') }}"required></textarea>
 
                             </div>
 
@@ -68,8 +98,9 @@
                             </div>
                             <div class="form-group">
                                 <label>Detail Description</label>
-                                <textarea id="summernote2" class="form-control" name="detail_description" rows="3" placeholder="Enter ..." value="{{ old('detail_description') }}"required></textarea>
-                               
+                                <textarea id="summernote2" class="form-control" name="detail_description" rows="3" placeholder="Enter ..."
+                                    value="{{ old('detail_description') }}"required></textarea>
+
                             </div>
                             <div class="form-group">
                                 <label>Status</label>
@@ -90,9 +121,12 @@
                     </form>
                 </div>
             </div>
+
         </section>
     @endsection
     @section('script')
+
+
         <script>
             $("#summernote").summernote();
             $("#summernote2").summernote();

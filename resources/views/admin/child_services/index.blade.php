@@ -11,7 +11,7 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
                             <li class="breadcrumb-item active">Child Service </li>
                         </ol>
                     </div><!-- /.col -->
@@ -31,7 +31,7 @@
                     <div class="box">
                         <div class="box-header" style="padding: 20px;">
                             <div class="" >
-                                <a class="btn btn-primary" href="{{ route('admin.service') }}"> Back</a>
+                                <a class="btn btn-primary" href="{{ route('admin.service.index') }}"> Back</a>
                             </div>
 
 

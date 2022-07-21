@@ -4,11 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Requests\back\LoginRequest;
+use App\Http\Requests\Admin\LoginRequest;
 use Illuminate\Support\Facades\Auth;
 
 class AdminAuthController extends Controller
 {
+    
+
     public function showLoginForm()
     {
         return view('auth.login');

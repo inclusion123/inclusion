@@ -47,6 +47,9 @@ class ServiceController extends Controller
             $service = Service::create([
                 'name' => $request->name,
                 'page_name' => $request->page_name,
+                'meta_title' => $request->meta_title,
+                'meta_keywords' => $request->meta_keywords,
+                'meta_description' => $request->meta_description,
                 'title' => $request->title,
                 'slug'  => Str::slug($request->name),
                 'icon' =>$request->icon,
@@ -55,9 +58,8 @@ class ServiceController extends Controller
                 'detail_description' => $request->detail_description,
                 'status' => $request->status
             ]);
-            return redirect()->route('admin.service')->with('success', 'Service is successfully added.');
+            return redirect()->route('admin.service.index')->with('success', 'Service is successfully added.');
         } catch (\Exception $e) {
-            report($e);
             return redirect()->back()->withInput()->with('error', 'Something went Wrong: ' . $e->getMessage());
         }
     }
@@ -100,6 +102,9 @@ class ServiceController extends Controller
             $service = Service::find($id);
             $service->name = $request->name;
             $service->page_name = $request->page_name;
+            $service->meta_title = $request->meta_title;
+            $service->meta_keywords = $request->meta_keywords;
+            $service->meta_description = $request->meta_description;
             $service->title = $request->title;
             $service->icon = $request->icon;
             $service->description = $request->desc;
@@ -107,7 +112,7 @@ class ServiceController extends Controller
             $service->detail_description = $request->detaildescription;
             $service->status = $request->status;
             $service->save();
-            return redirect()->route('admin.service')->with('success', 'Service is successfully updated.');
+            return redirect()->route('admin.service.index')->with('success', 'Service is successfully updated.');
         } catch (\Exception $e) {
             report($e);
             return redirect()->back()->withInput()->with('error', 'Something went Wrong: ' . $e->getMessage());

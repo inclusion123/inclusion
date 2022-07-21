@@ -3,12 +3,20 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>
+    {{-- <title>
         Website and Mobile App Development Company | Web Design | Inclusion Softwares
-    </title>
+    </title> --}}
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    @include('front.layouts.head')
-    @yield('css')
+
+    <title>@yield('title', ' Website and Mobile App Development Company | Web Design | Inclusion Softwares')</title>
+    <meta name="keywords" content="@yield('meta_keywords', 'some default keywords')">
+    <meta name="description" content="@yield('meta_description', 'default description')">
+    <link rel="canonical" href="{{ url()->current() }}" />
+
+
+
+    @include('front.layouts.css')
+
 </head>
 
 <body>

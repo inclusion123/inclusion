@@ -16,7 +16,7 @@
                     </div>
                     <h4 class="mb-3">{{$navbar->name}}</h4>
                     <p class="m-0">{{$navbar->name}}</p>
-                        <a class="btn btn-lg btn-primary rounded" href="">
+                        <a class="btn btn-lg btn-primary rounded" href="{{url('service-detail/'.$navbar->slug)}}">
                             <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
@@ -29,7 +29,7 @@
                         <h3 class="text-white mb-3">Call Us For Quote</h3>
                         <p class="text-white mb-3">Clita ipsum magna kasd rebum at ipsum amet dolor justo dolor est magna
                             stet eirmod</p>
-                        <h2 class="text-white mb-0">+91 869 9363 865</h2>
+                        <h2 class="text-white mb-0">{{$setting_helper->mobile}}</h2>
                     </div>
                 </div>
             </div>

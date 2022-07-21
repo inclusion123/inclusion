@@ -660,3 +660,241 @@ h6,
     }
 }
 /* SERVICES PAGES CSS END */
+
+/* CAREER PAGE CSS */
+
+.cpbody {
+  margin: auto;
+  width: 100%;
+  padding-top:30px;
+}
+
+#slideshow { 
+  position: relative; 
+height: 100%;
+  width: 100%;
+}
+
+#slideshow > img { 
+position: absolute; 
+}
+
+
+.containimage{
+height: 400px; 
+overflow: hidden; 
+}
+
+.containimage img { 
+width: 100%;
+}
+
+
+.imageflex{
+ width: 100%;
+ overflow: hidden;
+}
+
+
+.slidecontainer {
+height: 400px;
+width: 100%;
+margin: auto;
+  overflow: hidden;
+}
+
+
+.positiontest{
+width: 100%;
+margin: auto;
+margin-top:-30px;
+}
+
+
+.careercontent {
+    width: 100%;
+    margin: auto;
+    color: #424242;
+    background-color: white;
+    text-align: center;
+}
+
+
+
+/*beliefs*/
+
+.beliefcon {
+    width: 100%;
+    margin: auto;
+}
+
+.hcard {
+    color: white;
+    margin-top: 0px;
+    font-size: 1.5em;
+    margin-bottom: 5px;
+    font-weight: normal;
+}
+.bcards p {
+    margin: 0 0;
+}
+
+.bdiv {
+    display: flex;
+    font-size: 14px;
+    text-align: center;
+    color: white;
+    background-color: #eb0f26;
+    width: 100%;
+    height: 250px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 2px 6px 0px #f2f2f2;
+}
+p.bcards{
+  line-height: 2em;
+  font-size: 10em;
+  color: white;
+  padding:20px; 
+  margin: 10px;
+}
+
+
+h3.bdiv{
+  fon-family: karla;
+  text-align: left;
+  font-weight: normal;
+  margin-top: 2em;
+  color:  white;
+  padding: .5em;
+}
+
+.bcards {
+    width: 100%;
+    color: white;
+    overflow: hidden;
+    padding: 0 20px;
+}
+
+.job__detail {    
+    box-shadow: 0px 0px 5px 0px #0000002b;
+    padding: 20px 24px;
+    background-color: #fff;
+    margin-bottom: 1.5rem;
+}
+.job__text {
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.job__text a {
+    font-size: 12px;
+    font-weight: 700;
+}
+.job__detail p {
+    margin: 0 0 10px;
+    border-bottom: 1px solid #EDEDEE;
+    padding: 0 0 5px;
+}
+.job__detail p:last-child {
+    border: none;
+    padding: 0 0 0;
+}
+
+.job__formWrap {
+    background-repeat: no-repeat;
+    background: linear-gradient(rgb(0 0 0 / 56%), rgb(0 0 0 / 56%)), url(../img/carousel-1.jpg) center center no-repeat;
+    background-size: cover;
+}
+
+
+/* CAREER PAGE CSS END */
+
+/* JOB DETAIL CSS */
+
+.single-job-items {
+    padding: 36px 30px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    -webkit-transition: .4s;
+    -moz-transition: .4s;
+    -o-transition: .4s;
+    transition: .4s;
+    box-shadow: 0px 22px 57px 0px rgb(34 41 72 / 5%);
+}
+.single-job-items .job-items {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.single-job-items .company-img {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    border: 1px solid #bbb;
+    padding: 10px;
+}
+.single-job-items .company-img a {
+    height: 100%;
+}
+.single-job-items .company-img img {
+    overflow: hidden;
+    float: left;
+    z-index: 999;
+    width: 110px;
+    height: 100%;
+    object-fit: contain;
+}
+.single-job-items .job-tittle a h4 {
+    color: #28395a;
+    font-size: 24px;
+    -webkit-transition: .4s;
+    -moz-transition: .4s;
+    -o-transition: .4s;
+    transition: .4s;
+}
+.single-job-items .job-tittle ul li {
+    display: inline-block;
+    margin-right: 48px;
+    font-size: 15px;
+    color: #808080;
+    line-height: 1.8;
+}
+.single-job-items .job-tittle ul {
+    margin: 0px;
+    padding: 0px;
+}
+.single-job-items .job-tittle ul li:last-child {
+    margin-right: 0px;
+}
+.single-job-items .job-tittle ul li i {
+    font-size: 14px;
+    color: #bbbbbb;
+    margin-right: 10px;
+}
+.job-post-details .post-details2 ul li {
+    list-style: circle;
+}
+.post-details3 ul li {
+    list-style: circle;
+}
+.post-details4 ul li {
+    list-style: circle;
+}
+
+@media screen and (max-width: 767px) {
+    .single-job-items {
+        display: block;
+    }
+    .single-job-items .company-img {
+        margin: 0 0 12px;
+    }
+
+}
+
+
+/* JOB DETAIL CSS END */
