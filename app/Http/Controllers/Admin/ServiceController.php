@@ -137,7 +137,7 @@ class ServiceController extends Controller
             $datatable = Datatables::eloquent($services)
 
             ->addColumn('description', function ($row) {
-                return "$row->description";
+                return Str::limit($row->description, 50);
             })
             ->addColumn('status', function ($row) {
                 return view('admin.services._partials.status', compact('row'));

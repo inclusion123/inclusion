@@ -52,20 +52,20 @@
                                 <div class="col-6">
                                     <label for="service-meta-title">Meta-Title</label>
                                     <input type="name" name="meta_title" class="form-control" placeholder="Enter ..."
-                                        value="{{ old('meta_title') }}" required>
+                                        value="{{ old('meta_title') }}" >
                                 </div>
                                 <div class="col-6">
                                     <label for="service-meta-keywords">Meta-Keywords</label>
                                     <input type="name" id="metaKeywords" data-role="tagsinput" name="meta_keywords"
                                         class="form-control" placeholder="Enter ..."
-                                        value="{{ old('meta_keywords') }}"required>
+                                        value="{{ old('meta_keywords') }}">
                                 </div>
 
                             </div><br>
                             <div class="form-group">
                                 <label for="service-meta-description">Meta-Description</label>
                                 <input type="name" name="meta_description" class="form-control" placeholder="Enter ..."
-                                    value="{{ old('meta_description') }}"required>
+                                    value="{{ old('meta_description') }}">
                             </div>
                             <br>
 

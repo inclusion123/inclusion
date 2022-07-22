@@ -47,21 +47,21 @@ Route::name('front.')->group(function () {
 
     Route::get('service-detail/{slug}', [App\Http\Controllers\Front\ServicesController::class, 'service_detail']);
 
-    // Blog Pages Route
-    Route::get('blogs', [App\Http\Controllers\Front\BlogController::class, 'blog_grid'])->name('blog_grid');
-    Route::get('blog-detail', [App\Http\Controllers\Front\BlogController::class, 'blog_detail'])->name('blog_detail');
+    // // Blog Pages Route
+    // Route::get('blogs', [App\Http\Controllers\Front\BlogController::class, 'blog_grid'])->name('blog_grid');
+    // Route::get('blog-detail', [App\Http\Controllers\Front\BlogController::class, 'blog_detail'])->name('blog_detail');
 
     //feature page route
     Route::get('feature', [App\Http\Controllers\Front\FeatureController::class, 'index'])->name('feature');
 
     //Career Page Routes
-    Route::name('career.')->group(function () {
-        Route::get('career', [App\Http\Controllers\Front\CareerController::class, 'index'])->name('index');
-        Route::post('/career', [CareerController::class, 'store'])->name('store');
+    // Route::name('career.')->group(function () {
+    //     Route::get('career', [App\Http\Controllers\Front\CareerController::class, 'index'])->name('index');
+    //     Route::post('/career', [CareerController::class, 'store'])->name('store');
         
-        //job detail
-        Route::get('/career/{JobDetail}',[CareerController::class,'job_detail'])->name('jobDetail');
-    });
+    //     //job detail
+    //     Route::get('/career/{JobDetail}',[CareerController::class,'job_detail'])->name('jobDetail');
+    // });
 
     //team member page route
     Route::get('team-members', [App\Http\Controllers\Front\TeamController::class, 'index'])->name('team_members');
@@ -167,9 +167,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::any('/seo-list', [SeoController::class, 'getModels'])->name('seo.list');
 
         Route::resource('/requirement', RequirementController::class);
-        Route::any('/list', [RequirementController::class, 'getModels'])->name('requirement.list');
+        Route::get('/list', [RequirementController::class, 'getModels'])->name('requirement.list');
 
         Route::resource('/banner',BannerController::class);
-        Route::get('/list', [BannerController::class, 'getModels'])->name('banner.list');
+        Route::get('/vlist', [BannerController::class, 'getModels'])->name('banner.list');
     });
 });

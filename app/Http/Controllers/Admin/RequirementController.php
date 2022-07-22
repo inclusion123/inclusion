@@ -124,14 +124,15 @@ class RequirementController extends Controller
     }
     public function getModels()
     {
+        // dd(1);
 
         try {
             $requirement = Requirement::orderBy('created_at', 'ASC');
             $datatable = Datatables::eloquent($requirement)
 
-                // ->addColumn('description', function ($row) {
-                //         return "$row->description";
-                //     })
+                ->addColumn('description', function ($row) {
+                        return '$row->description';
+                    })
 
                 ->editColumn('description', function ($data) {
                     return Str::limit($data->description, 30);
@@ -140,15 +141,14 @@ class RequirementController extends Controller
                 ->addColumn("action", function ($row) {
                     return view('admin.requirements._partials.action', compact('row'));
                 })
-                ->addColumn("skills", function ($row) {
-                    return '<button type="button" class="btn btn-success btn-sm" id="getEditArticleData" data-id="' . $row->id . '">Edit</button>
-                    <button type="button" data-id="' . $row->id . '" data-toggle="modal" data-target="#DeleteArticleModal" class="btn btn-danger btn-sm" id="getDeleteId">Delete</button>';
-                })
-                ->addColumn("experience", function ($row) {
-                    return view('admin.requirements.experience.button', compact('row'));
-                })
+                // ->addColumn("skills", function ($row) {
+                 
+                // })
+                // ->addColumn("experience", function ($row) {
+                //     return view('admin.requirements.experience.button', compact('row'));
+                // })
 
-                ->rawColumns(['action', 'skills', 'experience'])
+                ->rawColumns(['action', 'experience'])
                 ->make(true);
             return $datatable;
         } catch (\Exception $e) {

@@ -50,20 +50,20 @@
                                 <div class="col-6">
                                     <label for="service-meta-title">Meta-Title</label>
                                     <input type="name" name="meta_title" class="form-control" 
-                                    value="{{ $service->meta_title }}" required>
+                                    value="{{ $service->meta_title }}" >
                                 </div>
                                 <div class="col-6">
                                     <label for="service-meta-keywords">Meta-Keywords</label>
                                     <input type="name" id="metaKeywords" data-role="tagsinput" name="meta_keywords"
                                         class="form-control" 
-                                        value="{{  $service->meta_keywords }}"required>
+                                        value="{{  $service->meta_keywords }}">
                                 </div>
 
                             </div><br>
                             <div class="form-group">
                                 <label for="service-meta-description">Meta-Description</label>
                                 <input type="name" name="meta_description" class="form-control" 
-                                    value="{{  $service->meta_description }}"required>
+                                    value="{{  $service->meta_description }}">
                             </div>
                             <br>
                             <div class="form-group">

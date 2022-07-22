@@ -19,10 +19,7 @@
                             </h5>
                         </div>
                     </div>
-                    <p class="mb-4">Eirmod sed tempor lorem ut dolores. Aliquyam sit sadipscing kasd ipsum. Dolor ea et
-                        dolore et at sea ea at dolor, justo ipsum duo rebum sea invidunt voluptua. Eos vero eos vero ea et
-                        dolore eirmod et. Dolores diam duo invidunt lorem. Elitr ut dolores magna sit. Sea dolore sanctus
-                        sed et. Takimata takimata sanctus sed.</p>
+                    <p class="mb-4">Inclusion Software Solutions is an IT consulting and services provider, providing end-to-end consulting for global clients. We partnered with several global SME in building their next generation information infrastructure for competitive advantage. We have significant depth of expertise and experience in Web Development, Web Designing & Mobile Application Development.</p>
                     <div class="d-flex align-items-center mt-2 wow zoomIn" data-wow-delay="0.6s">
                         <div class="bg-primary d-flex align-items-center justify-content-center rounded"
                             style="width: 60px; height: 60px;">
@@ -36,7 +33,7 @@
                 </div>
                 <div class="col-lg-5">
                     <div class="bg-primary rounded h-100 d-flex align-items-center p-5 wow zoomIn" data-wow-delay="0.9s">
-                        <form id="quoteform" action="{{ route('front.quote.store') }}" method="post">
+                        <form class="quote__form" id="quoteform" action="{{ route('front.quote.store') }}" method="post">
                             @csrf
                             <div class="row g-3">
                                 <div class="col-xl-12">

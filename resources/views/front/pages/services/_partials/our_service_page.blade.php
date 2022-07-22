@@ -27,8 +27,9 @@
                     <div
                         class="position-relative bg-primary rounded h-100 d-flex flex-column align-items-center justify-content-center text-center p-5">
                         <h3 class="text-white mb-3">Call Us For Quote</h3>
-                        <p class="text-white mb-3">Clita ipsum magna kasd rebum at ipsum amet dolor justo dolor est magna
-                            stet eirmod</p>
+                        <p class="text-white mb-3">
+                            24 hrs telephone support 
+                            Please Feel Free to Contact Us</p>
                         <h2 class="text-white mb-0">{{$setting_helper->mobile}}</h2>
                     </div>
                 </div>

@@ -28,5 +28,5 @@
 @section('content')
     @include('front.pages.about._partials.about_us_page')
 
-    {{-- @include('front.pages.team._partials.team_member_page') --}}
+    @include('front.pages.team._partials.team_member_page')
 @endsection

@@ -898,3 +898,19 @@ h3.bdiv{
 
 
 /* JOB DETAIL CSS END */
+
+.contact__form [for] {
+    color: red;
+    font-size: 14px;
+}
+.quote__form [for] {
+    color: #ffffff;
+    font-size: 14px;
+}
+.career__form [for] {
+    color: #ffffff;
+    font-size: 14px;
+}
+.footer__about p {
+    text-align: justify;
+}

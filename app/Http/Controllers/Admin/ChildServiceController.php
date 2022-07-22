@@ -112,7 +112,7 @@ class ChildServiceController extends Controller
             // $child_service->service_id = $request->service_id;
             $child_service->name = $request->name;
             $child_service->description = $request->desc;
-            $child_service->image = '';
+            // $child_service->image = '';
 
             if ($request->hasFile('image')) {
                 // dd(44);

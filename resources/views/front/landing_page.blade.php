@@ -54,11 +54,11 @@
     </div>
 @endsection
 @section('content')
-    @include('front.pages.facts.index')
+    {{-- @include('front.pages.facts.index') --}}
 
     @include('front.pages.about._partials.about_us_page')
 
-    @include('front.pages.features._partials.feature_page')
+    {{-- @include('front.pages.features._partials.feature_page') --}}
 
     @include('front.pages.services._partials.our_service_page')
 
@@ -133,9 +133,9 @@
 
     @include('front.pages.testimonial._partials.testimonial_page')
 
-    @include('front.pages.team._partials.team_member_page')
+    {{-- @include('front.pages.team._partials.team_member_page') --}}
 
-    @include('front.pages.blogs._partials.latest_blog_page')
+    {{-- @include('front.pages.blogs._partials.latest_blog_page') --}}
 @endsection
 
 

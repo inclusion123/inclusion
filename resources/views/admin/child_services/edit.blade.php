@@ -51,7 +51,7 @@
                                 <label for="childServiceImage">File input</label>
                                
                                 <input type="file" name="image" class="form-control" id="childServiceImage"
-                                required>
+                                >
                             </div>
                             <div class="form-group">
                                 <label for="serviceId">Service Id</label>

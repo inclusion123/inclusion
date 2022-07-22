@@ -1,8 +1,8 @@
 @extends('front.layouts.master')
 
-@section('title', $service->meta_title)
+{{-- @section('title', $service->meta_title)
 @section('meta_keywords', $service->meta_keywords)
-@section('meta_description', $service->meta_description)
+@section('meta_description', $service->meta_description) --}}
 
 @section('carousel')
     <div class="container-fluid bg-primary py-5 bg-header" style="margin-bottom: 90px;">
@@ -22,7 +22,7 @@
     <!-- Section Start -->
     <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container py-5">
-            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 800px;">
                 <h5 class="fw-bold text-primary text-uppercase">{{ $service->page_name }}</h5>
                 <h1 class="mb-0">{{ $service->title }}</h1>
             </div>
@@ -115,13 +115,13 @@
     <!-- Section Start -->
     <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container py-5">
-            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 800px;">
                 <h5 class="fw-bold text-primary text-uppercase">{{ $service->detail_name }} </h5>
-                <h1 class="mb-0">Magna sea eos sit dolor, ipsum amet lorem diam dolor eos et diam dolor</h1>
+                <h1 class="mb-0"> {!! $service->detail_description !!}</h1>
             </div>
 
-            @foreach ($service->childService as $child_service)
-   
+            @foreach ($service->childService as $key=> $child_service)
+                @if($key % 2 == 0)
                 <div class="row g-5 mt-5 mb-5">
                     <div class="col-md-4 col-sm-4 col-12">
                         <div class="experties-img">
@@ -135,6 +135,22 @@
                         </div>
                     </div>
                 </div>
+                @else
+                <div class="row g-5 mt-5 mb-5">
+                    <div class="col-md-8 col-sm-8 col-12">
+                        <div class="experties-cnt">
+                            <h3 class="mb-3"> {{ $child_service->name }}</h3>
+                            <p class="mb-4">{!! $child_service->	description !!}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-12">
+                        <div class="experties-img">
+                            <img src="{{asset('/storage/images') }}/{{$child_service->image}}">
+                        </div>
+                    </div>
+                    
+                </div>
+                @endif
             @endforeach
             {{-- <div class="row g-5 mt-5 mb-5">
                 <div class="col-md-8 col-sm-8 col-12">
@@ -247,5 +263,5 @@
     </div>
     <!-- Section Start -->
 
-    @include('front.pages.blogs._partials.latest_blog_page')
+    {{-- @include('front.pages.blogs._partials.latest_blog_page') --}}
 @endsection

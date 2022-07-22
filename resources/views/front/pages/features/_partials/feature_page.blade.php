@@ -23,7 +23,7 @@
                             </div>
                             <h4>{{ $feature->name }}</h4>
                             <p class="mb-0">
-                                {!! $feature->description !!}
+                                {{-- {!! $feature->description !!} --}}
                             </p>
                         </div>
 
@@ -37,7 +37,7 @@
                             </div>
                             <h4>{{ $feature->name }}</h4>
                             <p class="mb-0">
-                                {!! $feature->description !!}
+                                {{-- {!! $feature->description !!} --}}
                             </p>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                             </div>
                             <h4>{{ $feature->name }}</h4>
                             <p class="mb-0">
-                                {!! $feature->description !!}
+                                {{-- {!! $feature->description !!} --}}
                             </p>
                         </div>
 
@@ -75,7 +75,7 @@
                             </div>
                             <h4>{!! $feature->name !!}</h4>
                             <p class="mb-0">
-                                {!! $feature->description !!}
+                                {{-- {!! $feature->description !!} --}}
                             </p>
                         </div>
                     </div>

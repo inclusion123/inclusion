@@ -10,7 +10,7 @@
                 <div class="col-lg-6">
                     <div class="bg-primary rounded h-100 d-flex align-items-center p-5 wow zoomIn"
                         data-wow-delay="0.9s">
-                        <form id="jobForm" action="{{ route('front.career.store') }}" method="POST" enctype="multipart/form-data">
+                        <form class="career__form" id="jobForm" action="{{ route('front.career.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row g-3">
                                 <div class="col-xl-12">

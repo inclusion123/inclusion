@@ -4,14 +4,7 @@
 @section('meta_keywords', $seo->meta_keywords)
 @section('meta_description', $seo->meta_description)
 @endif
-@section('css')
-    <style>
-        .error {
-            color: #F00;
-            background-color: #FFF;
-        }
-    </style>
-@endsection
+
 @section('carousel')
     <div class="container-fluid bg-primary py-5 bg-header" style="margin-bottom: 90px;">
         <div class="row py-5">
@@ -76,7 +69,7 @@
             </div>
             <div class="row g-5">
                 <div class="col-lg-6 wow slideInUp" data-wow-delay="0.3s">
-                    <form id="contact" action="{{ route('front.contact.save') }}" method="post">
+                    <form class="contact__form" id="contact" action="{{ route('front.contact.save') }}" method="post">
                         @csrf
                         <div class="row g-3">
                             <div class="col-md-6">
@@ -172,6 +165,7 @@
                 e.preventDefault();
                 $('#captcha_jq').text('Captcha is Invalid.');
                 $('#captcha_jq').css("color", "red");
+                $('#captcha_jq').css("font-size", "14px");
             } else {
                 $('#captcha_jq').hide();
             }

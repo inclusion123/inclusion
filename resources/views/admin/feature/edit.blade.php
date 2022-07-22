@@ -71,7 +71,7 @@
         </section>
     @endsection
     @section('script')
-    <script>
+    {{-- <script>
         $('#featuredescription').summernote();
-    </script>
+    </script> --}}
     @endsection

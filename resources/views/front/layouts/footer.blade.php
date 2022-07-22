@@ -3,13 +3,13 @@
     <div class="container">
         <div class="row gx-5">
             <div class="col-lg-4 col-md-6 footer-about">
-                <div class="d-flex flex-column align-items-center justify-content-center text-center h-100 bg-dark p-4">
+                <div class="d-flex flex-column align-items-center justify-content-center text-center h-100 bg-dark p-4 footer__about">
                     <a href="{{ route ('front.index') }}" class="navbar-brand">
                         <!-- <h1 class="m-0 text-white"><i class="fa fa-user-tie me-2"></i>Startup</h1> -->
                         <img src="{{ asset('front/img/logo-white.png ') }}" />
                     </a>
                     <p class="mt-3 mb-4">
-                        Lorem diam sit erat dolor elitr et, diam lorem justo amet clita stet eos sit. Elitr dolor duo lorem, elitr clita ipsum sea. Diam amet erat lorem stet eos. Diam amet et kasd eos duo.
+                        Inclusion Software Solutions is an IT consulting and services provider, providing end-to-end consulting for global clients. We partnered with several global SME in building their next generation information infrastructure for competitive advantage. We have significant depth of expertise and experience in Web Development, Web Designing & Mobile Application Development.
                     </p>
                     {{-- <form action="">
                         <div class="input-group">
@@ -167,7 +167,7 @@
                         style="height: 75px"
                     >
                         <p class="mb-0">
-                            Copyright &copy; 2019
+                            Copyright &copy; 2022
                             <a class="text-white border-bottom" href="{{route('front.index')}}"
                                 >Inclusion Software Solutions.</a
                             >

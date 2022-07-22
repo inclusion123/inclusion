@@ -23,7 +23,7 @@
                               style="width: 60px; height: 60px" />
                           <div class="ps-4">
                               <h4 class="text-primary mb-1">{{ $testimonial->name }}</h4>
-                              <small class="text-uppercase">{{ $testimonial->profession }}</small>
+                              {{-- <small class="text-uppercase">{{ $testimonial->profession }}</small> --}}
                           </div>
                       </div>
                       <div class="pt-4 pb-5 px-5">
