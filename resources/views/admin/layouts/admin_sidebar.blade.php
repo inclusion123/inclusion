@@ -51,14 +51,7 @@
                   </li>
            
 
-                  {{-- <li class="nav-item">
-                      <a href="{{ route('admin.contact') }}" class="nav-link">
-                          <i class="nav-icon contact-us fa fa-phone"></i>
-                          <p>
-                              Contact-Us
-                          </p>
-                      </a>
-                  </li> --}}
+                  
                   <li class="nav-item">
                       <a href="{{ route('admin.aboutus.index') }}" class="nav-link {{request()->is('admin/About-Us') ? 'active' : ''}}">
                           <i class="nav-icon fa fa fa-paper-plane-o"></i>
@@ -68,14 +61,14 @@
                       </a>
                   </li>
 
-                  <li class="nav-item">
+                  {{-- <li class="nav-item">
                       <a href="{{ route('admin.feature.index') }}" class="nav-link">
                           <i class="nav-icon team fa fa-star-o"></i>
                           <p>
                               Our Features
                           </p>
                       </a>
-                  </li>
+                  </li> --}}
 
                   <li class="nav-item">
                       <a href="{{ route('admin.service.index') }}" class="nav-link">
@@ -86,14 +79,7 @@
                           </p>
                       </a>
                   </li>
-                  {{-- <li class="nav-item">
-                      <a href="{{ route('admin.quote.index') }}" class="nav-link">
-                          <i class="nav-icon  fa "></i>
-                          <p>
-                              Quotes
-                          </p>
-                      </a>
-                  </li> --}}
+            
                   <li class="nav-item">
                       <a href="{{ route('admin.settings.index') }}" class="nav-link">
                           <i class="nav-icon 	fa fa-cogs"></i>

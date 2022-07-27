@@ -44,6 +44,11 @@
                                 <div class="gd-responsive-table">
                                     <table class="table table-bordered table-striped">
                                         <tr>
+                                            <th>{{ __('Name') }}</th>
+                                            <td> <input type="text" name="name" class="form-control" 
+                                                    value="{{$setting->name}}"></td>
+                                        </tr>
+                                        <tr>
                                             <th>{{ __('Address') }}</th>
                                             <td> <input type="text" name="address" class="form-control" 
                                                     value="{{$setting->address}}"></td>
@@ -62,6 +67,11 @@
                                             <th>{{ __('Toll-Free') }}</th>
                                             <td><input type="text" name="toll_free" class="form-control" id="text"
                                                     value="{{$setting->toll_free}}"></td>
+                                        </tr>
+                                        <tr>
+                                            <th>{{ __('Web-Link') }}</th>
+                                            <td><input type="text" name="web" class="form-control" id="text"
+                                                    value="{{$setting->web}}"></td>
                                         </tr>
                                         <tr>
                                             <th>{{ __('Instagram-Link') }}</th>

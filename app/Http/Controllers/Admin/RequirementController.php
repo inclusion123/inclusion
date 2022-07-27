@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\RequirementRequest;
 use App\Models\Requirement;
+use App\Models\Skill;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Log;
 
 class RequirementController extends Controller
 {
@@ -39,7 +41,6 @@ class RequirementController extends Controller
      */
     public function store(RequirementRequest $request)
     {
-        // dd($request->all());
         try {
             $requirement = Requirement::create([
 
@@ -50,10 +51,17 @@ class RequirementController extends Controller
                 'slug'  => Str::slug($request->name),
 
             ]);
-
             $requirement->save();
 
-            return redirect()->route('admin.requirement.index')->with('success', 'requirement Is Created Successfully.');
+            $length = count($request->skillName);
+            for ($x = 1; $x <= $length; $x++) {
+                $skill = Skill::create([
+                    'requirement_id' => $requirement->id,
+                    'name' => $request->skillName[$x - 1],
+                ]);
+                $skill->save();
+            }
+            return redirect()->route('admin.requirement.index')->with('success', 'Requirement Is Created Successfully.');
         } catch (\Exception $e) {
             report($e);
             return redirect()->back()->withInput()->with('error', 'Something went Wrong: ' . $e->getMessage());
@@ -79,7 +87,7 @@ class RequirementController extends Controller
      */
     public function edit($id)
     {
-        $requirement = Requirement::find($id);
+        $requirement = Requirement::where('id', $id)->with('skill')->first();
         return view('admin.requirements.edit', compact('requirement'));
     }
 
@@ -98,9 +106,18 @@ class RequirementController extends Controller
             $requirement->experience  = $request->experience;
             $requirement->position = $request->position;
             $requirement->description = $request->description;
-
             $requirement->save();
-            return redirect()->route('admin.requirement.index')->with('success', 'requirement Updated successfully .');
+
+            Skill::where('requirement_id', $requirement->id)->delete();
+            $length = count($request->skillName);
+            for ($x = 1; $x <= $length; $x++) {
+                $skill = Skill::create([
+                    'requirement_id' => $requirement->id,
+                    'name' => $request->skillName[$x - 1],
+                ]);
+                $skill->save();
+            }
+            return redirect()->route('admin.requirement.index')->with('success', 'Requirement Updated successfully .');
         } catch (\Exception $e) {
             report($e);
             return redirect()->back()->withInput()->with('error', 'Something went Wrong: ' . $e->getMessage());
@@ -117,38 +134,27 @@ class RequirementController extends Controller
     {
         try {
             Requirement::find($id)->delete();
+            Skill::where('requirement_id', $id)->delete();
             return "Requirement Deleted Successfully";
         } catch (\Exception $e) {
             return "Something went Wrong" . $e->getMessage();
         }
     }
-    public function getModels()
+    public function list()
     {
-        // dd(1);
-
         try {
-            $requirement = Requirement::orderBy('created_at', 'ASC');
+            $requirement = Requirement::orderBy('created_at', 'ASC')->with('skill');
             $datatable = Datatables::eloquent($requirement)
-
                 ->addColumn('description', function ($row) {
-                        return '$row->description';
-                    })
-
+                    return '$row->description';
+                })
                 ->editColumn('description', function ($data) {
                     return Str::limit($data->description, 30);
                 })
-
                 ->addColumn("action", function ($row) {
                     return view('admin.requirements._partials.action', compact('row'));
                 })
-                // ->addColumn("skills", function ($row) {
-                 
-                // })
-                // ->addColumn("experience", function ($row) {
-                //     return view('admin.requirements.experience.button', compact('row'));
-                // })
-
-                ->rawColumns(['action', 'experience'])
+                ->rawColumns(['action'])
                 ->make(true);
             return $datatable;
         } catch (\Exception $e) {

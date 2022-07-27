@@ -145,7 +145,7 @@ class BannerController extends Controller
     {
         $banner = Banner::where('id', $id)->delete();
     }
-    public function getModels()
+    public function list()
     {
         // $banner = banner::all();
         try {

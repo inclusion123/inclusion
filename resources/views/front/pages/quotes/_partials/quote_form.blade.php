@@ -19,7 +19,7 @@
                             </h5>
                         </div>
                     </div>
-                    <p class="mb-4">Inclusion Software Solutions is an IT consulting and services provider, providing end-to-end consulting for global clients. We partnered with several global SME in building their next generation information infrastructure for competitive advantage. We have significant depth of expertise and experience in Web Development, Web Designing & Mobile Application Development.</p>
+                    <p class="mb-4">We would love to work on your project. Tell us a bit about yourself & your project. We'll provide you the quote and time estimation.</p>
                     <div class="d-flex align-items-center mt-2 wow zoomIn" data-wow-delay="0.6s">
                         <div class="bg-primary d-flex align-items-center justify-content-center rounded"
                             style="width: 60px; height: 60px;">

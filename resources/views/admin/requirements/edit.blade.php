@@ -67,9 +67,19 @@
                             </div>
                             <br>
 
+                            <label for="experience">Required Skills </label>&nbsp;
+                            <img class="add_field_button" src="{{ asset('\back\dist\img\add-icon.png') }}" alt=""
+                                height="25px" weidth="25px">
+                            <div class=" input_fields_wrap">
+                                @foreach ($requirement->skill as $skills)
+                                <div class="input-group input-group-sm mb-3">
+                                    <input type="text" name="skillName[]" class="form-control m-input"
+                                        placeholder="Enter " autocomplete="off" value="{{ $skills->name }}"><img class="remove_field" src="https://cdn1.iconfinder.com/data/icons/round-ui/183/46-512.png" alt="Remove" height="25px" weidth="25px">
 
-
-
+                                </div>
+                                @endforeach
+                            </div>
+                            
                         </div>
                         <!-- /.card-body -->
 
@@ -85,5 +95,28 @@
     @section('script')
         <script>
             $('#description').summernote();
+            
+            $(document).ready(function() {
+                var max_fields = 10; //maximum input boxes allowed
+                var wrapper = $(".input_fields_wrap"); //Fields wrapper
+                var add_button = $(".add_field_button"); //Add button ID
+
+                var x = 1; //initlal text box count
+                $(add_button).click(function(e) { //on add input button click
+                    e.preventDefault();
+                    if (x < max_fields) { //max input box allowed
+                        x++; //text box increment
+                        $(wrapper).append(
+                            '<div class="input-group input-group-sm mb-3"><input type="text" name="skillName[]" class="form-control m-input"/ placeholder="Enter " required>&nbsp;&nbsp;<img class="remove_field" src="https://cdn1.iconfinder.com/data/icons/round-ui/183/46-512.png" alt="Remove" height="25px" weidth="25px"></div>'
+                        ); //add input box
+                    }
+                });
+
+                $(wrapper).on("click", ".remove_field", function(e) { //user click on remove text
+                    e.preventDefault();
+                    $(this).parent('div').remove();
+                    x--;
+                })
+            });
         </script>
     @endsection

@@ -17,12 +17,12 @@ class UserSeeder extends Seeder
             'name',
             'email',
             'password',
-            'email_verified_at',
-            'role'
+            'email_verified_at'
+           
         ];
 
         $values = [
-            ['Admin', 'admin@inclusionsoft.com', bcrypt('12345678'), '2022-06-23 10:44:35', 1],
+            ['Admin', 'admin@yopmail.com.com', bcrypt('123456'), '2022-06-23 10:44:35'],
         ];
 
         $insert_array = [];

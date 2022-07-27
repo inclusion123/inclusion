@@ -47,11 +47,10 @@
                                             <th>#</th>
                                             <th>Name</th>
                                             <th>Position</th>
+                                            <th>Experience</th>
 
                                             <th>Description</th>
                                             <th id="operations_column" class="operations-tour">Operations</th>
-                                            <th>Skills</th>
-                                            <th>Experience</th>
                                         </tr>
                                     </thead>
 
@@ -90,13 +89,6 @@
                 $("#delete-requirement #item_id").val(id);
             }
 
-            function openSkillsModal($id) {
-                // alert($id);
-                $("#show-skills").modal('show');
-                $("#show-skills #item_id").val(id);
-            }
-
-
             $('#requirementTable').DataTable({
                 processing: true,
                 serverSide: true,
@@ -105,37 +97,27 @@
                 ajax: '{{ route('admin.requirement.list') }}',
                 columns: [{
                         data: 'id',
-                        name: 'id'
                     },
                     {
                         data: 'name',
-                        name: 'name'
                     },
                     {
                         data: 'position',
-                        name: 'position'
                     },
 
                     {
+                        data: 'experience',
+                    },
+                    {
                         data: 'description',
-                        name: 'description'
                     },
 
 
                     {
                         data: 'action',
-                        name: 'action',
                         searchable: false,
                         orderable: false
 
-                    },
-                    {
-                        data: 'skills',
-                        name: 'skills'
-                    },
-                    {
-                        data: 'experience',
-                        name: 'experience'
                     },
 
                 ]

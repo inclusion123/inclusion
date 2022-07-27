@@ -167,7 +167,7 @@
                         style="height: 75px"
                     >
                         <p class="mb-0">
-                            Copyright &copy; 2022
+                            Copyright &copy; <?php echo date("Y"); ?>
                             <a class="text-white border-bottom" href="{{route('front.index')}}"
                                 >Inclusion Software Solutions.</a
                             >

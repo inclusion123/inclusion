@@ -14,4 +14,9 @@ class Requirement extends Model
     {
        return Requirement::all();
     }
+
+    public function skill()
+    {
+        return $this->hasMany(Skill::class);
+    }
 }

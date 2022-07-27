@@ -24,10 +24,12 @@ class SettingController extends Controller
     {
         try {
             $service = Setting::first();
+            $service->name = $request->name;
             $service->address = $request->address;
             $service->email = $request->email;
             $service->mobile = $request->mobile;
             $service->toll_free = $request->toll_free;
+            $service->web = $request->web;
             $service->instagram = $request->instagram;
             $service->linkedin = $request->linkedin;
             $service->youtube = $request->youtube;

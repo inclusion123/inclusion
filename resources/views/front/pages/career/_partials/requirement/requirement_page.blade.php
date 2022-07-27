@@ -1,11 +1,11 @@
     <!-- job post company Start -->
-    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+    {{-- <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
                 <!-- Left Content -->
                 <div class="col-xl-7 col-lg-8">
                     <!-- job single -->
-                    {{-- <div class="single-job-items mb-5 wow zoomIn" data-wow-delay="0.4s">
+                    <div class="single-job-items mb-5 wow zoomIn" data-wow-delay="0.4s">
                         <div class="job-items">
                             <div class="company-img company-img-details">
                                 <a href="#"><img src="{{ asset('front/img/logo.png')}}" alt=""></a>
@@ -21,7 +21,7 @@
                                 </ul>
                             </div>
                         </div>
-                    </div> --}}
+                    </div>
                       <!-- job single End -->
                    
                     <div class="job-post-details">
@@ -96,7 +96,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- job post company End -->
     <!-- Job Detail Start -->
     <div class="container-fluid py-5 wow fadeInUp" id="view-job" data-wow-delay="0.1s" style="    background-color: #f8f8f8;">

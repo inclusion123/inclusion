@@ -1,6 +1,6 @@
   <!-- Main Footer -->
   <footer class="main-footer">
-      <strong>Copyright &copy; 2019 <a href="#">Inclusion Software Solutions.</a>.</strong>
-      All rights reserved.
+      <strong>Copyright &copy; <?php echo date("Y"); ?> <a href="#">Inclusion Software Solutions.</a>.</strong>
+      All Rights Reserved.
      
   </footer>

@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\front\CareerRequest;
 use App\Models\Applicant;
+use App\Models\Requirement;
 use Illuminate\Http\Request;
 use App\Models\Seo;
+use App\Models\Skill;
 
 class CareerController extends Controller
 {
@@ -17,11 +19,6 @@ class CareerController extends Controller
     }
     public  function store(CareerRequest $request)
     {
-        // dd($request->all());
-        //         $this->validate($request, [
-        //             'cv' => 'sometimes|mimes:png,jpeg,gif',
-        //         ]);
-
         try {
             $jobrequest = Applicant::create([
                 'name' => $request->name,
@@ -46,8 +43,10 @@ class CareerController extends Controller
             return redirect()->back()->withInput()->with('error', 'Something went Wrong: ' . $e->getMessage());
         }
     }
-    public function job_detail()
+    public function job_detail($slug)
     {
-        return view('front.pages.career._partials.requirement.detail.index');
+        $detail = Requirement::where('slug',$slug)->with('skill')->first();
+        $skills = Skill::where('requirement_id',$detail->id)->get();
+        return view('front.pages.career._partials.requirement.detail.index',compact('detail','skills'));
     }
 }

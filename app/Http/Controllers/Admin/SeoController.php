@@ -96,8 +96,6 @@ class SeoController extends Controller
             $seo->meta_keywords = $request->meta_keywords;
             $seo->meta_description = $request->meta_description;
 
-
-
             $seo->save();
             return redirect()->route('admin.seo.index')->with('success', 'seo Updated successfully .');
         } catch (\Exception $e) {
@@ -116,17 +114,14 @@ class SeoController extends Controller
     {
         $seo = Seo::where('id', $id)->delete();
     }
-    public function getModels()
+    public function list()
     {
-        // $seo = seo::all();
         try {
             $seo = Seo::orderBy('created_at', 'ASC');
             $datatable = Datatables::eloquent($seo)
-
                 ->addColumn("action", function ($row) {
                     return view('admin.seo._partials.action', compact('row'));
                 })
-
                 ->rawColumns(['action'])
                 ->make(true);
             return $datatable;
