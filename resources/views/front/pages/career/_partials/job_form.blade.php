@@ -33,7 +33,7 @@
                                 </div> --}}
                                 <div class="col-12">
                                     {{-- <label class="custom-file-label" for="chooseFile"></label> --}}
-                                    <input type="file" name="cv" class="form-control bg-light border-0" id="cv">
+                                    <input type="file" name="cv" class="form-control bg-light border-0" id="cv" >
                                 </div>
                                 <div class="col-12">
                                     <textarea name="message" class="form-control bg-light border-0" rows="3" placeholder="Message"></textarea>

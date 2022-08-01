@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Schema;
 use App\Models\Setting;
 use Illuminate\Support\Facades\View;
 use App\Models\Team;
-
+use Illuminate\Pagination\Paginator;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -41,7 +41,7 @@ class AppServiceProvider extends ServiceProvider
 
         // helper for share setting details to views
         View::share('setting_helper', Setting::first());
-
+        Paginator::useBootstrap();
      
     }
 }

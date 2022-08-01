@@ -11,8 +11,8 @@ class TeamController extends Controller
 {
     public function index()
     {
-        $team = Team::all();
+        // $team = Team::paginate(6);
         $seo = Seo::seo('team');
-        return view('front.pages.team.index',compact('team','seo'));
+        return view('front.pages.team.index', compact('seo'));
     }
 }

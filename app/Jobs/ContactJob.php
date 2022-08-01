@@ -33,7 +33,7 @@ class ContactJob implements ShouldQueue
     public function handle()
     {
         Mail::to(
-            env("mail_reciever")
+            env("inclusionContactMail")
         )->send(new ContactMail($this->data));
     }
 }

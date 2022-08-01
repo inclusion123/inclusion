@@ -18,8 +18,5 @@ class Team extends Model
         $success = $image->storeAs($upload_path, $image_name);
         return $image_name;
     }
-    public function team()
-    {
-       return Team::all();
-    }
+
 }

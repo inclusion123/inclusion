@@ -21,7 +21,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                Are you sure you want to delete Seo ?
+                Are you sure you want to delete this Seo ?
             </div>
             <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

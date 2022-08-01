@@ -10,7 +10,7 @@
                 </h1>
             </div>
             @php
-                $team = App\Models\Team::team();
+                $team = App\Models\Team::paginate(6);
             @endphp
             <div class="row g-5">
                 @foreach ($team as $team_member)
@@ -39,6 +39,10 @@
                 @endforeach
            
             </div>
+        
+        </div>
+        <div class="d-flex justify-content-center">
+            {!! $team->links() !!}
         </div>
     </div>
     <!-- Team End -->

@@ -41,7 +41,7 @@
                         <div class="form-group">
                             <label for="route_name">Name</label>
                             <input type="name" name="route_name" class="form-control" id="route_name"
-                                placeholder="Enter ..." required value="{{ $seo->route_name }}">
+                                placeholder="Enter ..." required value="{{ $seo->route_name }}" readonly>
                         </div>
                         <div class="row">
                             <div class="col-6">
