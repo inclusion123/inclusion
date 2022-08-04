@@ -1,4 +1,4 @@
-<a title="Edit" class="btn btn-info btn-table btn-icon" href="{{ route('admin.feature.edit', $row->id) }}">
+<a title="Edit" class="btn btn-outline-primary" href="{{ route('admin.feature.edit', $row->id) }}">
     <i class='far fa-edit'></i>
 </a>
 

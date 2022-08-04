@@ -911,6 +911,10 @@ h3.bdiv{
     color: #ffffff;
     font-size: 14px;
 }
+.comment__form [for] {
+    color: #ff0606;
+    font-size: 14px;
+}
 .footer__about p {
     text-align: justify;
 }

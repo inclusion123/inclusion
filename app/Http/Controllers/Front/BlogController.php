@@ -3,16 +3,40 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Blog;
+use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class BlogController extends Controller
 {
     public function blog_grid()
     {
-        return view('front.pages.blogs.blog');
+        $blogs = Blog::all();
+        return view('front.pages.blogs.blog', compact('blogs'));
     }
-    public function blog_detail()
+    public function blog_detail($slug)
     {
-        return view('front.pages.blogs.blog_detail');
+        $blog = Blog::where('slug', $slug)->first();
+        $count =$blog->comments()->count(); 
+        $comments = $blog->comments()->paginate(3);
+
+        // $blog = Blog::with('comments')->where('slug', $slug)->first();
+        return view('front.pages.blogs.blog_detail', compact('blog','comments','count'));
+    }
+    public function comment(Request $request)
+    {
+        try {
+            $comment = Comment::create([
+                'blog_id' => $request->blog_id,
+                'commenters_name' => $request->name,
+                'commenters_email' => $request->email,
+                'comment' => $request->comment
+            ]);
+
+            return response()->json("coment done");
+        } catch (\Exception $e) {
+            Log::error('error', $e->getMessage());
+        }
     }
 }

@@ -1,0 +1,1 @@
+<img src="{{asset('/storage/images') }}/{{$row->image}}" alt="Blog image" class="img-round img-size-32 mr-2" style="width: 80px;height: 80px;object-fit: cover;">

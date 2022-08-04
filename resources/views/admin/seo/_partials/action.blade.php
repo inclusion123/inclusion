@@ -1,9 +1,9 @@
-<a title="Edit" class="btn btn-info btn-table btn-icon" href="{{ route('admin.seo.edit', $row->id) }}">
+<a title="Edit" class="btn btn-outline-primary" href="{{ route('admin.seo.edit', $row->id) }}">
     <i class='far fa-edit'></i>
 </a>
 
 
-<button title="Delete" onclick="OpenDeleteBox({{ $row->id }})" class="btn btn-danger btn-table btn-icon">
+<button title="Delete" onclick="OpenDeleteBox({{ $row->id }})" class="btn btn-outline-danger">
     <i class="fa fa-trash" aria-hidden="true"></i>
 </button>
 

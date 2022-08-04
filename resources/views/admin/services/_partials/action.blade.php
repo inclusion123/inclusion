@@ -1,14 +1,14 @@
-<a title="View" class=" btn btn-info btn-table btn-icon" href="{{ route('admin.childservices.indexpage', $row->id) }}">
+<a title="View" class="btn btn-outline-primary" href="{{ route('admin.childservices.indexpage', $row->id) }}">
     <i class='far '>Child</i>
 </a>
 
 
-<a title="Edit" class="btn btn-info btn-table btn-icon" href="{{ route('admin.service.edit', $row->id) }}">
+<a title="Edit" class="btn btn-outline-primary" href="{{ route('admin.service.edit', $row->id) }}">
     <i class='far fa-edit'></i>
 </a>
 
 
-<button title="Delete" onclick="OpenDeleteBox({{ $row->id }})" class="btn btn-danger btn-table btn-icon">
+<button title="Delete" onclick="OpenDeleteBox({{ $row->id }})" class="btn btn-outline-danger">
     <i class="fa fa-trash" aria-hidden="true"></i>
 </button>
 

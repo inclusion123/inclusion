@@ -106,6 +106,7 @@ class ServiceController extends Controller
             $service->meta_keywords = $request->meta_keywords;
             $service->meta_description = $request->meta_description;
             $service->title = $request->title;
+            $service->slug = Str::slug($request->name);
             $service->icon = $request->icon;
             $service->description = $request->desc;
             $service->detail_name = $request->detailname;

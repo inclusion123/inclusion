@@ -14,9 +14,9 @@ class AddMetaToServicesTable extends Migration
     public function up()
     {
         Schema::table('services', function (Blueprint $table) {
-            $table->string('meta_title')->after('name');;
-            $table->string('meta_keywords')->after('meta_title');
-            $table->longText('meta_description')->after('meta_keywords');
+            $table->string('meta_title')->after('name')->nullable();
+            $table->string('meta_keywords')->after('meta_title')->nullable();
+            $table->longText('meta_description')->after('meta_keywords')->nullable();
         });
     }
 

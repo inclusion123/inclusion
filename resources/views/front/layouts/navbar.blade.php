@@ -24,13 +24,10 @@
                                 @endforeach
                             </div>
                         </div>
-                        {{-- <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Blog</a>
-                            <div class="dropdown-menu m-0">
-                                <a href="{{ route('front.blog_grid') }}" class="dropdown-item">Blog Grid</a>
-                                <a href="{{ route('front.blog_detail') }}" class="dropdown-item">Blog Detail</a>
-                            </div>
-                        </div> --}}
+                        <div class="nav-item dropdown">
+                            <a href="{{ route('front.blog_grid') }}" class="nav-item nav-link" >Blog</a>
+                         
+                        </div>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Company</a>
                             <div class="dropdown-menu m-0">

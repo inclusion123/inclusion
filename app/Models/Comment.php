@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ServiceDetail extends Model
+class Comment extends Model
 {
     use HasFactory;
-    protected $fillable = ['service_id','name','description','image'];
+    protected $fillable = ['blog_id','comment','commenters_name','commenters_email'];
 }

@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\AdminQuoteController;
 use App\Http\Controllers\Admin\AdminTeamController;
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CareerController as AdminCareerController;
 use App\Http\Controllers\Admin\ChildServiceController;
 use App\Http\Controllers\Admin\ContactController;
@@ -19,6 +20,7 @@ use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Front\BlogController as FrontBlogController;
 use App\Http\Controllers\Front\CareerController;
 use App\Http\Controllers\Front\HomeController;
 
@@ -48,19 +50,20 @@ Route::name('front.')->group(function () {
     Route::get('service-detail/{slug}', [App\Http\Controllers\Front\ServicesController::class, 'service_detail']);
 
     // // Blog Pages Route
-    // Route::get('blogs', [App\Http\Controllers\Front\BlogController::class, 'blog_grid'])->name('blog_grid');
-    // Route::get('blog-detail', [App\Http\Controllers\Front\BlogController::class, 'blog_detail'])->name('blog_detail');
+    Route::get('blogs', [App\Http\Controllers\Front\BlogController::class, 'blog_grid'])->name('blog_grid');
+    Route::get('blog-detail/{slug}', [App\Http\Controllers\Front\BlogController::class, 'blog_detail'])->name('blog_detail');
+    Route::post('/blog-comment',[FrontBlogController::class,'comment'])->name('blog.comment');
 
     //feature page route
     // Route::get('feature', [App\Http\Controllers\Front\FeatureController::class, 'index'])->name('feature');
 
-   // Career Page Routes
+    // Career Page Routes
     Route::name('career.')->group(function () {
         Route::get('career', [App\Http\Controllers\Front\CareerController::class, 'index'])->name('index');
         Route::post('/career', [CareerController::class, 'store'])->name('store');
-        
+
         //job detail
-        Route::get('/career/{slug}',[CareerController::class,'job_detail'])->name('jobDetail');
+        Route::get('/career/{slug}', [CareerController::class, 'job_detail'])->name('jobDetail');
     });
 
     //team member page route
@@ -169,7 +172,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::resource('/requirement', RequirementController::class);
         Route::get('/requirement-list', [RequirementController::class, 'list'])->name('requirement.list');
 
-        Route::resource('/banner',BannerController::class);
+        Route::resource('/banner', BannerController::class);
         Route::get('/banner-list', [BannerController::class, 'list'])->name('banner.list');
+
+        Route::resource('/blog', BlogController::class);
+        Route::get('/blog-list', [BlogController::class, 'list'])->name('blog.list');
     });
 });

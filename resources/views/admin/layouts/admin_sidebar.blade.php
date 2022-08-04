@@ -61,24 +61,23 @@
                       </a>
                   </li>
 
-                  {{-- <li class="nav-item">
-                      <a href="{{ route('admin.feature.index') }}" class="nav-link">
-                          <i class="nav-icon team fa fa-star-o"></i>
-                          <p>
-                              Our Features
-                          </p>
-                      </a>
-                  </li> --}}
-
                   <li class="nav-item">
                       <a href="{{ route('admin.service.index') }}" class="nav-link">
                           <i class="nav-icon  fa fa-rocket"></i>
-                          {{-- <i class="fa fa-rocket" aria-hidden="true"></i> --}}
                           <p>
                               Services
                           </p>
                       </a>
                   </li>
+
+                  <li class="nav-item">
+                    <a href="{{ route('admin.blog.index') }}" class="nav-link">
+                        <i class="nav-icon fab fa-blogger-b"></i>
+                        <p>
+                           Blogs
+                        </p>
+                    </a>
+                </li>
             
                   <li class="nav-item">
                       <a href="{{ route('admin.settings.index') }}" class="nav-link">
@@ -110,7 +109,7 @@
 
                   <li class="nav-item">
                       <a href="{{ route('admin.seo.index') }}" class="nav-link">
-                          <i class="nav-icon "></i>
+                          <i class="nav-icon fas fa-tag"></i>
                           <p>
                               Seo
                           </p>
