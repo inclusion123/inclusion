@@ -19,7 +19,8 @@
                             </h5>
                         </div>
                     </div>
-                    <p class="mb-4">We would love to work on your project. Tell us a bit about yourself & your project. We'll provide you the quote and time estimation.</p>
+                    <p class="mb-4">To get a free quote from our team, please feel free to contact us. We will then provide a brief explanation of the project and a time estimate. In addition, we will also give you a quote that includes the necessary details.<br>
+                        We're a full-service product development firm that provides end-to-end solutions to help organizations develop successful software. Our passion for innovation and transparent roadmap help our clients create successful products.</p>
                     <div class="d-flex align-items-center mt-2 wow zoomIn" data-wow-delay="0.6s">
                         <div class="bg-primary d-flex align-items-center justify-content-center rounded"
                             style="width: 60px; height: 60px;">

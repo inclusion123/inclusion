@@ -55,14 +55,14 @@
                             @if ($banner->image)
                                 <img id="original" class=" img-responsive img-round"
                                     src="{{ asset('/images') }}/{{ $banner->image }}"  width="960" 
-                                    height="540">
+                                    height="540" >
                             @endif
 
                         </div>
                         <div class="form-group">
                             <div class="mb-3">
                                 <label for="bannerimage" class="form-label">Image</label>
-                                <input class="form-control" name="image" type="file" id="bannerimage" value="{{$banner->image}}">
+                                <input class="form-control" name="image" type="file" id="bannerimage" value="{{$banner->image}}" accept="image/*"/>
                             </div>
                         </div>
 

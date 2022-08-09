@@ -3,7 +3,7 @@
         <div class="container py-5">
             <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
                 <h5 class="fw-bold text-primary text-uppercase">Our Services</h5>
-                <h1 class="mb-0">Custom IT Solutions for Your Successful Business</h1>
+                <h1 class="mb-0">The State-of-art IT services we offer</h1>
             </div>
             <div class="row g-5">
                 @foreach ($navbars as $navbar)
@@ -15,8 +15,8 @@
                         <i class="{{$navbar->icon}} text-white"></i>
                     </div>
                     <h4 class="mb-3">{{$navbar->name}}</h4>
-                    <p class="m-0">{{$navbar->name}}</p>
-                        <a class="btn btn-lg btn-primary rounded" href="{{url('service-detail/'.$navbar->slug)}}">
+                    <p class="m-0">{{$navbar->title}}</p>
+                        <a class="btn btn-lg btn-primary rounded" href="{{url('service/'.$navbar->slug)}}">
                             <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>

@@ -50,8 +50,7 @@
                             <div class="form-group">
                                 <label for="childServiceImage">File input</label>
                                
-                                <input type="file" name="image" class="form-control" id="childServiceImage"
-                                >
+                                <input type="file" name="image" class="form-control" id="childServiceImage" accept="image/*"/>
                             </div>
                             <div class="form-group">
                                 <label for="serviceId">Service Id</label>

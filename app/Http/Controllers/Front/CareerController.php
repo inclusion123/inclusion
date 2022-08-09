@@ -23,14 +23,13 @@ class CareerController extends Controller
             $jobrequest = Applicant::create([
                 'name' => $request->name,
                 'email' => $request->email,
-                'profile' => $request->profile,
                 'message' => $request->message,
                 'cv' => ''
 
             ]);
 
+   
             if ($request->file('cv')) {
-                // dd(4);
                 $file = $request->file('cv');
                 $filename = date('YmdHi') . $file->getClientOriginalExtension();
                 $file->move(public_path('public/Images'), $filename);
@@ -38,7 +37,7 @@ class CareerController extends Controller
                 $jobrequest->save();
             }
 
-            return redirect()->back()->with('success', 'Details Send Successfully');
+            return redirect()->back()->with('success', 'Details were successfully sent.');
         } catch (\Exception $e) {
             return redirect()->back()->withInput()->with('error', 'Something went Wrong: ' . $e->getMessage());
         }

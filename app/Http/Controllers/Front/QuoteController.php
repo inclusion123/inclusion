@@ -32,7 +32,7 @@ class QuoteController extends Controller
             $data = $request->all();
             QuoteJob::dispatch($data);
             
-            return redirect()->back()->with('success', 'Free Quote Request Successfully');
+            return redirect()->back()->with('success', 'The quote request message has been sent successfully.');
         } catch (\Exception $e) {
             report($e);
             // return dd($e->getMessage());

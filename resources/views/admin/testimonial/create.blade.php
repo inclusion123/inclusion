@@ -61,7 +61,7 @@
                                 <div class="form-group">
                                     <div class="mb-3">
                                         <label for="testimonialimage" class="form-label">Image</label>
-                                        <input class="form-control" name="image" type="file" id="testimonialimage">
+                                        <input class="form-control" name="image" type="file" id="testimonialimage" accept="image/*"/>
                                     </div>
                                 </div>
 

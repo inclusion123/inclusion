@@ -18,14 +18,13 @@ class QuoteController extends Controller
         try {
             $quotes = Quote::orderBy('created_at', 'DESC');
             $datatable = Datatables::eloquent($quotes)
-
-
                 ->addColumn("action", function ($row) {
                     return view('admin.quotes._partials.action', compact('row'));
                 })
-
-
-                ->rawColumns(['action'])
+                ->addColumn('created_at',function($request){
+                    return $request->created_at->format('d M Y');
+                })
+                ->rawColumns(['action','created_at'])
                 ->make(true);
             return $datatable;
         } catch (\Exception $e) {

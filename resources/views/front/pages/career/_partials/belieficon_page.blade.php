@@ -6,6 +6,7 @@
                 <div class="beliefcon">
                     <div class="bdiv">
                         <div class="bcards">
+                            <img src="{{asset('\front\img\focus.png')}}">
                             <h3 class="hcard">Focus on Customers</h3>
                             <p>
                                 Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit.
@@ -18,6 +19,7 @@
                 <div class="beliefcon">
                     <div class="bdiv">
                         <div class="bcards">
+                            <img src="{{asset('\front\img\iteration.png')}}">
                             <h3 class="hcard">Improve the Process</h3>
                             <p>
                                Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit.
@@ -30,6 +32,7 @@
                 <div class="beliefcon">
                     <div class="bdiv">
                         <div class="bcards">
+                            <img src="{{asset('\front\img\risk.png')}}">
                             <h3 class="hcard">Take the Risk</h3>
                             <p>
                                 Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit.
@@ -42,6 +45,7 @@
                 <div class="beliefcon">
                     <div class="bdiv">
                         <div class="bcards">
+                            <img src="{{asset('\front\img\freelance.png')}}">
                             <h3 class="hcard">Enjoy the Work</h3>
                             <p>
                                 Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit.

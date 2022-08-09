@@ -53,7 +53,7 @@
                         <div class="form-group">
                             {{-- <strong>Team Member Image</strong> --}}
                             @if ($team->image)
-                                <img id="original" class="profile-user-img img-responsive img-circle"
+                                <img id="original" class="profile-user-img img-responsive "
                                     src="{{ asset('/storage/images') }}/{{ $team->image }}">
                             @endif
 
@@ -61,7 +61,7 @@
                         <div class="form-group">
                             <div class="mb-3">
                                 <label for="teamimage" class="form-label">Image</label>
-                                <input class="form-control" name="image" type="file" id="teamimage" value="{{$team->image}}">
+                                <input class="form-control" name="image" type="file" id="teamimage" value="{{$team->image}}" accept="image/*"/>
                             </div>
                         </div>
 

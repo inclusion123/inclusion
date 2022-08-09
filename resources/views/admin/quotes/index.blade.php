@@ -7,12 +7,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Quotes </h1>
+                        <h1 class="m-0"> Quote Requests </h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Quotes </li>
+                            <li class="breadcrumb-item active"> Quote Requests  </li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -51,27 +51,21 @@
                         ajax: '{{ route('admin.quote.list') }}',
                         columns: [{
                                 data: 'id',
-                                name: 'id'
                             },
                             {
                                 data: 'name',
-                                name: 'name'
                             },
                             {
                                 data: 'email',
-                                name: 'email'
                             },
                             {
                                 data: 'service',
-                                name: 'service'
                             },
                             {
                                 data: 'message',
-                                name: 'message'
                             },
                             {
                                 data: 'created_at',
-                                name: 'created_at'
                             },
                             {
                                 data: 'action',

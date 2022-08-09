@@ -29,4 +29,11 @@ class TeamRequest extends FormRequest
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
+    public function messages()
+    {
+      return [            
+        'image.required' => "You must use the 'Choose file' button to select which file you wish to upload",
+        'image.max' => "Maximum file size to upload is 2MB (2048 KB). If you are uploading a photo, try to reduce its resolution to make it under 2MB"
+      ];
+    }
 }

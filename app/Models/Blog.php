@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Blog extends Model
 {
+    use \Conner\Tagging\Taggable;
     use HasFactory;
     protected $fillable = ['title', 'description', 'image', 'category', 'postable_id', 'meta_description', 'meta_keywords', 'meta_title', 'slug'];
 

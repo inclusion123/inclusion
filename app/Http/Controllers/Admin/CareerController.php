@@ -19,7 +19,7 @@ class CareerController extends Controller
             $models = Applicant::orderBy('created_at', 'DESC');
             $datatable = Datatables::eloquent($models)
             ->editColumn('created_at',function($request){
-                return $request->created_at->format('d-m-y');
+                return $request->created_at->format('d M Y');
             })
             
             ->make(true);

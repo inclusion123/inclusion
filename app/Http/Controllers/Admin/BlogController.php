@@ -40,6 +40,7 @@ class BlogController extends Controller
     public function store(BlogRequest $request)
     {
         try {
+            
             $blog = Blog::create([
                 'postable_id' => auth()->id(),
                 'meta_title' => $request->meta_title,
@@ -51,6 +52,9 @@ class BlogController extends Controller
                 'category' => $request->category,
                 'image' => ''
             ]);
+            $tags = explode(",", $request->tags);
+            $blog->tag($tags);
+
             if ($request->hasFile('image')) {
                 $filePath = $blog->image_upload($request->image);
                 $blog->image = $filePath;
@@ -83,6 +87,7 @@ class BlogController extends Controller
     public function edit($id)
     {
         $blog = Blog::find($id);
+        // dd(implode(" ",$blog->tagNames()));
         return view('admin.blog.edit', compact('blog'));
     }
 
@@ -99,6 +104,7 @@ class BlogController extends Controller
             'image' => 'sometimes|mimes:png,jpeg,gif',
         ]);
         try {
+            
             $blog = Blog::find($id);
             $blog->meta_title = $request->meta_title;
             $blog->meta_keywords = $request->meta_keywords;
@@ -107,13 +113,16 @@ class BlogController extends Controller
             $blog->slug = Str::slug($request->title);
             $blog->description = $request->description;
             $blog->category = $request->category;
+            $blog->save();
+            
+            $tags = explode(",", $request->tags);
+            $blog->retag($tags);
 
             if ($request->hasFile('image')) {
                 $filePath = $blog->image_upload($request->image);
                 $blog->image = $filePath;
                 $blog->save();
             }
-            $blog->save();
             return redirect()->route('admin.blog.index')->with('success', 'Blog Updated successfully .');
         } catch (\Exception $e) {
             report($e);

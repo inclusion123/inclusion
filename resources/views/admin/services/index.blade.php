@@ -71,8 +71,8 @@
                 console.log(id);
 
                 $.ajax({
-                    type: "POST",
-                    url: "{{ route('admin.service.destroy') }}",
+                    type: "DELETE",
+                    url: "{{ url('admin/service') }}/"+id,
                     data: {
                         "_token": "{{ csrf_token() }}",
                         "id": id

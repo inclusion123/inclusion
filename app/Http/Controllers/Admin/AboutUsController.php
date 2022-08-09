@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\aboutUsRequest;
-use App\Models\AboutUs;
 use Illuminate\Http\Request;
+use App\Models\AboutUs;
 use Yajra\DataTables\Facades\DataTables;
 
 class AboutUsController extends Controller
@@ -17,7 +16,6 @@ class AboutUsController extends Controller
      */
     public function index()
     {
-
         return view('admin.aboutus.index');
     }
 
@@ -37,9 +35,8 @@ class AboutUsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(aboutUsRequest $request)
+    public function store(Request $request)
     {
-        // dd( $request->all());
         try {
             $about_us = AboutUs::create([
                 'name' => $request->name,
@@ -95,7 +92,6 @@ class AboutUsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // dd($request->all());
         $this->validate($request, [
             'image' => 'sometimes|mimes:png,jpeg,gif',
         ]);
@@ -128,10 +124,9 @@ class AboutUsController extends Controller
      */
     public function destroy($id)
     {
-        $com = AboutUs::where('id', $id)->delete();
+       AboutUs::where('id', $id)->delete();
     }
-   
-    public function getModels()
+    public function list()
     {
         try {
             $aboutus = AboutUs::orderBy('created_at', 'ASC');

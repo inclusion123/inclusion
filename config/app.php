@@ -165,7 +165,7 @@ return [
         Yajra\DataTables\DataTablesServiceProvider::class,
         Yoeunes\Toastr\ToastrServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
-
+        Conner\Tagging\Providers\TaggingServiceProvider::class,
         /*
          * Package Service Providers...
          */

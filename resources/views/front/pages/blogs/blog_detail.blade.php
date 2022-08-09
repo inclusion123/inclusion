@@ -122,7 +122,7 @@
                     <!-- Comment Form End -->
                 </div>
 
-               @include('front.pages.blogs._partials.blog_page_sidebar');
+               @include('front.pages.blogs._partials.blog_page_sidebar')
             </div>
         </div>
     </div>

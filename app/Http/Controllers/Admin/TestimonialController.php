@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\TestimonialRequest;
-use App\Models\Testimonial;
 use Illuminate\Http\Request;
+use App\Models\Testimonial;
 use Yajra\DataTables\Facades\DataTables;
 
 class TestimonialController extends Controller
@@ -36,7 +35,7 @@ class TestimonialController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(TestimonialRequest $request)
+    public function store(Request $request)
     {
         try {
             $testimonial = Testimonial::create([
@@ -95,7 +94,6 @@ class TestimonialController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $this->validate($request, [
             'image' => 'sometimes|mimes:png,jpeg,gif',
         ]);
@@ -130,7 +128,6 @@ class TestimonialController extends Controller
     {
         $teatestimonialm = Testimonial::where('id', $id)->delete();
     }
-
     public function list()
     {
         try {

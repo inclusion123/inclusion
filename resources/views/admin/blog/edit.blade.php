@@ -57,6 +57,14 @@
                             <input type="name" name="title" class="form-control" id="blogtitle"  placeholder="Enter ..." required value="{{ $blog->title }}">
                         </div>
                         <div class="form-group">
+                            <label>Tags:</label>
+                            <br />
+                            <input data-role="tagsinput" type="text" name="tags"  value=" @foreach ($blog->tags as $tags) {{$tags->name.','}} @endforeach">
+                            @if ($errors->has('tags'))
+                                <span  class="text-danger">{{ $errors->first('tags') }}</span>
+                            @endif
+                        </div>
+                        <div class="form-group">
                             <label>Description</label>
                             <textarea id="editBlogDesc" class="form-control" name="description" rows="3" placeholder="Enter ..." required>{{ $blog->description }}</textarea>
 
@@ -80,7 +88,7 @@
                         <div class="form-group">
                             <div class="mb-3">
                                 <label for="blogimage" class="form-label">Image</label>
-                                <input class="form-control" name="image" type="file" id="blogimage" value="{{$blog->image}}">
+                                <input class="form-control" name="image" type="file" id="blogimage" value="{{$blog->image}}" accept="image/*"/>
                             </div>
                         </div>
 

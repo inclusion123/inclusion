@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Applicant</h1>
+                        <h1 class="m-0">Applicant Details</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -30,7 +30,6 @@
                             <th>#</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Profile</th>
                             <th>Message</th>
                             <th>Created At</th>
                         </tr>
@@ -50,27 +49,18 @@
                         ajax: '{{ route('admin.career.applicant_data') }}',
                         columns: [{
                                 data: 'id',
-                                name: 'id'
                             },
                             {
                                 data: 'name',
-                                name: 'name'
                             },
                             {
                                 data: 'email',
-                                name: 'email'
-                            },
-                            {
-                                data: 'profile',
-                                name: 'profile'
                             },
                             {
                                 data: 'message',
-                                name: 'message'
                             },
                             {
                                 data: 'created_at',
-                                name: 'created_at'
                             }
                         ]
                     });

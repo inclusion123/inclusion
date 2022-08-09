@@ -13,16 +13,22 @@ class BlogController extends Controller
     public function blog_grid()
     {
         $blogs = Blog::all();
-        return view('front.pages.blogs.blog', compact('blogs'));
+        return view('front.pages.blogs.index', compact('blogs'));
     }
-    public function blog_detail($slug)
+    public function blog_detail()
     {
-        $blog = Blog::where('slug', $slug)->first();
-        $count =$blog->comments()->count(); 
-        $comments = $blog->comments()->paginate(3);
-
-        // $blog = Blog::with('comments')->where('slug', $slug)->first();
-        return view('front.pages.blogs.blog_detail', compact('blog','comments','count'));
+        if (isset($_GET['tag'])) {
+            $tag = $_GET['tag'];
+            $blogs = Blog::withAnyTag($tag)->get();
+            return view('front.pages.blogs.index', compact('blogs'));
+        }
+        if (isset($_GET['s'])) {
+            $slug =  $_GET['s'];
+            $blog = Blog::where('slug', $slug)->first();
+            $count = $blog->comments()->count();
+            $comments = $blog->comments()->paginate(3);
+            return view('front.pages.blogs.blog_detail', compact('blog', 'comments', 'count'));
+        }
     }
     public function comment(Request $request)
     {
@@ -34,9 +40,10 @@ class BlogController extends Controller
                 'comment' => $request->comment
             ]);
 
-            return response()->json("coment done");
+            return response()->json("comment done");
         } catch (\Exception $e) {
             Log::error('error', $e->getMessage());
         }
     }
+   
 }

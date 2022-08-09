@@ -74,7 +74,7 @@
 
                 $.ajax({
                     type: "DELETE",
-                    url: "{{ url('admin/About-Us/destroy') }}/"+id,
+                    url: "{{ url('admin/aboutus/') }}/"+id,
                     data: {
                         "_token": "{{ csrf_token() }}",
                         "id": id

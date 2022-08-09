@@ -20,7 +20,7 @@ class ContactController extends Controller
             $models = ContactInquiry::orderBy('created_at', 'DESC');
             $datatable = Datatables::eloquent($models)
             ->addColumn('created_at',function($request){
-                return $request->created_at->format('d-m-y');
+                return $request->created_at->format('d M Y');
             })
             ->rawColumns(['created_at'])
             ->make(true);

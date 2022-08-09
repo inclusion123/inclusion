@@ -17,30 +17,20 @@ class ContactController extends Controller
     public function index()
     {
         $seo = Seo::seo('contact');
-        return view('front.pages.contact.index',compact('seo'));
+        return view('front.pages.contact.index', compact('seo'));
     }
     public function contact_save(ContactRequest $request)
     {
-
         try {
             ContactInquiry::create([
                 'name' => $request->name,
                 'email' => $request->email,
                 'subject' => $request->subject,
                 'message' => $request->message
-
             ]);
             $data = $request->all();
-            // Mail::to(
-            //     env("mail_reciever")
-            // )->send(new ContactMail($data));
-
-            // $contactjobs = new ContactJob($data);
-            // $this->dispatch($contactjobs);
-            // $this->dispatch(new ContactJob($data));
             ContactJob::dispatch($data);
-
-            return redirect()->back()->with('success', 'Contact Request Successfully');
+            return redirect()->back()->with('success', 'Contact request message has been sent successfully.');
         } catch (\Exception $e) {
             return redirect()->back()->withInput()->with('error', 'Something went Wrong: ' . $e->getMessage());
             return $e->getMessage();

@@ -26,7 +26,7 @@ class CareerRequest extends FormRequest
         return [
             'name' => 'required',
             'email' => 'required|email',
-            'profile' => 'required',
+          
             'message' => 'required',
      
         ];

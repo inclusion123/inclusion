@@ -7,10 +7,10 @@
                         <h5 class="fw-bold text-primary text-uppercase">EMPOWERING SMALL BUSINESSES</h5>
                         <h1 class="mb-0">Our Mission</h1>
                     </div>
-                    <p class="mb-4">Software development is an art and its quality increases with freedom. Our mission is to provide a sense of freedom in the web development and create a personalised relationship with clients by providing dedicated resources who works only on your dream project so that the goal of client and ours is unified and the project take its shape with innovative ideas.
+                    <p class="mb-4">Through our mission, Inclusion software solution aims to provide innovative products that help companies achieve their goals and improve their operations. We are a team of experienced developers who create business software that can be used to improve the efficiency of their organizations. We believe that the internet has played a significant role in shaping our lives and helping us reach our goals. It is also one of the critical technologies supporting our belief in social progress. Ethics is the universal force that drives our movement forward.
                     </p>
                     <p>
-                        We want to improve the statistics of our industry where 90% projects are failed. We want to follow a strategy where there are advantages of hiring a freelancer in terms of flexibility and also a sense of security and accountability which a company provides. We want to work with a new approach which can benefit all stakeholders clients, employees and the company with more efficiently.
+                        The continuous development of our employees is the main factor that drives Inclusion Software Solution’s success. Our goal is to help our clients develop their businesses and improve their business quality. We help them achieve their goals and improve the lives of their customers.
                     </p>
 
                     <a href="#view-job" class="btn btn-primary py-3 px-5 mt-3 wow zoomIn" data-wow-delay="0.9s">View

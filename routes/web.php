@@ -20,6 +20,7 @@ use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Front\AboutUsController;
 use App\Http\Controllers\Front\BlogController as FrontBlogController;
 use App\Http\Controllers\Front\CareerController;
 use App\Http\Controllers\Front\HomeController;
@@ -47,20 +48,20 @@ Route::name('front.')->group(function () {
     // Service Pages Route 
     Route::get('services', [App\Http\Controllers\Front\ServicesController::class, 'index'])->name('service');
 
-    Route::get('service-detail/{slug}', [App\Http\Controllers\Front\ServicesController::class, 'service_detail']);
+    Route::get('service/{slug}', [App\Http\Controllers\Front\ServicesController::class, 'service_detail']);
 
     // // Blog Pages Route
     Route::get('blogs', [App\Http\Controllers\Front\BlogController::class, 'blog_grid'])->name('blog_grid');
-    Route::get('blog-detail/{slug}', [App\Http\Controllers\Front\BlogController::class, 'blog_detail'])->name('blog_detail');
-    Route::post('/blog-comment',[FrontBlogController::class,'comment'])->name('blog.comment');
+    Route::get('blog/', [App\Http\Controllers\Front\BlogController::class, 'blog_detail'])->name('blog_detail');
+    Route::post('/blog-comment', [FrontBlogController::class, 'comment'])->name('blog.comment');
 
     //feature page route
-    // Route::get('feature', [App\Http\Controllers\Front\FeatureController::class, 'index'])->name('feature');
+    Route::get('feature', [App\Http\Controllers\Front\FeatureController::class, 'index'])->name('feature');
 
     // Career Page Routes
-    Route::name('career.')->group(function () {
-        Route::get('career', [App\Http\Controllers\Front\CareerController::class, 'index'])->name('index');
-        Route::post('/career', [CareerController::class, 'store'])->name('store');
+    Route::group(['prefix' => 'career', 'as' => 'career.'], function () {
+        Route::get('/', [App\Http\Controllers\Front\CareerController::class, 'index'])->name('index');
+        Route::post('/apply-for-job', [CareerController::class, 'store'])->name('store');
 
         //job detail
         Route::get('/career/{slug}', [CareerController::class, 'job_detail'])->name('jobDetail');
@@ -95,16 +96,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
 
         //service routes
         Route::group(['prefix' => 'service', 'as' => 'service.'], function () {
-            Route::get('/', [ServiceController::class, 'index'])->name('index');
             Route::get('/-list', [ServiceController::class, 'getModels'])->name('list');
-            Route::get('/-create', [ServiceController::class, 'create'])->name('create');
-            Route::post('/-store', [ServiceController::class, 'store'])->name('store');
             Route::post('/-change-status', [ServiceController::class, 'changeStatus'])->name('changeStatus');
             Route::get('/-detail/{id}', [ServiceController::class, 'detail'])->name('detail');
-            Route::get('/-edit/{id}', [ServiceController::class, 'edit'])->name('edit');
-            Route::put('/-update/{id}', [ServiceController::class, 'update'])->name('update');
-            Route::post('/-delete', [ServiceController::class, 'destroy'])->name('destroy');
         });
+        Route::resource('/service', ServiceController::class);
 
         Route::resource('childservices', ChildServiceController::class);
         Route::get('/child-services/{id}', [ChildServiceController::class, 'index'])->name('childservices.indexpage');
@@ -121,50 +117,19 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::resource('settings', SettingController::class);
         Route::get('/Settings-list/', [SettingController::class, 'getModels'])->name('settings.list');
 
-        Route::name('aboutus.')->group(function () {
-            Route::get('About-Us', [AdminAboutUsController::class, 'index'])->name('index');
-            Route::get('/About-US', [AdminAboutUsController::class, 'getModels'])->name('list');
-            Route::delete('/About-Us/destroy/{id}', [AdminAboutUsController::class, 'destroy'])->name('destroy');
-            Route::get('/About-Us/create', [AdminAboutUsController::class, 'create'])->name('create');
-            Route::post('/About-Us/store', [AdminAboutUsController::class, 'store'])->name('store');
-            Route::get('/About-Us/edit/{id}', [AdminAboutUsController::class, 'edit'])->name('edit');
-            Route::put('About-Us/update/{id}', [AdminAboutUsController::class, 'update'])->name('update');
-        });
+        Route::resource('/aboutus', AdminAboutUsController::class);
+        Route::get('/about-US', [AdminAboutUsController::class, 'list'])->name('aboutus.list');
 
-        Route::group(['prefix' => 'team', 'as' => 'team.'], function () {
-            Route::get('/index', [TeamController::class, 'index'])->name('index');
-            Route::get('/getModels', [TeamController::class, 'getModels'])->name('list');
-            Route::get('/create', [TeamController::class, 'create'])->name('create');
-            Route::post('/store', [TeamController::class, 'store'])->name('store');
-            Route::get('/edit/{id}', [TeamController::class, 'edit'])->name('edit');
-            Route::put('/update/{id}', [TeamController::class, 'update'])->name('update');
-            Route::delete('/destroy/{id}', [TeamController::class, 'destroy'])->name('destroy');
-        });
+        Route::resource('/team', TeamController::class);
+        Route::get('/team-list', [TeamController::class, 'list'])->name('team.list');
 
         Route::group(['prefix' => 'career', 'as' => 'career.'], function () {
             Route::get('/applicant', [AdminCareerController::class, 'applicant_index'])->name('index');
             Route::get('/applicant-data', [AdminCareerController::class, 'applicant_data'])->name('applicant_data');
         });
 
-        // Route::group(['prefix' => 'feature', 'as' => 'feature.'], function () {
-        //     Route::get('/', [FeatureController::class, 'index'])->name('index');
-        //     Route::get('/-list', [FeatureController::class, 'list'])->name('list');
-        //     // Route::get('/create',[FeatureController::class,'create'])->name('create');
-        //     // Route::post('/store',[FeatureController::class,'store'])->name('store');
-        //     Route::get('/edit/{id}', [FeatureController::class, 'edit'])->name('edit');
-        //     Route::put('/update/{id}', [FeatureController::class, 'update'])->name('update');
-        //     // Route::delete('/destroy/{id}',[FeatureController::class,'destroy'])->name('destroy');
-        // });
-
-        Route::group(['prefix' => 'testimonial', 'as' => 'testimonial.'], function () {
-            Route::get('/', [TestimonialController::class, 'index'])->name('index');
-            Route::get('/-list', [TestimonialController::class, 'list'])->name('list');
-            Route::get('/create', [TestimonialController::class, 'create'])->name('create');
-            Route::post('/store', [TestimonialController::class, 'store'])->name('store');
-            Route::get('/edit/{id}', [TestimonialController::class, 'edit'])->name('edit');
-            Route::put('/update/{id}', [TestimonialController::class, 'update'])->name('update');
-            Route::delete('/destroy/{id}', [TestimonialController::class, 'destroy'])->name('destroy');
-        });
+        Route::resource('/testimonial', TestimonialController::class);
+        Route::get('testimonial-list', [TestimonialController::class, 'list'])->name('testimonial.list');
 
         Route::resource('/seo', SeoController::class);
         Route::any('/seo-list', [SeoController::class, 'list'])->name('seo.list');

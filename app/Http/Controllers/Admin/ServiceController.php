@@ -126,10 +126,9 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy($id)
     {
-        // dd($request->id);
-        $delete = Service::where('id', $request->id)->delete();
+         Service::where('id', $id)->delete();
     }
     public function getModels()
     {

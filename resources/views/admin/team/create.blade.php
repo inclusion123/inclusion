@@ -50,7 +50,7 @@
                             <div class="form-group">
                                 <div class="mb-3">
                                     <label for="teamimage" class="form-label">Image</label>
-                                    <input class="form-control" name="image" type="file" id="teamimage">
+                                    <input class="form-control" name="image" type="file" id="teamimage" accept="image/*"/>
                                 </div>
                             </div>
                             <div class="card-body">

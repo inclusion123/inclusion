@@ -71,7 +71,7 @@
 
                 $.ajax({
                     type: "DELETE",
-                    url: "{{ url('admin/team/destroy') }}/"+id,
+                    url: "{{ url('admin/team/') }}/"+id,
                     data: {
                         "_token": "{{ csrf_token() }}",
                         "id": id

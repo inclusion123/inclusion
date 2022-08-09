@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\TeamRequest;
-use App\Models\Team;
 use Illuminate\Http\Request;
+use App\Models\Team;
 use Yajra\DataTables\Facades\DataTables;
 
 class TeamController extends Controller
@@ -36,9 +35,8 @@ class TeamController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(TeamRequest $request)
+    public function store(Request $request)
     {
-        // dd($request->all());
         try {
             $team = Team::create([
 
@@ -98,8 +96,6 @@ class TeamController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // dd(44);
-        // dd($request->all());
         $this->validate($request, [
             'image' => 'sometimes|mimes:png,jpeg,gif',
         ]);
@@ -135,7 +131,7 @@ class TeamController extends Controller
     {
         $team = Team::where('id', $id)->delete();
     }
-    public function getModels()
+    public function list()
     {
         // $team = Team::all();
         try {

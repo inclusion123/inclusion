@@ -55,8 +55,7 @@
                                 <div class="form-group">
                                     <label for="childServiceImage">Image</label>
 
-                                    <input type="file" name="image" class="form-control" id="childServiceImage"
-                                        required>
+                                    <input type="file" name="image" class="form-control" id="childServiceImage" required accept="image/*"/>
                                        
                                 </div>
 

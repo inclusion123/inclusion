@@ -9,31 +9,27 @@
     <link href="{{ asset('back\dist\css\login_form.css') }}" rel="stylesheet">
     {{-- @include('admin.layouts.admin_head') --}}
     <link rel="stylesheet" href="{{ asset('back/dist/css/adminlte.min.css') }}">
-    <style>
-        #form_login {
-             height:500px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;  
-        }
-    </style>
 </head>
 
 <body>
-    <section class="content" >
-        <div class="container-fluid">
+    
+    @include('alerts.alerts')
+    <section class="login__contant" >
+        <div class="container">
             <div class="row" id="form_login">
                 <!-- left column -->
+                <div class="col-md-3">
+                </div>
                 <div class="col-md-6">
-                    @include('alerts.alerts')
                     <!-- general form elements -->
-                    <div class="card card-primary">
-                        <a href="{{ route('admin.dashboard') }}" class="brand-link">
+                    <div class="login__logo">                        
+                        <a href="{{ route('admin.dashboard') }}" class="brand-logo">
                             <img src="{{ asset('front\img\logo.png') }}" alt="Inclusion Logo" class="brand-image img-round ">
                             {{-- <span class="brand-text font-weight-light">AdminLTE 3</span> --}}
                         </a>
-                        <div class="card-header">
+                    </div>
+                    <div class="card card-primary">
+                        <div class="login-header">
                             <h3 class="card-title">Admin Login </h3>
                         </div>
                         <!-- /.card-header -->
@@ -59,13 +55,15 @@
                                     </div>
                                     <!-- /.card-body -->
     
-                                    <div class="card-footer">
+                                    <div class="login__btn">
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </div>
                                 </div>
                             </div>
                         </form>
                     </div>
+                </div>
+                <div class="col-md-3">
                 </div>
             </div>
         </div>

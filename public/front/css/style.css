@@ -380,11 +380,33 @@ h6,
 
 .testimonial-carousel .owl-item .testimonial-item {
     transition: .5s;
+    height: 375px;
 }
 
 .testimonial-carousel .owl-item.center .testimonial-item {
     background: #FFFFFF !important;
     box-shadow: 0 0 30px #DDDDDD;
+}
+
+@media screen and (max-width:1366px) {
+    .testimonial-carousel .owl-item .testimonial-item {
+        height: 440px;
+    }
+}
+@media screen and (max-width:767px) {
+    .testimonial-carousel .owl-item .testimonial-item {
+        height: 375px;
+    }
+}
+@media screen and (max-width:420px) {
+    .testimonial-carousel .owl-item .testimonial-item {
+        height: 420px;
+    }
+}
+@media screen and (max-width:375px) {
+    .testimonial-carousel .owl-item .testimonial-item {
+        height: auto;
+    }
 }
 
 
@@ -774,6 +796,10 @@ h3.bdiv{
     color: white;
     overflow: hidden;
     padding: 0 20px;
+}
+.bcards img {
+    width: 75px;
+    margin: 0 0 25px;
 }
 
 .job__detail {    

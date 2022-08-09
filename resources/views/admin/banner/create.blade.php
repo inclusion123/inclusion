@@ -38,27 +38,27 @@
 
                             <div class="form-group">
                                 <label for="bannername">Name</label>
-                                <input type="name" name="name" class="form-control" 
-                                    placeholder="Enter ..." required value="{{ old('name') }}">
+                                <input type="name" name="name" class="form-control" placeholder="Enter ..." required
+                                    value="{{ old('name') }}">
                             </div>
                             <div class="form-group">
                                 <label for="bannertitle">Title</label>
-                                <input type="name" name="title" class="form-control" 
-                                    placeholder="Enter ..." required value="{{ old('title') }}">
+                                <input type="name" name="title" class="form-control" placeholder="Enter ..." required
+                                    value="{{ old('title') }}">
                             </div>
 
                             <div class="form-group">
                                 <div class="mb-3">
                                     <label for="bannerimage" class="form-label">Image</label>
-                                    <input class="form-control" name="image" type="file" id="bannerimage">
+                                    <input class="form-control" name="image" type="file" id="bannerimage" required accept="image/*"/>
                                 </div>
                             </div>
-                        
-                        <!-- /.card-body -->
 
-                        <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
+                            <!-- /.card-body -->
+
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
                     </form>
                 </div>
             </div>

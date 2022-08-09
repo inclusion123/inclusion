@@ -11,10 +11,6 @@
                 email: {
                     required: true,
                 },
-
-                profile: {
-                    required: true,
-                },
                 message: {
                     required: true,
                 },
@@ -32,9 +28,6 @@
                 },
                 email: {
                     required: "Email is required.",
-                },
-                profile: {
-                    required: "Profile is required.",
                 },
                 message: {
                     required: "Message is required.",

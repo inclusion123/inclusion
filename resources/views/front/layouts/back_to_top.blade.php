@@ -4,7 +4,7 @@
   </a>
 
   <!-- Chatbot -->
-  <div class="botIcon">
+  {{-- <div class="botIcon">
     <div class="botIconContainer">
       <div class="iconInner">
         <i class="bi-chat-text-fill" aria-hidden="true"></i>
@@ -37,5 +37,5 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> --}}
   <!-- Chatbot -->

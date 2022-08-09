@@ -51,15 +51,22 @@
                                     value="{{ old('meta_description') }}">
                             </div>
 
-
                             <div class="form-group">
                                 <label for="blogTitle">Title</label>
                                 <input type="text" name="title" class="form-control" placeholder="Enter ..." required
                                     value="{{ old('title') }}">
                             </div>
                             <div class="form-group">
+                                <label>Tags:</label>
+                                <br />
+                                <input data-role="tagsinput" type="text" name="tags">
+                                @if ($errors->has('tags'))
+                                    <span class="text-danger">{{ $errors->first('tags') }}</span>
+                                @endif
+                            </div>
+                            <div class="form-group">
                                 <label for="blogImage">Image</label>
-                                <input type="file" name="image" class="form-control" required>
+                                <input type="file" name="image" class="form-control" required accept="image/*"/>
                             </div>
                             <div class="form-group">
                                 <label>Description</label>
