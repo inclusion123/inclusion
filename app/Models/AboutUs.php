@@ -20,7 +20,7 @@ class AboutUs extends Model
         $success = $image->storeAs($upload_path, $image_name);
         return $image_name;
     }
-    public function aboutus()
+    public static function aboutus()
     {
       return AboutUs::first();
     }

@@ -17,7 +17,7 @@ class Testimonial extends Model
         $success = $image->storeAs($upload_path, $image_name);
         return $image_name;
     }
-    public function testimonial()
+    public static function testimonial()
     {
         return Testimonial::all();
     }

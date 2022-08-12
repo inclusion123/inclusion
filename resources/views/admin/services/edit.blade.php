@@ -84,11 +84,11 @@
                             <div class="form-group">
                                 <label for="serviceName">Detail Name</label>
                                 <input type="text" name="detailname" class="form-control"
-                                    value="{{ $service->detail_name }}" placeholder="Enter ..." required>
+                                    value="{{ $service->detail_name }}" placeholder="Enter ..." >
                             </div>
                             <div class="form-group">
                                 <label for="serviceName">Detail Description</label>
-                                <textarea id="editServiceDesc2" class="form-control" name="detaildescription" rows="3" placeholder="Enter ..." required>{{ $service->detail_description }}</textarea>
+                                <textarea id="editServiceDesc2" class="form-control" name="detaildescription" rows="3" placeholder="Enter ..." >{{ $service->detail_description }}</textarea>
                                 {{-- <textarea id="editServiceDesc2"  name="detaildescription" class="form-control"
                                     value="{{ $service->detail_description }}" placeholder="Enter ..." required></textarea> --}}
                             </div>

@@ -20,8 +20,8 @@ class CreateServicesTable extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->longText('description');
-            $table->string('detail_name');
-            $table->longText('detail_description');
+            $table->string('detail_name')->nullable();
+            $table->longText('detail_description')->nullable();
             $table->tinyInteger('status')->default(1)->comment("0=>inactive,1=>Active");
             $table->timestamps();
         });

@@ -10,7 +10,7 @@ class Feature extends Model
     use HasFactory;
     protected $fillable = ['name','icon','description'];
 
-    public function feature($id)
+    public static function feature($id)
     {
         return Feature::find($id);
     }

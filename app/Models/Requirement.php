@@ -10,7 +10,7 @@ class Requirement extends Model
     use HasFactory;
     protected $fillable = ['name', 'description', 'experience','slug', 'position'];
 
-    public function requirement()
+    public static function requirement()
     {
        return Requirement::all();
     }

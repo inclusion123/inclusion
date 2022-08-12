@@ -51,9 +51,9 @@ Route::name('front.')->group(function () {
     Route::get('service/{slug}', [App\Http\Controllers\Front\ServicesController::class, 'service_detail']);
 
     // // Blog Pages Route
-    Route::get('blogs', [App\Http\Controllers\Front\BlogController::class, 'blog_grid'])->name('blog_grid');
-    Route::get('blog/', [App\Http\Controllers\Front\BlogController::class, 'blog_detail'])->name('blog_detail');
-    Route::post('/blog-comment', [FrontBlogController::class, 'comment'])->name('blog.comment');
+    // Route::get('blogs', [App\Http\Controllers\Front\BlogController::class, 'blog_grid'])->name('blog_grid');
+    // Route::get('blog/', [App\Http\Controllers\Front\BlogController::class, 'blog_detail'])->name('blog_detail');
+    // Route::post('/blog-comment', [FrontBlogController::class, 'comment'])->name('blog.comment');
 
     //feature page route
     Route::get('feature', [App\Http\Controllers\Front\FeatureController::class, 'index'])->name('feature');
