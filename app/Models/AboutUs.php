@@ -23,5 +23,6 @@ class AboutUs extends Model
     public static function aboutus()
     {
       return AboutUs::first();
+      
     }
 }
