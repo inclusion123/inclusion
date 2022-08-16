@@ -35,7 +35,7 @@
                         <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
                             <i class="fa fa-shipping-fast text-white"></i>
                         </div>
-                        <h4>On-time delivery</h4>
+                        <h4>On-Time Delivery</h4>
                         <p class="mb-0">One of the most critical factors a company considers when it comes to getting its projects done is the time it takes. We are committed to delivering projects on time and within a strict deadline.</p>
                     </div>
                     <div class="col-12 wow zoomIn" data-wow-delay="0.8s">

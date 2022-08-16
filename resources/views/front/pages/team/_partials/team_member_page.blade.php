@@ -6,7 +6,7 @@
                     Team Members
                 </h5>
                 <h1 class="mb-0">
-                    Professional Stuffs Ready to Help Your Business
+                    Professional Stuffs Ready To Help Your Business
                 </h1>
             </div>
             @php
