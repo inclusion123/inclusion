@@ -83,10 +83,10 @@ Route::name('front.')->group(function () {
 
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
-    Route::get('/', [App\Http\Controllers\Admin\AdminAuthcontroller::class, 'showLoginForm'])->name('login-root')->middleware('guest');
-    Route::get('/login', [App\Http\Controllers\Admin\AdminAuthcontroller::class, 'showLoginForm'])->name('login')->middleware('guest');
-    Route::post('login', [App\Http\Controllers\Admin\AdminAuthcontroller::class, 'login'])->name('login.post');
-    Route::post('logout', [App\Http\Controllers\Admin\AdminAuthcontroller::class, 'logout'])->name('logout');
+    Route::get('/', [App\Http\Controllers\Admin\AdminAuthController::class, 'showLoginForm'])->name('login-root')->middleware('guest');
+    Route::get('/login', [App\Http\Controllers\Admin\AdminAuthController::class, 'showLoginForm'])->name('login')->middleware('guest');
+    Route::post('login', [App\Http\Controllers\Admin\AdminAuthController::class, 'login'])->name('login.post');
+    Route::post('logout', [App\Http\Controllers\Admin\AdminAuthController::class, 'logout'])->name('logout');
 
     Route::middleware('auth')->group(function () {
         Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
