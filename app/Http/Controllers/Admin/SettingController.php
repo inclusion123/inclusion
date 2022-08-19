@@ -33,7 +33,7 @@ class SettingController extends Controller
             $service->instagram = $request->instagram;
             $service->linkedin = $request->linkedin;
             $service->youtube = $request->youtube;
-            $service->twitter = $request->status;
+            $service->twitter = $request->twitter;
             $service->facebook = $request->facebook;
             $service->save();
             return redirect()->route('admin.settings.index')->with('success', 'Setting is successfully updated.');
