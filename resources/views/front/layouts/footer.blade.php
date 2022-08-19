@@ -1,5 +1,5 @@
 <!-- Footer Start -->
-<div class="container-fluid bg-dark text-light mt-5 wow fadeInUp" data-wow-delay="0.1s">
+<div class="container-fluid bg-dark text-light mt-4 wow fadeInUp" data-wow-delay="0.1s">
     <div class="container">
         <div class="row gx-5">
             <div class="col-lg-4 col-md-6 footer-about">
@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="col-lg-8 col-md-6">
-                <div class="row gx-5">
+                <div class="row gx-5 footer__links">
                     <div class="col-lg-4 col-md-12 pt-5 mb-5">
                         <div class="section-title section-title-sm position-relative pb-3 mb-4">
                             <h3 class="text-light mb-0">
@@ -40,9 +40,7 @@
                         </div>
                         <div class="d-flex mb-2">
                             <i class="bi bi-envelope-open text-primary me-2"></i>
-                            <p class="mb-0">
-                                {{$setting_helper->email}}
-                            </p>
+                            <p class="mb-0">{{$setting_helper->email}}</p>
                         </div>
                         <div class="d-flex mb-2">
                             <i class="bi bi-telephone text-primary me-2"></i>

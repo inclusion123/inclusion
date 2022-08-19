@@ -1,6 +1,6 @@
    <!-- Features Start -->
-   <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-    <div class="container py-5">
+   <div class="container-fluid py-4 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container py-4">
         <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
             <h5 class="fw-bold text-primary text-uppercase">Why Choose Us</h5>
             <h1 class="mb-0">Why Inclusions Software Solutions?</h1>

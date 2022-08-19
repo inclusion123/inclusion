@@ -6,8 +6,8 @@
 @endif
 
 @section('carousel')
-    <div class="container-fluid bg-primary py-5 bg-header" style="margin-bottom: 90px;">
-        <div class="row py-5">
+    <div class="container-fluid bg-primary py-4 mb-4 bg-header" style="">
+        <div class="row py-4">
             {{-- @include('alerts.alerts') --}}
             <div class="col-12 pt-lg-5 mt-lg-5 text-center">
                 <h1 class="display-4 text-white animated zoomIn">Contact Us</h1>
@@ -23,8 +23,8 @@
 
 @section('content')
     <!-- Contact Start -->
-    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container py-5">
+    <div class="container-fluid py-4 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-4">
             <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
                 <h5 class="fw-bold text-primary text-uppercase">Contact Us</h5>
                 <h1 class="mb-0">If You Have Any Query, Feel Free To Contact Us</h1>

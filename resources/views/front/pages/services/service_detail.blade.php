@@ -5,8 +5,8 @@
 @section('meta_description', $service->meta_description) --}}
 
 @section('carousel')
-    <div class="container-fluid bg-primary py-5 bg-header" style="margin-bottom: 90px;">
-        <div class="row py-5">
+    <div class="container-fluid bg-primary py-4 mb-4 bg-header" style="">
+        <div class="row py-4">
             <div class="col-12 pt-lg-5 mt-lg-5 text-center">
                 <h1 class="display-4 text-white animated zoomIn">Services</h1>
                 <a href="{{ route('front.index') }}" class="h5 text-white">Home</a>
@@ -20,8 +20,8 @@
 
 @section('content')
     <!-- Section Start -->
-    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container py-5">
+    <div class="container-fluid py-4 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-4">
             <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 800px;">
                 <h5 class="fw-bold text-primary text-uppercase">{{ $service->page_name }}</h5>
                 <h1 class="mb-0">{{ $service->title }}</h1>
@@ -44,8 +44,8 @@
     <!-- Section Start -->
 
     <!-- Section Start -->
-    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container py-5">
+    <div class="container-fluid py-4 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-4">
             <div class="row g-5 indus__row">
                 <div class="col-6 col-md">
                     <div class="indus__box">
@@ -113,8 +113,8 @@
     <!-- Section Start -->
 
     <!-- Section Start -->
-    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container py-5">
+    <div class="container-fluid py-4 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-4">
             <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 800px;">
                 <h5 class="fw-bold text-primary text-uppercase">{{ $service->detail_name }} </h5>
                 <h1 class="mb-0"> {!! $service->detail_description !!}</h1>
@@ -122,7 +122,7 @@
 
             @foreach ($service->childService as $key=> $child_service)
                 @if($key % 2 == 0)
-                <div class="row g-5 mt-5 mb-5">
+                <div class="row g-5 mt-4 mb-4">
                     <div class="col-md-4 col-sm-4 col-12">
                         <div class="experties-img">
                             <img src="{{asset('/storage/images') }}/{{$child_service->image}}">
@@ -136,7 +136,7 @@
                     </div>
                 </div>
                 @else
-                <div class="row g-5 mt-5 mb-5">
+                <div class="row g-5 mt-4 mb-4">
                     <div class="col-md-8 col-sm-8 col-12">
                         <div class="experties-cnt">
                             <h3 class="mb-3"> {{ $child_service->name }}</h3>

@@ -507,6 +507,21 @@ h6,
     padding-left: 10px;
 }
 
+
+@media screen and (max-width:1199px) and (min-width:992px) {
+    .footer__about p {
+        font-size: 14px;
+    }
+    .footer__links .section-title h3 {
+        font-size: 22px;
+    }
+    .footer__links p {
+        font-size: 14px;
+    }
+    .footer__links a {
+        font-size: 14px;
+    }
+}
 @media (min-width: 767.98px) {
     .footer-about {
         margin-bottom: -75px;
@@ -834,6 +849,29 @@ h3.bdiv{
     background-size: cover;
 }
 
+@media screen and (max-width:768px) {
+    .containimage {
+        height: 300px;
+    }
+    .slidecontainer {
+        height: 100%;
+    }
+}
+@media screen and (max-width:580px) {
+    .containimage {
+        height: 250px;
+    }
+}
+@media screen and (max-width:450px) {
+    .containimage {
+        height: 210px;
+    }
+}
+@media screen and (max-width:375px) {
+    .containimage {
+        height: 170px;
+    }
+}
 
 /* CAREER PAGE CSS END */
 

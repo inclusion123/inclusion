@@ -1,6 +1,6 @@
     <!-- job post company Start -->
-    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container py-5">
+    <div class="container-fluid py-4 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-4">
             <div class="row g-5">
                 <!-- Left Content -->
                 <div class="col-xl-7 col-lg-8">

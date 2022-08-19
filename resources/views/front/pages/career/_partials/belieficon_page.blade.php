@@ -1,6 +1,6 @@
   <!-- beliefcon Start -->
-  <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-    <div class="container py-5">
+  <div class="container-fluid py-4 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container py-4">
         <div class="row g-5">
             <div class="col-lg-3 wow slideInUp" data-wow-delay="0.3s">
                 <div class="beliefcon">

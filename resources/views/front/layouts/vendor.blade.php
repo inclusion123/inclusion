@@ -1,6 +1,6 @@
     <!-- Vendor Start -->
-    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container py-5 mb-5">
+    <div class="container-fluid py-4 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-4 mb-5">
             <div class="bg-white">
                 <div class="owl-carousel vendor-carousel">
                     <img src="{{ asset('front/img/vendor-1.jpg') }}" alt="" />
