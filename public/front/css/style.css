@@ -216,6 +216,10 @@ h6,
 
 
 /*** Carousel ***/
+
+.carousel-fade .carousel-item {
+    height: 600px;
+}
 .carousel-caption {
     top: 0;
     left: 0;
@@ -224,7 +228,21 @@ h6,
     background: rgb(0 0 0 / 56%);
     z-index: 1;
 }
-
+@media screen and (max-width:1400px) {
+    .carousel-fade .carousel-item {
+        height: 550px;
+    }
+}
+@media screen and (max-width:1200px) {
+    .carousel-fade .carousel-item {
+        height: 550px;
+    }
+}
+@media screen and (max-width:1050px) {
+    .carousel-fade .carousel-item {
+        height: auto;
+    }
+}
 @media (max-width: 576px) {
     .carousel-caption h5 {
         font-size: 14px;
