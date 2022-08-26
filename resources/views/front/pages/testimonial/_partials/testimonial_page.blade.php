@@ -17,7 +17,7 @@
 
               @foreach ($testimonials as $testimonial)
                   <div class="testimonial-item bg-light my-4">
-                      <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
+                      <div class="d-flex align-items-center border-bottom pt-4 pb-4 px-4">
                           <img class="img-fluid rounded"
                               src="{{ asset('storage/images') }}/{{ $testimonial->image }}"
                               style="width: 60px; height: 60px" />
@@ -26,7 +26,7 @@
                               {{-- <small class="text-uppercase">{{ $testimonial->profession }}</small> --}}
                           </div>
                       </div>
-                      <div class="pt-4 pb-5 px-5">
+                      <div class="pt-4 pb-4 px-4">
                           {!! $testimonial->description !!}
                       </div>
                   </div>

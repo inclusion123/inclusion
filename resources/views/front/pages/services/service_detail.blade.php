@@ -122,7 +122,7 @@
 
             @foreach ($service->childService as $key=> $child_service)
                 @if($key % 2 == 0)
-                <div class="row g-5 mt-4 mb-4">
+                <div class="row experties___contant mt-4 mb-4">
                     <div class="col-md-4 col-sm-4 col-12">
                         <div class="experties-img">
                             <img src="{{asset('/storage/images') }}/{{$child_service->image}}">
@@ -136,7 +136,7 @@
                     </div>
                 </div>
                 @else
-                <div class="row g-5 mt-4 mb-4">
+                <div class="row experties___contant mt-4 mb-4">
                     <div class="col-md-8 col-sm-8 col-12">
                         <div class="experties-cnt">
                             <h3 class="mb-3"> {{ $child_service->name }}</h3>
