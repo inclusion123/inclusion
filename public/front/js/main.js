@@ -69,7 +69,7 @@
         }
     });
     $('.back-to-top').click(function () {
-        $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
+        $('html, body').animate({scrollTop: 0}, 1000, 'easeInOutExpo');
         return false;
     });
 
@@ -80,6 +80,7 @@
         smartSpeed: 1500,
         dots: true,
         loop: true,
+        margin: 25,
         center: true,
         responsive: {
             0:{

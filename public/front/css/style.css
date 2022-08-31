@@ -216,6 +216,14 @@ h6,
 
 
 /*** Carousel ***/
+
+.carousel-fade .carousel-item {
+    height: 600px;
+}
+.carousel-fade .carousel-item .w-100 {
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+}
 .carousel-caption {
     top: 0;
     left: 0;
@@ -224,7 +232,21 @@ h6,
     background: rgb(0 0 0 / 56%);
     z-index: 1;
 }
-
+@media screen and (max-width:1400px) {
+    .carousel-fade .carousel-item {
+        height: 550px;
+    }
+}
+@media screen and (max-width:1200px) {
+    .carousel-fade .carousel-item {
+        height: 550px;
+    }
+}
+@media screen and (max-width:1050px) {
+    .carousel-fade .carousel-item {
+        height: auto;
+    }
+}
 @media (max-width: 576px) {
     .carousel-caption h5 {
         font-size: 14px;
@@ -311,6 +333,62 @@ h6,
 
 
 /*** Service ***/
+.service-item-wrap {
+    position: relative;
+    padding: 2px 0 0;
+}
+.service-item-wrap::before, .service-item-wrap::after{
+    content:"";
+    width: 0;
+    height: 2px;
+    position: absolute;
+    transition: all 0.2s linear;
+    background: #eb0f26;
+  }
+  
+  .service-item::before, .service-item::after{
+    content:"";
+    width:2px;
+    height:0;
+    position: absolute;
+    transition: all 0.2s linear;
+    background: #eb0f26;
+  }
+  .service-item-wrap:hover::before, .service-item-wrap:hover::after{
+    width: 100%;
+  }
+  .service-item-wrap:hover .service-item::before, .service-item-wrap:hover .service-item::after{
+    height: 100%;
+  }
+  .service-item-wrap::before{
+    left: 50%;
+    top: 0;
+    transition-duration: 0.4s;
+  }
+  .service-item-wrap::after{
+    left: 50%;
+    bottom: 0;
+    transition-duration: 0.4s;
+  }
+  .service-item-wrap .service-item::before{
+    left: 0;
+    top: 50%;
+    transition-duration: 0.4s;
+  }
+  .service-item-wrap .service-item::after{
+    right: 0;
+    top: 50%;
+    transition-duration: 0.4s;
+  }
+  .service-item-wrap:hover::before, .service-item-wrap:hover::after{
+    left: 0;
+  }
+  .service-item-wrap:hover .service-item::before, .service-item-wrap:hover .service-item::after{
+    top: 0;
+  }
+
+  /*  */
+
 .service-item {
     position: relative;
     height: 300px;
@@ -341,6 +419,7 @@ h6,
     left: 50%;
     margin-left: -30px;
     opacity: 0;
+    z-index: 9;
 }
 
 .service-item:hover a.btn {
@@ -380,27 +459,30 @@ h6,
 
 .testimonial-carousel .owl-item .testimonial-item {
     transition: .5s;
-    height: 375px;
+    height: 385px;
+    border-radius: 5px;
+    border: 2px solid transparent;
 }
 
 .testimonial-carousel .owl-item.center .testimonial-item {
     background: #FFFFFF !important;
-    box-shadow: 0 0 30px #DDDDDD;
+    box-shadow: 0 0 10px #eb0f268f;
+    border-color: #eb0f26;
 }
 
 @media screen and (max-width:1366px) {
     .testimonial-carousel .owl-item .testimonial-item {
-        height: 440px;
+        height: 450px;
     }
 }
 @media screen and (max-width:767px) {
     .testimonial-carousel .owl-item .testimonial-item {
-        height: 375px;
+        height: 385px;
     }
 }
 @media screen and (max-width:420px) {
     .testimonial-carousel .owl-item .testimonial-item {
-        height: 420px;
+        height: 430px;
     }
 }
 @media screen and (max-width:375px) {
@@ -696,6 +778,33 @@ h6,
         height: auto;
     }
 }
+
+.experties___contant {
+    box-shadow: 0px 0px 5px #00000026;
+    border-radius: 5px;
+    align-items: center;
+    padding: 15px 0;
+    background-color: #eeeeee26;
+}
+.experties___contant:nth-child(odd) .experties-img {
+    text-align: right;
+}
+.experties-cnt p {
+    text-align: justify;
+    margin: 0px;
+}
+
+@media screen and (max-width: 576px) {
+    .experties___contant .experties-img {
+        text-align: center;
+    }
+    .experties___contant:nth-child(odd) .experties-img {
+        text-align: center;
+    }
+    .experties___contant .experties-img img {
+        width: 300px;
+    }
+}
 /* SERVICES PAGES CSS END */
 
 /* CAREER PAGE CSS */
@@ -978,6 +1087,12 @@ h3.bdiv{
 .comment__form [for] {
     color: #ff0606;
     font-size: 14px;
+}
+.footer__about .navbar-brand {
+    margin: 0px;
+}
+.footer__about .navbar-brand img {
+    width: 250px;
 }
 .footer__about p {
     text-align: justify;
