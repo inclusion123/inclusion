@@ -35,22 +35,26 @@
                         <div class="d-flex mb-2">
                             <i class="bi bi-geo-alt text-primary me-2"></i>
                             <p class="mb-0">
-                                {{$setting_helper->address}}
+                                {{ $setting_helper->address }}
                             </p>
                         </div>
                         <div class="d-flex mb-2">
                             <i class="bi bi-envelope-open text-primary me-2"></i>
-                            <p class="mb-0">{{$setting_helper->email}}</p>
+                            <p class="mb-0">{{ $setting_helper->email }}</p>
                         </div>
                         <div class="d-flex mb-2">
                             <i class="bi bi-telephone text-primary me-2"></i>
-                            <p class="mb-0">{{$setting_helper->mobile}}</p>
+                            <p class="mb-0">{{ $setting_helper->mobile }}</p>
                         </div>
                         <div class="d-flex mt-4">
-                            <a class="btn btn-primary btn-square me-2" href="#"><i class="fab fa-twitter fw-normal"></i></a>
-                            <a class="btn btn-primary btn-square me-2" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
-                            <a class="btn btn-primary btn-square me-2" href="{{$setting_helper->linkedin}}"><i class="fab fa-linkedin-in fw-normal"></i></a>
-                            <a class="btn btn-primary btn-square" href="#"><i class="fab fa-instagram fw-normal"></i></a>
+                            <a class="btn btn-primary btn-square me-2" href="{{ $setting_helper->twitter }}"
+                                target="_blank"><i class="fab fa-twitter fw-normal"></i></a>
+                            <a class="btn btn-primary btn-square me-2" href="href="{{ $setting_helper->facebook }}"
+                                target="_blank"><i class="fab fa-facebook-f fw-normal"></i></a>
+                            <a class="btn btn-primary btn-square me-2" href="{{ $setting_helper->linkedin }}"
+                                target="_blank"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                            <a class="btn btn-primary btn-square" href="{{ $setting_helper->instagram }}"
+                                target="_blank"><i class="fab fa-instagram fw-normal"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
@@ -58,12 +62,17 @@
                             <h3 class="text-light mb-0">Quick Links</h3>
                         </div>
                         <div class="link-animated d-flex flex-column justify-content-start">
-                            <a class="text-light mb-2" href="{{route('front.index')}}"><i class="bi bi-arrow-right text-primary me-2"></i>Home</a>
-                            <a class="text-light mb-2" href="{{route('front.about')}}"><i class="bi bi-arrow-right text-primary me-2"></i>About Us</a>
-                            <a class="text-light mb-2" href="{{route('front.service')}}"><i class="bi bi-arrow-right text-primary me-2"></i>Our Services</a>
-                            <a class="text-light mb-2" href="{{route('front.team_members')}}"><i class="bi bi-arrow-right text-primary me-2"></i>Meet The Team</a>
+                            <a class="text-light mb-2" href="{{ route('front.index') }}"><i
+                                    class="bi bi-arrow-right text-primary me-2"></i>Home</a>
+                            <a class="text-light mb-2" href="{{ route('front.about') }}"><i
+                                    class="bi bi-arrow-right text-primary me-2"></i>About Us</a>
+                            <a class="text-light mb-2" href="{{ route('front.service') }}"><i
+                                    class="bi bi-arrow-right text-primary me-2"></i>Our Services</a>
+                            <a class="text-light mb-2" href="{{ route('front.team_members') }}"><i
+                                    class="bi bi-arrow-right text-primary me-2"></i>Meet The Team</a>
                             {{-- <a class="text-light mb-2" href=""><i class="bi bi-arrow-right text-primary me-2"></i>Latest Blog</a> --}}
-                            <a class="text-light" href="{{route('front.contact')}}"><i class="bi bi-arrow-right text-primary me-2"></i>Contact Us</a>
+                            <a class="text-light" href="{{ route('front.contact') }}"><i
+                                    class="bi bi-arrow-right text-primary me-2"></i>Contact Us</a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
@@ -73,12 +82,17 @@
                             </h3>
                         </div>
                         <div class="link-animated d-flex flex-column justify-content-start">
-                            <a class="text-light mb-2" href="{{route('front.index')}}"><i class="bi bi-arrow-right text-primary me-2"></i>Home</a>
-                            <a class="text-light mb-2" href="{{route('front.about')}}"><i class="bi bi-arrow-right text-primary me-2"></i>About Us</a>
-                            <a class="text-light mb-2" href="{{route('front.service')}}"><i class="bi bi-arrow-right text-primary me-2"></i>Our Services</a>
-                            <a class="text-light mb-2" href="{{route('front.team_members')}}"><i class="bi bi-arrow-right text-primary me-2"></i>Meet The Team</a>
+                            <a class="text-light mb-2" href="{{ route('front.index') }}"><i
+                                    class="bi bi-arrow-right text-primary me-2"></i>Home</a>
+                            <a class="text-light mb-2" href="{{ route('front.about') }}"><i
+                                    class="bi bi-arrow-right text-primary me-2"></i>About Us</a>
+                            <a class="text-light mb-2" href="{{ route('front.service') }}"><i
+                                    class="bi bi-arrow-right text-primary me-2"></i>Our Services</a>
+                            <a class="text-light mb-2" href="{{ route('front.team_members') }}"><i
+                                    class="bi bi-arrow-right text-primary me-2"></i>Meet The Team</a>
                             {{-- <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Latest Blog</a> --}}
-                            <a class="text-light" href="{{route('front.contact')}}"><i class="bi bi-arrow-right text-primary me-2"></i>Contact Us</a>
+                            <a class="text-light" href="{{ route('front.contact') }}"><i
+                                    class="bi bi-arrow-right text-primary me-2"></i>Contact Us</a>
                         </div>
                     </div>
                 </div>
@@ -93,8 +107,9 @@
                 <div class="d-flex align-items-center justify-content-center" style="height: 75px;">
                     <p class="mb-0">
                         Copyright &copy;
-                        <?php echo date("Y"); ?>
-                        <a class="text-white border-bottom" href="{{route('front.index')}}">Inclusion Software Solutions.</a>
+                        <?php echo date('Y'); ?>
+                        <a class="text-white border-bottom" href="{{ route('front.index') }}">Inclusion Software
+                            Solutions.</a>
                         All Rights Reserved.
                     </p>
                 </div>
