@@ -1,5 +1,5 @@
 <!-- Footer Start -->
-<div class="container-fluid bg-dark text-light mt-4 wow fadeInUp" data-wow-delay="0.1s">
+<div class="container-fluid bg-dark text-light mt-4 wow fadeInUp main__footer_inclusion" data-wow-delay="0.1s">
     <div class="container">
         <div class="row gx-5">
             <div class="col-lg-4 col-md-6 footer-about">

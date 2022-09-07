@@ -5,8 +5,14 @@
 @section('meta_description', $seo->meta_description)
 @endif --}}
 @section('carousel')
+<style>
+    .main__footer_inclusion {
+        margin-top: 0px !important;
+    }
+</style>
 
-        <div class="container-fluid bg-primary py-4 mb-4 bg-header" style="">
+
+        <div class="container-fluid bg-primary py-4 mb-0 bg-header" style="">
             <div class="row py-4">
                 <div class="col-12 pt-lg-5 mt-lg-5 text-center">
                     <h1 class="display-4 text-white animated zoomIn">Portfolio</h1>
