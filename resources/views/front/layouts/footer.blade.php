@@ -51,7 +51,7 @@
                         <div class="d-flex mt-4">
                             <a class="btn btn-primary btn-square me-2" href="{{ $setting_helper->twitter }}"
                                 target="_blank"><i class="fab fa-twitter fw-normal"></i></a>
-                            <a class="btn btn-primary btn-square me-2" href="href="{{ $setting_helper->facebook }}"
+                            <a class="btn btn-primary btn-square me-2" href="{{ $setting_helper->facebook }}"
                                 target="_blank"><i class="fab fa-facebook-f fw-normal"></i></a>
                             <a class="btn btn-primary btn-square me-2" href="{{ $setting_helper->linkedin }}"
                                 target="_blank"><i class="fab fa-linkedin-in fw-normal"></i></a>
