@@ -88,7 +88,7 @@
                                 </nav>
                             </div>
                             <ul class="row portfolio-item">
-                                <li class="mix dev col-xl-3 col-md-4 col-12 col-sm-6 ">
+                                {{-- <li class="mix dev col-xl-3 col-md-4 col-12 col-sm-6 ">
                                     <div class="pd">
                                         <img src="{{ asset('front/img/portfolio-gallery/dev/dev-1.png') }}"
                                             itemprop="thumbnail" alt="Image description" />
@@ -109,7 +109,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </li>
+                                </li> --}}
                                 <li class="mix shopi col-xl-3 col-md-4 col-12 col-sm-6">
                                     <div class="pd">
                                         <img src="{{ asset('front/img/portfolio-gallery/shopi/shopi-1.png') }}"
@@ -117,11 +117,11 @@
                                         <div class="portfolio-overlay">
                                             <div class="overlay-content">
                                                 <p class="category">Sann Beauty</p>
-                                                <a href="https://sannbeauty.com/" title="View Project" target="_blank">
+                                                {{-- <a href="https://sannbeauty.com/" title="View Project" target="_blank">
                                                     <div class="magnify-icon">
                                                         <p><span><i class="fa fa-link" aria-hidden="true"></i></span></p>
                                                     </div>
-                                                </a>
+                                                </a> --}}
                                                 <a data-fancybox="item" title="click to zoom-in"
                                                     href="{{ asset('front/img/portfolio-gallery/shopi/shopi-1.png') }}"
                                                     data-size="1200x600">
@@ -140,11 +140,11 @@
                                         <div class="portfolio-overlay">
                                             <div class="overlay-content">
                                                 <p class="category">Teakisi</p>
-                                                <a href="https://teakisi.com/" title="View Project" target="_blank">
+                                                {{-- <a href="https://teakisi.com/" title="View Project" target="_blank">
                                                     <div class="magnify-icon">
                                                         <p><span><i class="fa fa-link" aria-hidden="true"></i></span></p>
                                                     </div>
-                                                </a>
+                                                </a> --}}
                                                 <a data-fancybox="item" title="click to zoom-in"
                                                     href="{{ asset('front/img/portfolio-gallery/wp/wp-1.png') }}"
                                                     data-size="1200x600">
@@ -163,11 +163,11 @@
                                         <div class="portfolio-overlay">
                                             <div class="overlay-content">
                                                 <p class="category">Myxborder</p>
-                                                <a href="https://myxborder.com/" title="View Project" target="_blank">
+                                                {{-- <a href="https://myxborder.com/" title="View Project" target="_blank">
                                                     <div class="magnify-icon">
                                                         <p><span><i class="fa fa-link" aria-hidden="true"></i></span></p>
                                                     </div>
-                                                </a>
+                                                </a> --}}
                                                 <a data-fancybox="item" title="click to zoom-in"
                                                     href="{{ asset('front/img/portfolio-gallery/dev/dev-2.png') }}"
                                                     data-size="1200x600">
@@ -187,11 +187,11 @@
                                         <div class="portfolio-overlay">
                                             <div class="overlay-content">
                                                 <p class="category">Klekktic</p>
-                                                <a href="https://klekktic.com/" title="View Project" target="_blank">
+                                                {{-- <a href="https://klekktic.com/" title="View Project" target="_blank">
                                                     <div class="magnify-icon">
                                                         <p><span><i class="fa fa-link" aria-hidden="true"></i></span></p>
                                                     </div>
-                                                </a>
+                                                </a> --}}
                                                 <a data-fancybox="item" title="click to zoom-in"
                                                     href="{{ asset('front/img/portfolio-gallery/shopi/shopi-2.png') }}"
                                                     data-size="1200x600">
@@ -211,11 +211,11 @@
                                         <div class="portfolio-overlay">
                                             <div class="overlay-content">
                                                 <p class="category">Gradeseekers</p>
-                                                <a href="https://gradeseekers.com" title="View Project" target="_blank">
+                                                {{-- <a href="https://gradeseekers.com" title="View Project" target="_blank">
                                                     <div class="magnify-icon">
                                                         <p><span><i class="fa fa-link" aria-hidden="true"></i></span></p>
                                                     </div>
-                                                </a>
+                                                </a> --}}
                                                 <a data-fancybox="item" title="click to zoom-in"
                                                     href="{{ asset('front/img/portfolio-gallery/wp/wp-2.png') }}"
                                                     data-size="1200x600">
@@ -235,11 +235,11 @@
                                         <div class="portfolio-overlay">
                                             <div class="overlay-content">
                                                 <p class="category">Punchly</p>
-                                                <a href="https://punchly.io/" title="View Project" target="_blank">
+                                                {{-- <a href="https://punchly.io/" title="View Project" target="_blank">
                                                     <div class="magnify-icon">
                                                         <p><span><i class="fa fa-link" aria-hidden="true"></i></span></p>
                                                     </div>
-                                                </a>
+                                                </a> --}}
                                                 <a data-fancybox="item" title="click to zoom-in"
                                                     href="{{ asset('front/img/portfolio-gallery/dev/dev-3.png') }}"
                                                     data-size="1200x600">
@@ -259,11 +259,11 @@
                                         <div class="portfolio-overlay">
                                             <div class="overlay-content">
                                                 <p class="category">Natures Energies Health</p>
-                                                <a href="https://naturesenergieshealth.com/" title="View Project" target="_blank">
+                                                {{-- <a href="https://naturesenergieshealth.com/" title="View Project" target="_blank">
                                                     <div class="magnify-icon">
                                                         <p><span><i class="fa fa-link" aria-hidden="true"></i></span></p>
                                                     </div>
-                                                </a>
+                                                </a> --}}
                                                 <a data-fancybox="item" title="click to zoom-in"
                                                     href="{{ asset('front/img/portfolio-gallery/shopi/shopi-3.png') }}"
                                                     data-size="1200x600">
@@ -283,11 +283,11 @@
                                         <div class="portfolio-overlay">
                                             <div class="overlay-content">
                                                 <p class="category">Myfabcreations</p>
-                                                <a href="https://www.myfabcreations.com/" title="View Project" target="_blank">
+                                                {{-- <a href="https://www.myfabcreations.com/" title="View Project" target="_blank">
                                                     <div class="magnify-icon">
                                                         <p><span><i class="fa fa-link" aria-hidden="true"></i></span></p>
                                                     </div>
-                                                </a>
+                                                </a> --}}
                                                 <a data-fancybox="item" title="click to zoom-in"
                                                     href="{{ asset('front/img/portfolio-gallery/wp/wp-3.png') }}"
                                                     data-size="1200x600">
@@ -307,11 +307,11 @@
                                         <div class="portfolio-overlay">
                                             <div class="overlay-content">
                                                 <p class="category">Live Learning Hub</p>
-                                                <a href="http://livelearninghub.com" title="View Project" target="_blank">
+                                                {{-- <a href="http://livelearninghub.com" title="View Project" target="_blank">
                                                     <div class="magnify-icon">
                                                         <p><span><i class="fa fa-link" aria-hidden="true"></i></span></p>
                                                     </div>
-                                                </a>
+                                                </a> --}}
                                                 <a data-fancybox="item" title="click to zoom-in"
                                                     href="{{ asset('front/img/portfolio-gallery/dev/dev-4.png') }}"
                                                     data-size="1200x600">
@@ -331,11 +331,11 @@
                                         <div class="portfolio-overlay">
                                             <div class="overlay-content">
                                                 <p class="category">kurelondon</p>
-                                                <a href="https://kurelondon.co.uk" title="View Project" target="_blank">
+                                                {{-- <a href="https://kurelondon.co.uk" title="View Project" target="_blank">
                                                     <div class="magnify-icon">
                                                         <p><span><i class="fa fa-link" aria-hidden="true"></i></span></p>
                                                     </div>
-                                                </a>
+                                                </a> --}}
                                                 <a data-fancybox="item" title="click to zoom-in"
                                                     href="{{ asset('front/img/portfolio-gallery/shopi/shopi-4.png') }}"
                                                     data-size="1200x600">
@@ -355,11 +355,11 @@
                                         <div class="portfolio-overlay">
                                             <div class="overlay-content">
                                                 <p class="category">Moebella24</p>
-                                                <a href="https://moebella24.com/" title="View Project" target="_blank">
+                                                {{-- <a href="https://moebella24.com/" title="View Project" target="_blank">
                                                     <div class="magnify-icon">
                                                         <p><span><i class="fa fa-link" aria-hidden="true"></i></span></p>
                                                     </div>
-                                                </a>
+                                                </a> --}}
                                                 <a data-fancybox="item" title="click to zoom-in"
                                                     href="{{ asset('front/img/portfolio-gallery/wp/wp-4.png') }}"
                                                     data-size="1200x600">
