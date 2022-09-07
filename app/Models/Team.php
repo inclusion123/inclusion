@@ -14,7 +14,7 @@ class Team extends Model
     public function image_upload($image)
     {
         $image_name = $image->getClientOriginalName();
-        $upload_path = '/images';
+        $upload_path = 'public/images';
         $success = $image->storeAs($upload_path, $image_name);
         return $image_name;
     }
