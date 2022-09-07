@@ -8,7 +8,7 @@
         <meta name="description" content="@yield('meta_description', 'default description')" />
         <link rel="canonical" href="{{ url()->current() }}" />
 
-        @include('front.layouts.css')
+        @include('front.layouts.head')
     </head>
 
     <body>

@@ -79,6 +79,11 @@ Route::name('front.')->group(function () {
     //Contact Page
     Route::get('contact', [App\Http\Controllers\Front\ContactController::class, 'index'])->name('contact');
     Route::post('contact-send-message', [App\Http\Controllers\Front\ContactController::class, 'contact_save'])->name('contact.save');
+
+    //portfolio page
+    Route::get('portfolio', [App\Http\Controllers\Front\PortfolioController::class, 'index'])->name('portfolio');
+
+
 });
 
 

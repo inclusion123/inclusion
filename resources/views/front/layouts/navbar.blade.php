@@ -31,6 +31,7 @@
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Company</a>
                             <div class="dropdown-menu m-0">
+                                <a href="{{ route ('front.portfolio') }}" class="dropdown-item">Portfolio</a>
                                 <a href="{{ route ('front.feature') }}" class="dropdown-item">Our features</a>
                                 <a href="{{ route ('front.career.index') }}" class="dropdown-item">Career</a>
                                 <a href="{{ route ('front.team_members') }}" class="dropdown-item">Team Members</a>

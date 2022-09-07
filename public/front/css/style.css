@@ -1583,3 +1583,180 @@ span.avtr figure {
 }
 
 /* CHATBOAT CSS END */
+
+
+/* PORTFOLIO CSS */
+
+/* -----------------------------------
+      Gallery Section
+--------------------------------------*/
+.portfolio__wrap {
+    background-color: transparent;
+    background-image: linear-gradient(0deg, #3181DE26 10%, #3181DE26 100%);
+}
+/*.portfolio__wrap {
+    background-color: transparent;
+    background-image: linear-gradient(0deg, #eb0f2636 10%, #eb0f2636 100%);
+}*/
+.portfolio__wrap .container {
+    background-image: url(../img/portfolio-gallery/Asset-5.png);
+    background-position: bottom center;
+    background-size: cover;
+    /* opacity: 0.41; */
+    transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+}
+.portfolio-section {
+  /*padding: 50px 0;*/
+  /*background-color: #000;*/
+}
+.portfolio-section h2 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #fff;
+  text-transform: uppercase;
+}
+.portfolio-menu {
+  text-align: center;
+}
+.portfolio-menu .controls {
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+}
+.controls .control {
+    background: transparent;
+    color: #eb0f26;
+    padding: 10px 15px;
+    border: 1px solid #eb0f26;
+    border-radius: 50px;
+    margin: 5px;
+    cursor: pointer;
+    -webkit-transition: all 05s ease;
+    -moz-transition: all 05s ease;
+    -ms-transition: all 05s ease;
+    -o-transition: all 05s ease;
+    transition: all 0.5s ease;
+}
+.controls .control:hover {
+      background: #eb0f26;
+    border-color: #eb0f26;
+    color: #fff;
+}
+.mixitup-control-active {
+  color: #fff !important;
+  background: #eb0f26 !important;
+    border-color: #eb0f26 !important;
+}
+.fancybox-container button:focus {
+  outline: 0;
+  box-shadow: none;
+}
+.portfolio-item {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+.pd {
+    /* padding: 0; */
+    /* padding: 10px; */
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    margin-bottom: 22px;
+    border-radius: 10px;
+}
+.pd img {
+    height: auto;
+    transition: all 0.5s;
+    width: 100%;
+}
+.portfolio-overlay {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  visibility: hidden;
+  transition: all 0.5s;
+  transform: scale(0);
+}
+.portfolio-overlay p,
+.portfolio-overlay a {
+  position: relative;
+  z-index: 4;
+}
+.portfolio-overlay::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-width: 0;
+  position: absolute;
+  left: 10%;
+  top: 10%;
+  transition: 50ms height ease 150ms;
+  z-index: 3;
+}
+.portfolio-overlay::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-width: 0;
+  position: absolute;
+  right: 10%;
+  bottom: 10%;
+  transition: 100ms width ease 200ms;
+  z-index: 3;
+}
+.portfolio-item:hover .portfolio-overlay::before {
+  width: 80%;
+  height: 80%;
+  border-top: 1px solid #eb0f26;
+  border-right: 1px solid #eb0f26;
+  transition: width 0.1s ease 0.3s, height 0.1s ease 0.5s;
+}
+.portfolio-item:hover .portfolio-overlay::after {
+  width: 80%;
+  height: 80%;
+  border-bottom: 1px solid #eb0f26;
+  border-left: 1px solid #eb0f26;
+  transition: width 0.1s ease 0.6s, height 0.1s ease 0.7s;
+}
+.portfolio-item li:hover .portfolio-overlay {
+  visibility: visible;
+  transform: scale(1);
+}
+.portfolio-overlay .category {
+  margin-top: 70px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 500;
+}
+.portfolio-overlay .magnify-icon {
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  background: #eb0f26;
+  margin: 0 5px;
+  cursor: pointer;
+  display: inline-block;
+  transition: all 0.25s;
+}
+.portfolio-overlay .magnify-icon:hover {
+  background: #000;
+}
+.portfolio-overlay .magnify-icon p span i {
+  font-size: 15px;
+  color: #fff;
+  line-height: 40px;
+  cursor: pointer;
+}
+
+/*******Responsive media query******/
+
+/* Extra small devices (portrait phones, less than 576px)*/
+
+/* PORTFOLIO CSS END */
