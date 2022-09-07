@@ -23,7 +23,9 @@
                     </form>
                     --}}
                 </div>
-            </div>
+            </div>  
+
+            
             <div class="col-lg-8 col-md-6">
                 <div class="row gx-5 footer__links">
                     <div class="col-lg-4 col-md-12 pt-5 mb-5">
