@@ -1,6 +1,6 @@
 <?php
 
-//test
+//testing from neeraj
 use App\Http\Controllers\Admin\AboutUsController as AdminAboutUsController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Redirect;
