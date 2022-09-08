@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Carbon;
 use App\Models\Service;
-
+use Illuminate\Support\Str;
 class ChildService extends Model
 {
     use HasFactory;
@@ -16,7 +16,7 @@ class ChildService extends Model
     {
 
         Log::info('child Service image_upload');
-        $image_name = $image->getClientOriginalName();
+        $image_name = Str::random(4).$image->getClientOriginalName();
         Log::info($image_name);
         $upload_path = 'public/images';
         $success = $image->storeAs($upload_path, $image_name);
