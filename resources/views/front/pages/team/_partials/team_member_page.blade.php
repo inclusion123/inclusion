@@ -33,7 +33,7 @@
                             </div>
                             <div class="text-center py-4">
                                 <h4 class="text-primary">{{$team_member->name}}</h4>
-                                <p class="text-uppercase m-0">{{$team_member->designation}}</p>
+                                <p class="m-0">{{$team_member->designation}}</p>
                             </div>
                         </div>
                     </div>
