@@ -14,19 +14,20 @@
             @endphp
             <div class="row g-5">
                 @foreach ($team as $team_member)
-                    <div class="col-lg-3 wow slideInUp" data-wow-delay="0.3s">
-                        <div class="team-item bg-light rounded overflow-hidden">
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-12 wow slideInUp" data-wow-delay="0.3s">
+                        {{-- <div class="team-item bg-light rounded overflow-hidden"> --}}
+                        <div class="team-item rounded overflow-hidden">    
                             <div class="team-img position-relative overflow-hidden">
                                 <img class="img-fluid w-100" src="{{ asset('storage/images') }}/{{$team_member->image}}"
                                     alt="" />
                                 <div class="team-social">
-                                    <a class="btn btn-lg btn-primary btn-lg-square rounded" href="{{$team_member->twitter}}"><i
+                                    <a class="btn btn-lg btn-primary btn-lg-square" href="{{$team_member->twitter}}"><i
                                             class="fab fa-twitter fw-normal"></i></a>
-                                    <a class="btn btn-lg btn-primary btn-lg-square rounded" href="{{$team_member->facebook}}"><i
+                                    <a class="btn btn-lg btn-primary btn-lg-square" href="{{$team_member->facebook}}"><i
                                             class="fab fa-facebook-f fw-normal"></i></a>
-                                    <a class="btn btn-lg btn-primary btn-lg-square rounded" href="{{$team_member->instagram}}"><i
+                                    <a class="btn btn-lg btn-primary btn-lg-square" href="{{$team_member->instagram}}"><i
                                             class="fab fa-instagram fw-normal"></i></a>
-                                    <a class="btn btn-lg btn-primary btn-lg-square rounded" href="{{$team_member->linkedin}}"><i
+                                    <a class="btn btn-lg btn-primary btn-lg-square" href="{{$team_member->linkedin}}"><i
                                             class="fab fa-linkedin-in fw-normal"></i></a>
                                 </div>
                             </div>
