@@ -498,6 +498,9 @@ h6,
 }
 .team-item .team-img {
     border-radius: 100%;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .team-social {
