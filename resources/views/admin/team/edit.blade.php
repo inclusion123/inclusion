@@ -32,7 +32,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form id="AboutUsForm" action="{{ route('admin.team.update',$team->id) }}" method="post"
+                <form id="Form" action="{{ route('admin.team.update',$team->id) }}" method="post"
                     enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
@@ -79,7 +79,7 @@
                               <div class="col-3"><label>Twitter-Profile-Link</label>
                                 <input type="url" name="twitter" class="form-control" value="{{$team->twitter}}">
                               </div>
-                             
+
                             </div>
                           </div>
 

@@ -5,69 +5,29 @@
 @section('meta_description', $seo->meta_description)
 @endif --}}
 @section('carousel')
-<style>
-    .main__footer_inclusion {
-        margin-top: 0px !important;
-    }
-</style>
+    <style>
+        .main__footer_inclusion {
+            margin-top: 0px !important;
+        }
+    </style>
 
 
-        <div class="container-fluid bg-primary py-4 mb-0 bg-header" style="">
-            <div class="row py-4">
-                <div class="col-12 pt-lg-5 mt-lg-5 text-center">
-                    <h1 class="display-4 text-white animated zoomIn">Portfolio</h1>
-                    <a href="{{ route('front.index') }}" class="h5 text-white">Home</a>
-                    <i class="far fa-circle text-white px-2"></i>
-                    <a href="{{ route ('front.portfolio') }}" class="h5 text-white">Portfolio</a>
-                </div>
+    <div class="container-fluid bg-primary py-4 mb-0 bg-header" style="">
+        <div class="row py-4">
+            <div class="col-12 pt-lg-5 mt-lg-5 text-center">
+                <h1 class="display-4 text-white animated zoomIn">Portfolio</h1>
+                <a href="{{ route('front.index') }}" class="h5 text-white">Home</a>
+                <i class="far fa-circle text-white px-2"></i>
+                <a href="{{ route('front.portfolio') }}" class="h5 text-white">Portfolio</a>
             </div>
         </div>
     </div>
+    </div>
     <!-- Navbar End -->
-
-    @endsection
+@endsection
 
 
 @section('content')
-    {{-- <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-
-    <!-- fancybox -->
-    <link rel='stylesheet prefetch' href='css/jquery.fancybox.min.css'>
-    <!-- magnific-popup -->
-    <link rel="stylesheet" href="css/magnific-popup.css" />
-</head> --}}
-
-    {{-- <body> --}}
-
-
-
-
-
-
-
-
-
-
     <!-- Portfolio Gallery Start -->
     <div class="container-fluid py-4 wow fadeInUp portfolio__wrap" data-wow-delay="0.1s">
         <div class="container py-4">
@@ -82,9 +42,13 @@
                             <div class="portfolio-menu mt-2 mb-4">
                                 <nav class="controls">
                                     <button type="button" class="control outline" data-filter="all">All</button>
-                                    <button type="button" class="control outline" data-filter=".shopi">Shopify</button>
+                                    @foreach ($projectcategory as $category)
+                                        <button type="button" class="control outline"
+                                            data-filter=".{{ $category->name }}">{{ $category->name }}</button>
+                                    @endforeach
+                                    {{-- <button type="button" class="control outline" data-filter=".shopi">Shopify</button>
                                     <button type="button" class="control outline" data-filter=".dev">Development</button>
-                                    <button type="button" class="control outline" data-filter=".wp">WordPress</button>
+                                    <button type="button" class="control outline" data-filter=".wp">WordPress</button> --}}
                                 </nav>
                             </div>
                             <ul class="row portfolio-item">
@@ -110,268 +74,36 @@
                                         </div>
                                     </div>
                                 </li> --}}
-                                <li class="mix shopi col-xl-3 col-md-4 col-12 col-sm-6">
-                                    <div class="pd">
-                                        <img src="{{ asset('front/img/portfolio-gallery/shopi/shopi-1.png') }}"
-                                            itemprop="thumbnail" alt="Image description" />
-                                        <div class="portfolio-overlay">
-                                            <div class="overlay-content">
-                                                <p class="category">Sann Beauty</p>
-                                                {{-- <a href="https://sannbeauty.com/" title="View Project" target="_blank">
+                                @foreach ($projectcategory as $category)
+                                    @foreach ($category->projects as $project)
+                                        <li class="mix {{ $category->name }} col-xl-3 col-md-4 col-12 col-sm-6">
+                                            <div class="pd">
+                                                <img src="{{ asset('storage/images') }}/{{ $project->image }}"
+                                                    itemprop="thumbnail" alt="Image description" />
+                                                <div class="portfolio-overlay">
+                                                    <div class="overlay-content">
+                                                        <p class="category">{{ $project->name }}</p>
+                                                        {{-- <a href="https://sannbeauty.com/" title="View Project" target="_blank">
                                                     <div class="magnify-icon">
                                                         <p><span><i class="fa fa-link" aria-hidden="true"></i></span></p>
                                                     </div>
                                                 </a> --}}
-                                                <a data-fancybox="item" title="click to zoom-in"
-                                                    href="{{ asset('front/img/portfolio-gallery/shopi/shopi-1.png') }}"
-                                                    data-size="1200x600">
-                                                    <div class="magnify-icon">
-                                                        <p><span><i class="fa fa-search" aria-hidden="true"></i></span></p>
+                                                        <a data-fancybox="item" title="click to zoom-in"
+                                                            href="{{ asset('storage/images') }}/{{ $project->image }}"
+                                                            data-size="1200x600">
+                                                            <div class="magnify-icon">
+                                                                <p><span><i class="fa fa-search"
+                                                                            aria-hidden="true"></i></span></p>
+                                                            </div>
+                                                        </a>
                                                     </div>
-                                                </a>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="mix wp col-xl-3 col-md-4 col-12 col-sm-6">
-                                    <div class="pd">
-                                        <img src="{{ asset('front/img/portfolio-gallery/wp/wp-1.png') }}" itemprop="thumbnail"
-                                            alt="Image description" />
-                                        <div class="portfolio-overlay">
-                                            <div class="overlay-content">
-                                                <p class="category">Teakisi</p>
-                                                {{-- <a href="https://teakisi.com/" title="View Project" target="_blank">
-                                                    <div class="magnify-icon">
-                                                        <p><span><i class="fa fa-link" aria-hidden="true"></i></span></p>
-                                                    </div>
-                                                </a> --}}
-                                                <a data-fancybox="item" title="click to zoom-in"
-                                                    href="{{ asset('front/img/portfolio-gallery/wp/wp-1.png') }}"
-                                                    data-size="1200x600">
-                                                    <div class="magnify-icon">
-                                                        <p><span><i class="fa fa-search" aria-hidden="true"></i></span></p>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="mix dev col-xl-3 col-md-4 col-12 col-sm-6">
-                                    <div class="pd">
-                                        <img src="{{ asset('front/img/portfolio-gallery/dev/dev-2.png') }}" itemprop="thumbnail"
-                                            alt="Image description" />
-                                        <div class="portfolio-overlay">
-                                            <div class="overlay-content">
-                                                <p class="category">Myxborder</p>
-                                                {{-- <a href="https://myxborder.com/" title="View Project" target="_blank">
-                                                    <div class="magnify-icon">
-                                                        <p><span><i class="fa fa-link" aria-hidden="true"></i></span></p>
-                                                    </div>
-                                                </a> --}}
-                                                <a data-fancybox="item" title="click to zoom-in"
-                                                    href="{{ asset('front/img/portfolio-gallery/dev/dev-2.png') }}"
-                                                    data-size="1200x600">
-                                                    <div class="magnify-icon">
-                                                        <p><span><i class="fa fa-search" aria-hidden="true"></i></span>
-                                                        </p>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="mix shopi col-xl-3 col-md-4 col-12 col-sm-6">
-                                    <div class="pd">
-                                        <img src="{{ asset('front/img/portfolio-gallery/shopi/shopi-2.png') }}"
-                                            itemprop="thumbnail" alt="Image description" />
-                                        <div class="portfolio-overlay">
-                                            <div class="overlay-content">
-                                                <p class="category">Klekktic</p>
-                                                {{-- <a href="https://klekktic.com/" title="View Project" target="_blank">
-                                                    <div class="magnify-icon">
-                                                        <p><span><i class="fa fa-link" aria-hidden="true"></i></span></p>
-                                                    </div>
-                                                </a> --}}
-                                                <a data-fancybox="item" title="click to zoom-in"
-                                                    href="{{ asset('front/img/portfolio-gallery/shopi/shopi-2.png') }}"
-                                                    data-size="1200x600">
-                                                    <div class="magnify-icon">
-                                                        <p><span><i class="fa fa-search" aria-hidden="true"></i></span>
-                                                        </p>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="mix wp col-xl-3 col-md-4 col-12 col-sm-6 ">
-                                    <div class="pd ">
-                                        <img src="{{ asset('front/img/portfolio-gallery/wp/wp-2.png') }}" itemprop="thumbnail"
-                                            alt="Image description" />
-                                        <div class="portfolio-overlay">
-                                            <div class="overlay-content">
-                                                <p class="category">Gradeseekers</p>
-                                                {{-- <a href="https://gradeseekers.com" title="View Project" target="_blank">
-                                                    <div class="magnify-icon">
-                                                        <p><span><i class="fa fa-link" aria-hidden="true"></i></span></p>
-                                                    </div>
-                                                </a> --}}
-                                                <a data-fancybox="item" title="click to zoom-in"
-                                                    href="{{ asset('front/img/portfolio-gallery/wp/wp-2.png') }}"
-                                                    data-size="1200x600">
-                                                    <div class="magnify-icon">
-                                                        <p><span><i class="fa fa-search" aria-hidden="true"></i></span>
-                                                        </p>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="mix dev col-xl-3 col-md-4 col-12 col-sm-6 ">
-                                    <div class="pd">
-                                        <img src="{{ asset('front/img/portfolio-gallery/dev/dev-3.png') }}"
-                                            itemprop="thumbnail" alt="Image description" />
-                                        <div class="portfolio-overlay">
-                                            <div class="overlay-content">
-                                                <p class="category">Punchly</p>
-                                                {{-- <a href="https://punchly.io/" title="View Project" target="_blank">
-                                                    <div class="magnify-icon">
-                                                        <p><span><i class="fa fa-link" aria-hidden="true"></i></span></p>
-                                                    </div>
-                                                </a> --}}
-                                                <a data-fancybox="item" title="click to zoom-in"
-                                                    href="{{ asset('front/img/portfolio-gallery/dev/dev-3.png') }}"
-                                                    data-size="1200x600">
-                                                    <div class="magnify-icon">
-                                                        <p><span><i class="fa fa-search" aria-hidden="true"></i></span>
-                                                        </p>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="mix shopi col-xl-3 col-md-4 col-12 col-sm-6 ">
-                                    <div class="pd">
-                                        <img src="{{ asset('front/img/portfolio-gallery/shopi/shopi-3.png') }}"
-                                            itemprop="thumbnail" alt="Image description" />
-                                        <div class="portfolio-overlay">
-                                            <div class="overlay-content">
-                                                <p class="category">Natures Energies Health</p>
-                                                {{-- <a href="https://naturesenergieshealth.com/" title="View Project" target="_blank">
-                                                    <div class="magnify-icon">
-                                                        <p><span><i class="fa fa-link" aria-hidden="true"></i></span></p>
-                                                    </div>
-                                                </a> --}}
-                                                <a data-fancybox="item" title="click to zoom-in"
-                                                    href="{{ asset('front/img/portfolio-gallery/shopi/shopi-3.png') }}"
-                                                    data-size="1200x600">
-                                                    <div class="magnify-icon">
-                                                        <p><span><i class="fa fa-search" aria-hidden="true"></i></span>
-                                                        </p>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="mix wp col-xl-3 col-md-4 col-12 col-sm-6 ">
-                                    <div class="pd">
-                                        <img src="{{ asset('front/img/portfolio-gallery/wp/wp-3.png') }}" itemprop="thumbnail"
-                                            alt="Image description" />
-                                        <div class="portfolio-overlay">
-                                            <div class="overlay-content">
-                                                <p class="category">Myfabcreations</p>
-                                                {{-- <a href="https://www.myfabcreations.com/" title="View Project" target="_blank">
-                                                    <div class="magnify-icon">
-                                                        <p><span><i class="fa fa-link" aria-hidden="true"></i></span></p>
-                                                    </div>
-                                                </a> --}}
-                                                <a data-fancybox="item" title="click to zoom-in"
-                                                    href="{{ asset('front/img/portfolio-gallery/wp/wp-3.png') }}"
-                                                    data-size="1200x600">
-                                                    <div class="magnify-icon">
-                                                        <p><span><i class="fa fa-search" aria-hidden="true"></i></span>
-                                                        </p>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="mix dev col-xl-3 col-md-4 col-12 col-sm-6 ">
-                                    <div class="pd">
-                                        <img src="{{ asset('front/img/portfolio-gallery/dev/dev-4.png') }}"
-                                            itemprop="thumbnail" alt="Image description" />
-                                        <div class="portfolio-overlay">
-                                            <div class="overlay-content">
-                                                <p class="category">Live Learning Hub</p>
-                                                {{-- <a href="http://livelearninghub.com" title="View Project" target="_blank">
-                                                    <div class="magnify-icon">
-                                                        <p><span><i class="fa fa-link" aria-hidden="true"></i></span></p>
-                                                    </div>
-                                                </a> --}}
-                                                <a data-fancybox="item" title="click to zoom-in"
-                                                    href="{{ asset('front/img/portfolio-gallery/dev/dev-4.png') }}"
-                                                    data-size="1200x600">
-                                                    <div class="magnify-icon">
-                                                        <p><span><i class="fa fa-search" aria-hidden="true"></i></span>
-                                                        </p>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="mix shopi col-xl-3 col-md-4 col-12 col-sm-6 ">
-                                    <div class="pd">
-                                        <img src="{{ asset('front/img/portfolio-gallery/shopi/shopi-4.png') }}"
-                                            itemprop="thumbnail" alt="Image description" />
-                                        <div class="portfolio-overlay">
-                                            <div class="overlay-content">
-                                                <p class="category">kurelondon</p>
-                                                {{-- <a href="https://kurelondon.co.uk" title="View Project" target="_blank">
-                                                    <div class="magnify-icon">
-                                                        <p><span><i class="fa fa-link" aria-hidden="true"></i></span></p>
-                                                    </div>
-                                                </a> --}}
-                                                <a data-fancybox="item" title="click to zoom-in"
-                                                    href="{{ asset('front/img/portfolio-gallery/shopi/shopi-4.png') }}"
-                                                    data-size="1200x600">
-                                                    <div class="magnify-icon">
-                                                        <p><span><i class="fa fa-search" aria-hidden="true"></i></span>
-                                                        </p>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="mix wp col-xl-3 col-md-4 col-12 col-sm-6 ">
-                                    <div class="pd">
-                                        <img src="{{ asset('front/img/portfolio-gallery/wp/wp-4.png') }}" itemprop="thumbnail"
-                                            alt="Image description" />
-                                        <div class="portfolio-overlay">
-                                            <div class="overlay-content">
-                                                <p class="category">Moebella24</p>
-                                                {{-- <a href="https://moebella24.com/" title="View Project" target="_blank">
-                                                    <div class="magnify-icon">
-                                                        <p><span><i class="fa fa-link" aria-hidden="true"></i></span></p>
-                                                    </div>
-                                                </a> --}}
-                                                <a data-fancybox="item" title="click to zoom-in"
-                                                    href="{{ asset('front/img/portfolio-gallery/wp/wp-4.png') }}"
-                                                    data-size="1200x600">
-                                                    <div class="magnify-icon">
-                                                        <p><span><i class="fa fa-search" aria-hidden="true"></i></span>
-                                                        </p>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
+                                        </li>
+                                    @endforeach
+                                @endforeach
+
+
                             </ul>
                         </div>
                     </section>
