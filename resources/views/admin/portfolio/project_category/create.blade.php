@@ -28,7 +28,7 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form id="AboutUsForm" action="{{ route('admin.projectcategory.store') }}" method="post"
+                    <form id="Form" action="{{ route('admin.projectcategory.store') }}" method="post"
                         enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">

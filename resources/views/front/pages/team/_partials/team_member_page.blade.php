@@ -10,13 +10,13 @@
                 </h1>
             </div>
             @php
-                $team = App\Models\Team::all();
+                $team = App\Models\Team::orderBy('id', 'ASC')->get();
             @endphp
             <div class="row g-5">
                 @foreach ($team as $team_member)
                     <div class="col-lg-3 col-md-4 col-sm-6 col-12 wow slideInUp" data-wow-delay="0.3s">
                         {{-- <div class="team-item bg-light rounded overflow-hidden"> --}}
-                        <div class="team-item rounded overflow-hidden">    
+                        <div class="team-item rounded overflow-hidden">
                             <div class="team-img position-relative overflow-hidden">
                                 <img class="img-fluid w-100" src="{{ asset('storage/images') }}/{{$team_member->image}}"
                                     alt="" />
@@ -38,9 +38,9 @@
                         </div>
                     </div>
                 @endforeach
-           
+
             </div>
-        
+
         </div>
         <div class="d-flex justify-content-center">
             {{-- {!! $team->links() !!} --}}

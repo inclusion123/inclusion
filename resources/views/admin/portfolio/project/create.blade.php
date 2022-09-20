@@ -25,7 +25,7 @@
                     <div class="pull-right" style="margin: 20px;">
                         <a class="btn btn-primary" href="{{ route('admin.projects.index', $id) }}"> Back </a>
                     </div>
-                    <form id="AboutUsForm" action="{{ route('admin.projects.store', $id) }}" method="post" enctype="multipart/form-data">
+                    <form id="Form" action="{{ route('admin.projects.store', $id) }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">
                             <div class="form-group">
