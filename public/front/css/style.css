@@ -568,6 +568,26 @@ h6,
     transform: scale(1.15);
 }
 
+/* TEAM IMAGE HOVER EFFECT */
+.blinking {
+    /* margin: 20% 45% 0; */
+    /* display: inline-block; */
+    /* font-size: 4em; */
+    border-bottom: 5px solid #eb0f26;
+    animation-name: blinking;
+    animation-duration: 1s;
+    animation-iteration-count: 100;
+}
+  @keyframes blinking {
+    50% {
+      border-color: #000000;
+    }
+  }
+
+/* TEAM IMAGE HOVER EFFECT */
+
+
+
 
 /*** Miscellaneous ***/
 @media (min-width: 991.98px) {
