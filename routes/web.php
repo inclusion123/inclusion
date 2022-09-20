@@ -14,6 +14,8 @@ use App\Http\Controllers\Admin\CareerController as AdminCareerController;
 use App\Http\Controllers\Admin\ChildServiceController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\FeatureController;
+use App\Http\Controllers\Admin\ProjectCategoryController;
+use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\QuoteController;
 use App\Http\Controllers\Admin\RequirementController;
 use App\Http\Controllers\Admin\SeoController;
@@ -43,10 +45,10 @@ use App\Http\Controllers\Front\HomeController;
 Route::name('front.')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('index');
 
-    // AboutUs Pages Route 
+    // AboutUs Pages Route
     Route::get('about-us', [App\Http\Controllers\Front\AboutUsController::class, 'index'])->name('about');
 
-    // Service Pages Route 
+    // Service Pages Route
     Route::get('services', [App\Http\Controllers\Front\ServicesController::class, 'index'])->name('service');
 
     Route::get('service/{slug}', [App\Http\Controllers\Front\ServicesController::class, 'service_detail']);
@@ -148,5 +150,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
 
         Route::resource('/blog', BlogController::class);
         Route::get('/blog-list', [BlogController::class, 'list'])->name('blog.list');
+
+        Route::resource('/portfolio/projectcategory', ProjectCategoryController::class);
+        Route::resource('/{id}/projects', ProjectController::class);
+        Route::match(['put', 'patch'],'project/{id}', [ProjectController::class,'update'])->name('project.update');
+
+
     });
 });

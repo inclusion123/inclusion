@@ -10,7 +10,7 @@
                 </h1>
             </div>
             @php
-                $team = App\Models\Team::all();
+                $team = App\Models\Team::orderBy('id', 'ASC')->get();
             @endphp
             <div class="row g-5">
                 @foreach ($team as $team_member)
@@ -39,9 +39,9 @@
                         </div>
                     </div>
                 @endforeach
-           
+
             </div>
-        
+
         </div>
         <div class="d-flex justify-content-center">
             {{-- {!! $team->links() !!} --}}

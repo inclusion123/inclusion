@@ -109,7 +109,7 @@ class TeamController extends Controller
             $team->twitter = $request->twitter;
 
             if ($request->hasFile('image')) {
-                // dd(44);         
+                // dd(44);
                 $filePath = $team->image_upload($request->image);
                 $team->image = $filePath;
                 $team->save();
@@ -135,7 +135,7 @@ class TeamController extends Controller
     {
         // $team = Team::all();
         try {
-            $team = Team::orderBy('created_at', 'ASC');
+            $team = Team::orderBy('id', 'ASC');
             $datatable = Datatables::eloquent($team)
 
                 ->addColumn('image', function ($row) {

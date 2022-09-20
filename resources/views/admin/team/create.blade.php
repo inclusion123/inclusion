@@ -31,7 +31,7 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form id="AboutUsForm" action="{{ route('admin.team.store') }}" method="post"
+                    <form id="Form" action="{{ route('admin.team.store') }}" method="post"
                         enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">
@@ -67,7 +67,7 @@
                                   <div class="col-3"><label>Twitter-Profile-Link</label>
                                     <input type="url" name="twitter" class="form-control" placeholder="">
                                   </div>
-                                 
+
                                 </div>
                               </div>
 
@@ -84,4 +84,4 @@
         </section>
     @endsection
 
-   
+

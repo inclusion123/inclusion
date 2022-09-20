@@ -62,6 +62,13 @@
                 </li>
 
                 <li class="nav-item">
+                    <a href="{{ route('admin.projectcategory.index') }}" class="nav-link">
+                        <i class="nav-icon fab fa fa-briefcase"></i>
+                        <p>Portfolio</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a href="{{ route('admin.settings.index') }}" class="nav-link">
                         <i class="nav-icon fa fa-cogs"></i>
                         <p>Settings</p>
