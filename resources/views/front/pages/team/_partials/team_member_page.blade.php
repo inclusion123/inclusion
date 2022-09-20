@@ -21,14 +21,14 @@
                                 <img class="img-fluid w-100" src="{{ asset('storage/images') }}/{{$team_member->image}}"
                                     alt="" />
                                 <div class="team-social">
-                                    {{-- <a class="btn btn-lg btn-primary btn-lg-square" href="{{$team_member->twitter}}"><i
+                                    <a class="btn btn-lg btn-primary btn-lg-square" href="{{$team_member->twitter}}"><i
                                             class="fab fa-twitter fw-normal"></i></a>
                                     <a class="btn btn-lg btn-primary btn-lg-square" href="{{$team_member->facebook}}"><i
                                             class="fab fa-facebook-f fw-normal"></i></a>
                                     <a class="btn btn-lg btn-primary btn-lg-square" href="{{$team_member->instagram}}"><i
                                             class="fab fa-instagram fw-normal"></i></a>
                                     <a class="btn btn-lg btn-primary btn-lg-square" href="{{$team_member->linkedin}}"><i
-                                            class="fab fa-linkedin-in fw-normal"></i></a> --}}
+                                            class="fab fa-linkedin-in fw-normal"></i></a>
                                 </div>
                             </div>
                             <div class="text-center py-4">
