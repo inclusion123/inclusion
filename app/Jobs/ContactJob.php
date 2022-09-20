@@ -10,6 +10,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\front\ContactMail;
+use Illuminate\Support\Facades\Log;
 
 class ContactJob implements ShouldQueue
 {
@@ -32,8 +33,13 @@ class ContactJob implements ShouldQueue
      */
     public function handle()
     {
-        Mail::to(
-            env("inclusionContactMail")
-        )->send(new ContactMail($this->data));
+        try {
+            Mail::to(
+                env("inclusionContactMail")
+            )->send(new ContactMail($this->data));
+        } catch (\Exception $e) {
+            Log::error($e);
+            return $e;
+        }
     }
 }

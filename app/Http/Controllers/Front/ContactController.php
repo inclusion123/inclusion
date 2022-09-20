@@ -30,7 +30,7 @@ class ContactController extends Controller
             ]);
             $data = $request->all();
             ContactJob::dispatch($data);
-            return redirect()->back()->with('success', 'Contact request message has been sent successfully.');
+            return redirect()->back()->with('success', 'Contact request message has been sent.');
         } catch (\Exception $e) {
             return redirect()->back()->withInput()->with('error', 'Something went Wrong: ' . $e->getMessage());
             return $e->getMessage();

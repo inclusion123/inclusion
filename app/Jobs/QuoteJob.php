@@ -33,8 +33,13 @@ class QuoteJob implements ShouldQueue
      */
     public function handle()
     {
-        Mail::to(
+        try {
+            Mail::to(
                 env("inclusionContactMail")
             )->send(new QuoteMail($this->data));
+        } catch (\Exception $e) {
+            Log::error($e);
+            return $e;
+        }
     }
 }
