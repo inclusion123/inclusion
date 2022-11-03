@@ -97,7 +97,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::post('logout', [App\Http\Controllers\Admin\AdminAuthController::class, 'logout'])->name('logout');
 
     Route::middleware('auth')->group(function () {
-        Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+        Route::get('/change-password', [App\Http\Controllers\Admin\AdminController::class, 'change_password_form'])->name('changePasssword');
+        Route::post('/password_update', [App\Http\Controllers\Admin\AdminController::class, 'password_update'])->name('password.change');
+        Route::get('/dashboard', [App\Http\Controllers\Admin\AdminController::class, 'index'])->name('dashboard');
 
         Route::get('/contact', [ContactController::class, 'index'])->name('contact');
         Route::get('/contact-list', [ContactController::class, 'contact_list'])->name('contact.list');

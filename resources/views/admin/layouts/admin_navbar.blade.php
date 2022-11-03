@@ -8,12 +8,18 @@
         <li class="nav-item d-none d-sm-inline-block">
             <a href="{{ route ('admin.dashboard') }}" class="nav-link">Home</a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{ route('admin.logout') }}"
-                onclick="event.preventDefault(); document.getElementById('logout-form').submit()"" class="nav-link">logout</a>
-        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{(auth()->user()->name) ? auth()->user()->name : 'Admin'}}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a href="{{ route('admin.changePasssword') }}" class="dropdown-item"> <i class="fa fa-user"></i>&nbsp;Change Password</a>
+              <a href="{{ route('admin.logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit()"" class="dropdown-item"><i class="fa fa-sign-out"></i> logout</a>
+            </div>
+          </li>
     </ul>
-    
+
     {{-- logout form --}}
     <form id="logout-form" action="{{ route('admin.logout') }}" method="POST">
         {{ csrf_field() }}
