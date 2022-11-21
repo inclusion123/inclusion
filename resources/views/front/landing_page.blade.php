@@ -61,7 +61,7 @@
     {{-- @include('front.pages.features._partials.feature_page') --}}
 
     @include('front.pages.services._partials.our_service_page')
-
+    @include('front.pages.black_friday')
     <!-- Pricing Plan Start -->
     <!-- <div class="container-fluid py-4 wow fadeInUp" data-wow-delay="0.1s">
                                         <div class="container py-4">
@@ -141,4 +141,11 @@
 
 @section('script')
     @include('front.pages.quotes._partials.quote_form_js')
+    <script>
+    $ (window).ready (function () {
+        setTimeout (function () {
+            $ ('#modal-black-friday').modal ("show")
+        }, 3000)
+    })
+</script>
 @endsection
