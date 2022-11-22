@@ -15,4 +15,9 @@ class HomeController extends Controller
        $seo = Seo::seo('dashboard');
        return view('front.landing_page',compact('seo'));
     }
+
+    public function privacy_policy()
+    {
+       return view('front.pages.privacy_policy.index');
+    }
 }

@@ -86,6 +86,9 @@ Route::name('front.')->group(function () {
     //portfolio page
     Route::get('portfolio', [App\Http\Controllers\Front\PortfolioController::class, 'index'])->name('portfolio');
 
+    Route::get('privacy_policy', [App\Http\Controllers\Front\HomeController::class, 'privacy_policy'])->name('privacy_policy');
+
+
 
 });
 

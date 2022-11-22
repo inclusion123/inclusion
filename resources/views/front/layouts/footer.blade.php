@@ -95,6 +95,8 @@
                             {{-- <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Latest Blog</a> --}}
                             <a class="text-light" href="{{ route('front.contact') }}"><i
                                     class="bi bi-arrow-right text-primary me-2"></i>Contact Us</a>
+                                    <a class="text-light" href="{{ route('front.privacy_policy') }}"><i
+                                    class="bi bi-arrow-right text-primary me-2"></i>Privacy Policy</a>
                         </div>
                     </div>
                 </div>
