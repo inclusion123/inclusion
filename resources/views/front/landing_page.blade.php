@@ -141,11 +141,11 @@
 
 @section('script')
     @include('front.pages.quotes._partials.quote_form_js')
-    <!-- <script>
-    $ (window).ready (function () {
-        setTimeout (function () {
-            $ ('#modal-black-friday').modal ("show")
-        }, 3000)
-    }) -->
+    <script>
+    // $ (window).ready (function () {
+    //     setTimeout (function () {
+    //         $ ('#modal-black-friday').modal ("show")
+    //     }, 3000)
+    // })
 </script>
 @endsection

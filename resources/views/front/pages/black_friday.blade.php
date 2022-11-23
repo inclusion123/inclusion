@@ -28,8 +28,11 @@
                     Get <b>30%</b> Off <span>On Websites Development</span>
                     </h1>
                     <p>Enter your email below</p>
-                    <input type="email" class="input1" id="" placeholder="Type your email here">
-                    <button class="submit" type="button" id="">SUBMIT</button>
+                    <form action="" method="post">
+                    @csrf
+                    <input type="email" name="email" class="input1" id="" placeholder="Type your email here">
+                    <button class="submit" type="submit" id="">SUBMIT</button>
+                    </form>
                     <button class="no__thanks" data-bs-dismiss="modal" type="button" id="">NO THANKS</button>
                 </div>
             </div>

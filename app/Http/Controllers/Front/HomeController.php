@@ -20,4 +20,9 @@ class HomeController extends Controller
     {
        return view('front.pages.privacy_policy.index');
     }
+
+    public function store_black_friday_enquiry(Request $request)
+    {
+      return $request->all();
+    }
 }
