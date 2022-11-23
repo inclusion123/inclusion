@@ -145,7 +145,7 @@
     $ (window).ready (function () {
         setTimeout (function () {
             $ ('#modal-black-friday').modal ("show")
-        }, 3000)
+        }, 1000)
     })
 </script>
 @endsection

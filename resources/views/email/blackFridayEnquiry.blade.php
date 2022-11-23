@@ -55,8 +55,10 @@
             color: #fff;
             font-weight: 600;
         }
-      .user__content ul li p span {
+      .user__content ul li p a {
           width: 100px;
+          color: #fff !important;
+          text-decoration: none !important;
       }
     </style>
   </head>
@@ -80,11 +82,12 @@
                 <img src="https://inclusionsoft.com/front/img/logo.png" style="width: 180px;">
               </div>
               <div class="user__content">
-                <p>I'm interested in learning more about your "Black Friday offers". Can you tell me more?</p>
+                <p style="text-align: center">I'm interested in learning more about your "Black Friday offers". Can you tell me more?</p>
                 <ul style="list-style: none;
                 padding: 0px;
                 margin: 0;">
                   <li style="margin-bottom: 20px;
+                  margin-left: 0px;
                   background-color: #ec3944;
                   padding: 5px 5px;
                   border-radius: 0px;">
