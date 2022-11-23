@@ -12,7 +12,7 @@
                         <div class="modal__logo">
                             <img src="{{asset('/front/img/logo-white.png')}}">
                         </div>
-                        <h2>Mon 21st - Mon 25th Nov</h2>
+                        <h2>Mon. 21st - Wed. 30th Nov.</h2>
                         <h5>
                             30% OFF On Website Development Services. <br><br> Offer Valid Till 30th November
                         </h5>

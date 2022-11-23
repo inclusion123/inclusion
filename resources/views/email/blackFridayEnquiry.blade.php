@@ -56,7 +56,8 @@
             font-weight: 600;
         }
       .user__content ul li p a {
-          width: 100px;
+          width: 100%;
+          text-align: center !important;
           color: #fff !important;
           text-decoration: none !important;
       }
