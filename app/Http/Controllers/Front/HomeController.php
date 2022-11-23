@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\Seo;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
+use App\Models\BlackFridayEnquiry;
+use App\Jobs\BlackFridayEnquiryJob;
 
 class HomeController extends Controller
 {
@@ -23,6 +26,27 @@ class HomeController extends Controller
 
     public function store_black_friday_enquiry(Request $request)
     {
-      return $request->all();
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+
+        ]);
+        if($validator->fails()) {
+            //withInput keep the users info
+            // return redirect()->back()->withInput()->withErrors($validation->messages());
+            return redirect()->back();
+        }
+        try {
+            BlackFridayEnquiry::create([
+                'email' => $request->email,
+            ]);
+            $data = $request->all();
+            $sendingAddress=[ env("inclusionContactMail"), env("BlackFridayEnquiryMail")];
+            BlackFridayEnquiryJob::dispatch($data,$sendingAddress);
+            return redirect()->back()->with('success', 'Contact request has been sent.');
+        } catch (\Exception $e) {
+            return redirect()->back()->withInput()->with('error', 'Something went Wrong: ' . $e->getMessage());
+            return $e->getMessage();
+        }
+
     }
 }

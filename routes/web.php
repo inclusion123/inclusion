@@ -43,6 +43,12 @@ use App\Http\Controllers\Front\HomeController;
 //     return view('welcome');
 // });
 Route::name('front.')->group(function () {
+
+    //black friday enquery//
+    Route::post('black-friday-store', [HomeController::class, 'store_black_friday_enquiry'])->name('black.friday.store');
+
+    //black friday enquery//
+
     Route::get('/', [HomeController::class, 'index'])->name('index');
 
     // AboutUs Pages Route
