@@ -1,3 +1,14 @@
+
+<div class="black_friday_header container-fluid px-5 d-none d-lg-block">
+    <div class="row gx-0">
+        <div class="col-lg-12 text-center text-lg-start mb-2 mb-lg-0">
+            <div class="alert alert_black_friday alert-success alert-dismissible">
+                <button type="button" class="btn-close" data-bs-dismiss="alert">x</button>
+                Get <strong>30% Off</strong> On Websites Development
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Topbar Start -->
 <div class="container-fluid bg-dark px-5 d-none d-lg-block">
     <div class="row gx-0">

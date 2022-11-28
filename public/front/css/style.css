@@ -1793,6 +1793,33 @@ span.avtr figure {
 
 
 /* BLACK FRIDAY CSS */
+
+/* HEADER */
+.black_friday_header {
+    background-color: #ea1f2c;
+}
+.alert_black_friday {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    text-align: center;
+    font-size: 15px;
+    padding: 5px 0;
+    position: relative;
+    margin: 0px;
+}
+.alert_black_friday .btn-close {
+    padding: 0px;
+    top: 4px;
+    color: #fff;
+    background: no-repeat;
+    opacity: 1;
+    height: auto;
+}
+.alert_black_friday .btn-close:focus {
+    box-shadow: none;
+}
+
 .modal__black_friday .modal-dialog {
     padding: 12px;
     border-radius: 5px;
@@ -1818,6 +1845,11 @@ span.avtr figure {
     right: 0;
     padding: 0px;
     height: auto;
+}
+.modal__black_friday .modal-dialog .modal-header .btn-close:focus {
+    outline: none;
+    border: none;
+    box-shadow: none;
 }
 .modal__black_friday .modal-dialog .modal-content .modal-body {
     border: none;
