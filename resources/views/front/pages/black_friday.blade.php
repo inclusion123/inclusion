@@ -8,7 +8,8 @@
             </div>
             <div class="modal-body">
                 <div class="discount__contant">
-                    <div class="discount__leftArea">
+                    <img src="{{asset('/front/img/christmas_img.png')}}" style="width: 100%;">
+                    {{-- <div class="discount__leftArea">
                         <div class="modal__logo">
                             <img src="{{asset('/front/img/logo-white.png')}}">
                         </div>
@@ -16,9 +17,6 @@
                         <h5>
                             30% OFF On Website Development Services. <br><br> Offer Valid Till 30th November
                         </h5>
-                        <!-- <p class="discountModal__text">
-                    You can check <a href="#!" target="_blank">privacy policy</a> By entering your email
-                    </p> -->
                     </div>
 
                     <div class="discountModal__submit">
@@ -35,7 +33,7 @@
                             <button class="submit" type="submit" id="">SUBMIT</button>
                         </form>
                         <button class="no__thanks" data-bs-dismiss="modal" type="button" id="">NO THANKS</button>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
