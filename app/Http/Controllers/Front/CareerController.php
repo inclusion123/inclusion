@@ -48,4 +48,9 @@ class CareerController extends Controller
         $skills = Skill::where('requirement_id',$detail->id)->get();
         return view('front.pages.career._partials.requirement.detail.index',compact('detail','skills'));
     }
+
+    public function hireDeveloper()
+    {
+        return view('front.pages.career.hire_developer');
+    }
 }

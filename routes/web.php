@@ -74,7 +74,9 @@ Route::name('front.')->group(function () {
 
         //job detail
         Route::get('/career/{slug}', [CareerController::class, 'job_detail'])->name('jobDetail');
+        
     });
+    Route::get('/hire-developer', [CareerController::class, 'hireDeveloper'])->name('hireDeveloper');
 
     //team member page route
     Route::get('team-members', [App\Http\Controllers\Front\TeamController::class, 'index'])->name('team_members');
@@ -93,6 +95,9 @@ Route::name('front.')->group(function () {
     Route::get('portfolio', [App\Http\Controllers\Front\PortfolioController::class, 'index'])->name('portfolio');
 
     Route::get('privacy_policy', [App\Http\Controllers\Front\HomeController::class, 'privacy_policy'])->name('privacy_policy');
+
+    Route::get('themes', [App\Http\Controllers\Front\HomeController::class, 'themes'])->name('themes');
+    Route::get('theme-detail', [App\Http\Controllers\Front\HomeController::class, 'theme_detail'])->name('theme_detail');
 
 
 
