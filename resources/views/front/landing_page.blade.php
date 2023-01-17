@@ -61,7 +61,7 @@
     {{-- @include('front.pages.features._partials.feature_page') --}}
 
     @include('front.pages.services._partials.our_service_page')
-    @include('front.pages.black_friday')
+    {{-- @include('front.pages.black_friday') --}}
     <!-- Pricing Plan Start -->
     <!-- <div class="container-fluid py-4 wow fadeInUp" data-wow-delay="0.1s">
                                         <div class="container py-4">
