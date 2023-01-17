@@ -2042,3 +2042,399 @@ span.avtr figure {
     color: #0000e3;
 }
 /* PRIVACY POLICY CSS END */
+
+
+/* THEME PAGE CSS */
+
+.thems_Hfilter {
+    display: flex;
+    justify-content: space-between;
+}
+.hfilter__left p {
+    font-size: 12px;
+    font-style: italic;
+    margin: 0 0 5px;
+}
+
+.hfilter__left .select {
+    display: inline-flex;
+    align-items: center;
+    color: #000;
+    background-color: #fff;
+    border-color: #fff;
+    font-weight: 400;
+    line-height: 1;
+    text-align: left;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    padding: 10px 15px;
+    font-size: .875rem;
+    border-radius: 0.35rem;
+    box-shadow: 0 .15rem 1.75rem 0 rgba(33,40,50,.15)!important;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.hfilter__left .select:focus-visible {
+    outline: none;
+}   
+.hfilter__right {
+    display: flex;
+}
+.hfilter__right .techonology:last-child {
+    margin-left: 15px;
+}
+
+
+.hfilter__right .techonology p {
+    font-size: 12px;
+    font-style: italic;
+    margin: 0 0 5px;
+}
+.techonology__check {
+    display: inline-flex;
+    align-items: center;
+    color: #000;
+    background-color: #fff;
+    border-color: #fff;
+    font-weight: 400;
+    line-height: 1;
+    text-align: left;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    padding: 13px 20px;
+    font-size: .875rem;
+    border-radius: 0.35rem;
+    box-shadow: 0 .15rem 1.75rem 0 rgba(33,40,50,.15)!important;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+/* The container */
+.container-check {
+    display: block;
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 0;
+    margin-top: 2px;
+    cursor: pointer;
+    font-size: 12px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #212121;
+    margin-right: 10px;
+}
+.container-check:last-child {
+    margin-right: 0px;
+}
+  
+  /* Hide the browser's default checkbox */
+  .container-check input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .container-check .checkmark {
+    position: absolute;
+    top: -2px;
+    left: 0;
+    height: 14px;
+    width: 14px;
+    background-color: #eee;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container-check:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .container-check input:checked ~ .checkmark {
+    background-color: #eb0f26;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .container-check input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .container-check .checkmark:after {
+    left: 5px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.template-card {
+    transition: .3s ease-in-out;
+    height: 100%;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    border: 1px solid #eee;
+    align-items: center;
+}
+.template-card:hover {
+    box-shadow: 0 0 40px rgb(2 59 109 / 10%);
+    background-color: #efefef36;
+}
+
+
+/* @media screen and (min-width: 1200px) {
+    .template-card picture {
+        width: 380px;
+    }
+} */
+.template-card picture {
+    width: 100%;
+    overflow: hidden;
+    display: block;
+    border-bottom: 1px solid #eee;
+    position: relative;
+}
+.template-card picture .img-fluid {
+    max-width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+.template-card picture .image__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #0000001a;
+    display: none;
+    transition: all .3s;
+}
+.template-card:hover .image__overlay {
+    display: block;
+}
+.template-card .details {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.template-card h2 {
+    margin: 0;
+    padding: 0px;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+.template-card h2 a {
+    color: #212121;
+}
+.template-card p {
+    color: #555;
+    margin: 0 0 25px 0;
+    overflow: hidden;
+}
+.template-card .buttons {
+    position: relative;
+    z-index: 2;
+}
+.template-card .buttons a {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 15px;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: .3px;
+    border-radius: 50px;
+    color: #eb0f26;
+    transition: all .3s;
+    flex-grow: 1;
+    flex-basis: auto;
+    justify-content: center;
+    border: 1px solid #eb0f26;
+}
+.template-card .buttons a:hover {
+    background: #eb0f26;
+    border-color: #eb0f26;
+    color: #fff;
+}
+.template-card .buttons a.download {
+    margin-left: 12px;
+}
+
+@media screen and (max-width: 768px) {
+    .thems_Hfilter {
+        display: block;
+    }
+}
+@media screen and (max-width: 576px) {
+    .hfilter__right {
+        display: block;
+    }
+    .hfilter__right .techonology {
+        margin-top: 10px;
+    }
+    .hfilter__right .techonology:last-child {
+        margin-left: 0px;
+    }
+}
+/* THEME PAGE CSS END */
+
+/* THEME DETAIL PAGE CSS */
+.themDetail_left {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
+}
+.themDetail_left picture {
+    width: 100%;
+    overflow: hidden;
+    display: block;
+    position: relative;
+    border-radius: 10px;
+}
+.themDetail_left picture .img-fluid {
+    max-width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+.themDetail_right {
+    background-color: #eeeeee63;
+    height: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 .15rem 1.75rem 0 rgba(33,40,50,.15);
+}
+.themDetail_right h2 {
+    color: #212121;
+    font-size: 26px;
+    font-style: inherit;
+    font-weight: inherit;
+    font-weight: 700;
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: 28px;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+.themDetail_right h3 {
+    font-size: 20px;
+    font-style: inherit;
+    font-weight: inherit;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 26px;
+    margin-bottom: 10px;
+    margin-top: 30px;
+}
+.themDetail_right ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+.themDetail_right ul li {
+    position: relative;
+    padding-left: 20px;
+}
+.themDetail_right ul li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #eb0f26;
+    font-weight: 600;
+}
+.themDetail_right ul li p {
+    flex-shrink: 999;
+    align-items: center;
+    color: #505050;
+    display: flex;
+    line-height: 24px;
+    text-align: left;
+    margin: 0 0 5px;
+    font-size: 15px;
+}
+.themDetail_right .preview {
+    display: block;
+    border-radius: 35px;
+    margin-top: 30px;
+}
+.themDetail_right .download {
+    margin-top: 20px;
+    display: block;
+    border: 1px solid #eb0f26;
+    border-radius: 35px;
+    color: #eb0f26;
+}
+.themDetail_right .download:hover {
+    background-color: #eb0f26;
+    color: #fff;
+}
+.themDetail_right a:focus {
+    outline: none;
+    box-shadow: none;
+}
+.theme__discription {
+    margin-top: 40px;
+}
+.theme__discription h2 {
+    font-size: 18px;
+    margin: 30px 0 15px;
+}
+.theme__discription p {
+    font-size: 15px;
+    margin: 0 0 10px;
+}
+.theme__discription ul {
+    padding: 0px;
+    list-style: none;
+    margin: 0px;
+}
+.theme__discription ul li {
+    position: relative;
+    padding-left: 20px;
+}
+.theme__discription ul li::before {
+    content: "✓";
+    position: absolute;
+    left: 0px;
+    color: rgb(235, 15, 38);
+    font-weight: 600;
+}
+
+.theme-carousel .carousel-item .w-100 {
+    filter: unset;
+    -webkit-filter: unset;
+    height: 100%;
+    object-fit: cover;
+}
+.theme-carousel .carousel-item {
+    height: 400px;
+}
+
+@media screen and (max-width: 768px) {
+    .theme-carousel .carousel-item {
+        height: 300px;
+    }
+}
+/* THEME DETAIL PAGE CSS END */
+
+/* HIRE DEVELOPER PAGE CSS */
+
+/* HIRE DEVELOPER PAGE CSS END */

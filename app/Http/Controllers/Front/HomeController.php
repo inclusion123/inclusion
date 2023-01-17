@@ -49,4 +49,12 @@ class HomeController extends Controller
         }
 
     }
+    public function themes()
+    {
+        return view('front.pages.themes.index');
+    }
+    public function theme_detail()
+    {
+        return view('front.pages.themes.detail');
+    }
 }
