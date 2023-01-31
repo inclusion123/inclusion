@@ -32,6 +32,7 @@
             <div class="row g-5">
                 <div class="col-lg-7 col-md-7 col-sm-12 col-12 wow slideInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: slideInUp;">
                     <div class="themDetail_left">
+
                         {{-- <picture class="flex-shrink-0">
                             <a href="#!">
                                 <img src="https://inclusionsoft.com/storage/images/tVdt -HuW4Klekktic (1).png" loading="lazy" class="img-fluid" alt="Arsha - Free Corporate Bootstrap HTML Template" width="800" height="600" />                               
