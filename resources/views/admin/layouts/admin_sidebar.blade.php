@@ -123,6 +123,27 @@
 
                 <li class="nav-item">
                     <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-image"></i>
+                        <p>Themes <i class="fas fa-angle-left right"></i></p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.theme.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Category</p>
+                            </a>
+                        </li>
+                        {{-- <li class="nav-item">
+                            <a href="{{ route('admin.career.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Applicant Details</p>
+                            </a>
+                        </li> --}}
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-info"></i>
                         <p>Inquiry<i class="fas fa-angle-left right"></i></p>
                     </a>

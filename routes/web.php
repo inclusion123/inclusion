@@ -23,6 +23,7 @@ use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Admin\ThemeCategoryController;
 use App\Http\Controllers\Front\AboutUsController;
 use App\Http\Controllers\Front\BlogController as FrontBlogController;
 use App\Http\Controllers\Front\CareerController;
@@ -74,7 +75,7 @@ Route::name('front.')->group(function () {
 
         //job detail
         Route::get('/career/{slug}', [CareerController::class, 'job_detail'])->name('jobDetail');
-        
+
     });
     Route::get('/hire-developer', [CareerController::class, 'hireDeveloper'])->name('hireDeveloper');
 
@@ -150,6 +151,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::group(['prefix' => 'career', 'as' => 'career.'], function () {
             Route::get('/applicant', [AdminCareerController::class, 'applicant_index'])->name('index');
             Route::get('/applicant-data', [AdminCareerController::class, 'applicant_data'])->name('applicant_data');
+        });
+
+        //theme
+        Route::group(['prefix' => 'theme', 'as' => 'theme.'], function () {
+            Route::resource('/', ThemeCategoryController::class);
+            // Route::get('/index', [AdminCareerController::class, 'index'])->name('index');
+            // Route::get('/applicant-data', [AdminCareerController::class, 'applicant_data'])->name('applicant_data');
         });
 
         Route::resource('/testimonial', TestimonialController::class);
