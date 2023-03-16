@@ -133,6 +133,12 @@
                                 <p>Category</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin.theme.items.index')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Items</p>
+                            </a>
+                        </li>
                         {{-- <li class="nav-item">
                             <a href="{{ route('admin.career.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>

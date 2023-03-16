@@ -166,6 +166,7 @@ return [
         Yoeunes\Toastr\ToastrServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Conner\Tagging\Providers\TaggingServiceProvider::class,
+        // Intervention\Image\ImageServiceProvider::class,
         /*
          * Package Service Providers...
          */

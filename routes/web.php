@@ -24,6 +24,7 @@ use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\ThemeCategoryController;
+use App\Http\Controllers\Admin\ThemeItemsController;
 use App\Http\Controllers\Front\AboutUsController;
 use App\Http\Controllers\Front\BlogController as FrontBlogController;
 use App\Http\Controllers\Front\CareerController;
@@ -156,8 +157,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         //theme
         Route::group(['prefix' => 'theme', 'as' => 'theme.'], function () {
             Route::resource('/', ThemeCategoryController::class);
-            // Route::get('/index', [AdminCareerController::class, 'index'])->name('index');
+            Route::get('/{id}/edit_category', [ThemeCategoryController::class, 'edit_category'])->name('edit_category');
+            Route::post('/{id}/update_category', [ThemeCategoryController::class, 'update_category'])->name('update_category');
+            Route::delete('/delete_category', [ThemeCategoryController::class, 'destroy_category'])->name('delete_category');
             // Route::get('/applicant-data', [AdminCareerController::class, 'applicant_data'])->name('applicant_data');
+            Route::resource('/items', ThemeItemsController::class);
         });
 
         Route::resource('/testimonial', TestimonialController::class);

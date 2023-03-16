@@ -18,10 +18,10 @@ class ThemeCategoryController extends Controller
     {
         if($request->ajax()){
             try {
-                $quotes = Category::orderBy('created_at', 'DESC');
-                $datatable = Datatables::eloquent($quotes)
-                    ->addColumn("action", function ($row) {
-                        return view('admin.quotes._partials.action', compact('row'));
+                $category = Category::orderBy('created_at', 'DESC');
+                $datatable = Datatables::eloquent($category)
+                    ->addColumn("action", function ($category) {
+                        return view('admin.theme.category._partials.action', compact('category'));
                     })
                     ->addColumn('created_at',function($request){
                         // return 11;
@@ -46,7 +46,7 @@ class ThemeCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.theme.category.create');
     }
 
     /**
@@ -57,7 +57,29 @@ class ThemeCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        $this->validate($request, [
+            'name' => 'required|max:255|string|unique:categories,name',
+            'slug' => 'required|max:255|string|unique:categories,slug',
+        ]);
+        try {
+            if(isset($request->status)){
+                $status = $request->status;
+            }else{
+                $status = 0;
+            }
+            $category = Category::create([
+                // 'service_id' => $request->service_id,
+                'name' => $request->name,
+                'slug' => $request->slug,
+                'status' => $status
+
+            ]);
+            return redirect()->route('admin.theme.index',)->with('success', 'Category is successfully added.');
+        } catch (\Exception $e) {
+            report($e);
+            return redirect()->back()->withInput()->with('error', 'Something went Wrong: ' . $e->getMessage());
+        }
     }
 
     /**
@@ -68,7 +90,7 @@ class ThemeCategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        // dd(13);
     }
 
     /**
@@ -79,7 +101,7 @@ class ThemeCategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        // dd($id);
     }
 
     /**
@@ -91,7 +113,7 @@ class ThemeCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // dd('update');
     }
 
     /**
@@ -102,6 +124,46 @@ class ThemeCategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // dd('delete');
+    }
+
+    public function edit_category($id)
+    {
+        $category = Category::where('id', $id)->first();
+        // dd($category);
+        return view('admin.theme.category.edit', compact('category'));
+    }
+    public function update_category(Request $request ,$id)
+    {
+        // dd(isset($request->status));
+        $this->validate($request, [
+            'name' => 'required|max:255|string|unique:categories,name,'.$id,
+            'slug' => 'required|max:255|string|unique:categories,slug,'.$id,
+        ]);
+        try {
+
+            $category = Category::find($id);
+            $category->name = $request->name;
+            $category->slug = $request->slug;
+            if(isset($request->status)){
+                $category->status = $request->status;
+
+            }else{
+                $category->status = 0;
+            }
+            $category->save();
+
+            return redirect()->route('admin.theme.index')->with('success', 'Category Updated successfully .');
+        } catch (\Exception $e) {
+            report($e);
+            return redirect()->back()->withInput()->with('error', 'Something went Wrong: ' . $e->getMessage());
+        }
+    }
+
+    public function destroy_category(Request $request)
+    {
+        $id = $request->id;
+        $category = Category::where('id', $id)->delete();
     }
 }
+

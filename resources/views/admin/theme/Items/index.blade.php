@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Category</h1>
+                        <h1 class="m-0">Thems</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -33,7 +33,7 @@
                             <div class="pull-right"
                                 style="text-align: -webkit-right;margin:20px;
                                                         ">
-                                <a class="btn btn-primary" href="{{ route('admin.theme.create') }}"> Create
+                                <a class="btn btn-primary" href="{{ route('admin.theme.items.create') }}"> Create
                                     Requirement </a>
                             </div>
                         </div>
@@ -41,16 +41,16 @@
                         <div class="box-body">
                             <div class="table-responsive">
 
-                                <table id="requirementTable" class="table table-bordered table-striped" role="grid"
+                                <table id="itemsTable" class="table table-bordered table-striped" role="grid"
                                     aria-describedby="example1_info">
                                     <thead>
                                         <tr role="row">
                                             <th>#</th>
                                             <th>Name</th>
-                                            <th>Created At</th>
-                                            {{-- <th>Experience</th> --}}
-
-                                            {{-- <th>Description</th> --}}
+                                            <th>Title</th>
+                                            <th>Description</th>
+                                            <th>Download Link</th>
+                                            {{-- <th>Image</th> --}}
                                             <th id="operations_column" class="operations-tour">Operations</th>
                                         </tr>
                                     </thead>
@@ -65,40 +65,13 @@
 
     @endsection
     @section('script')
-        <script>
-            function deleteCategory() {
-                let id = $("#delete-theme-category-modal #item_id").val();
-                //  id = 1;
-                console.log(id);
-                console.log("{{ route('admin.theme.delete_category') }}/"+ id );
-                $.ajax({
-                    type: "DELETE",
-                    enctype: 'multipart/form-data',
-                    url: "{{ route('admin.theme.delete_category') }}",
-
-                    data: {
-                        "_token": "{{ csrf_token() }}",
-                        "id": id
-                    },
-                    success: function(result) {
-                        $("#delete-theme-category-modal").modal('hide');
-                        $('#requirementTable').DataTable().ajax.reload();
-
-                    }
-                });
-            }
-
-            function OpenCategoryDeleteBox(id) {
-                $("#delete-theme-category-modal").modal('show');
-                $("#delete-theme-category-modal #item_id").val(id);
-            }
-
-            $('#requirementTable').DataTable({
+    <script>
+        $('#itemsTable').DataTable({
                 processing: true,
                 serverSide: true,
 
                 dataType: 'json',
-                ajax: '{{ route('admin.theme.index') }}',
+                ajax: '{{ route('admin.theme.items.index') }}',
                 columns: [{
                         data: 'id',
                     },
@@ -106,15 +79,15 @@
                         data: 'name',
                     },
                     {
-                        data: 'created_at',
+                        data: 'title',
                     },
 
-                    // {
-                    //     data: 'experience',
-                    // },
-                    // {
-                    //     data: 'description',
-                    // },
+                    {
+                        data: 'title_description',
+                    },
+                    {
+                        data: 'download_link',
+                    },
 
 
                     {
@@ -126,7 +99,6 @@
 
                 ]
             });
+    </script>
 
-            // });
-        </script>
     @endsection
