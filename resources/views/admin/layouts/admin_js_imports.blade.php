@@ -25,14 +25,19 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
 
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js">
+
 </script>
+
+<script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+
 <script src="{{ asset('back/plugins/summernote/summernote-bs4.min.js') }}"></script>
 
 {{-- <script type="text/javascript">
     $(function () {
         var params = window.location.pathname;
         params = params.toLowerCase();
- 
+
         if (params != "/") {
             $(".nav-sidebar li a").each(function (i) {
                 var obj = this;
@@ -54,7 +59,7 @@
     });
 </script> --}}
 
-//bootstrap-tagsinput CDN 
+//bootstrap-tagsinput CDN
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js"
 integrity="sha512-9UR1ynHntZdqHnwXKTaOm1s6V9fExqejKvg5XMawEMToW4sSw+3jtLrYfZPijvnwnnE8Uol1O9BcAskoxgec+g=="
 crossorigin="anonymous" referrerpolicy="no-referrer"></script>

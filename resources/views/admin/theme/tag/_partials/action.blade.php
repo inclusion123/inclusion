@@ -1,10 +1,10 @@
 {{-- <a title="Edit" class="btn btn-outline-primary" href="{{ url('admin/theme/1/edit') }}">
     <i class='far fa-edit'></i>
 </a> --}}
-<a title="Edit" class="btn btn-outline-primary" href="{{ route('admin.theme.items.edit',$items->id) }}">
+<a title="Edit" class="btn btn-outline-primary" href="{{ route('admin.theme.theme_tag.edit',$tags->id) }}">
     <i class='far fa-edit'></i>
 </a>
-<button title="Delete" onclick="OpenCategoryDeleteBox({{ $items->id }})" class="btn btn-outline-danger">
+<button title="Delete" onclick="OpenCategoryDeleteBox({{ $tags->id }})" class="btn btn-outline-danger">
     <i class="fa fa-trash" aria-hidden="true"></i>
 </button>
 

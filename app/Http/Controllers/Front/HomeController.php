@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use App\Models\BlackFridayEnquiry;
 use App\Jobs\BlackFridayEnquiryJob;
+use App\Models\Category;
+use App\Models\Item;
+use App\Models\Tag;
 
 class HomeController extends Controller
 {
@@ -49,9 +52,16 @@ class HomeController extends Controller
         }
 
     }
-    public function themes()
+    public function themes(Request $request)
     {
-        return view('front.pages.themes.index');
+        $categories = Category::get();
+        $tags = Tag::get();
+        $items = Item::paginate(6);
+        // dd($items);
+        if ($request->ajax()) {
+            return view('front.pages.themes.data', compact('categories', 'tags', 'items'));
+        }
+        return view('front.pages.themes.index', compact('categories', 'tags', 'items'));
     }
     public function theme_detail()
     {

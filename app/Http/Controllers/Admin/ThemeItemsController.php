@@ -3,12 +3,17 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Item;
 use App\Models\ItemGallery;
+use App\Models\Items_with_category;
+use App\Models\ItemTag;
+use App\Models\Tag;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Str;
+use App\Http\Requests\Admin\ItemRequest;
 
 class ThemeItemsController extends Controller
 {
@@ -21,10 +26,10 @@ class ThemeItemsController extends Controller
     {
         if($request->ajax()){
             try {
-                $category = Item::orderBy('created_at', 'DESC');
-                $datatable = Datatables::eloquent($category)
-                    ->addColumn("action", function ($category) {
-                        return view('admin.theme.Items._partials.action', compact('category'));
+                $items = Item::orderBy('created_at', 'DESC');
+                $datatable = Datatables::eloquent($items)
+                    ->addColumn("action", function ($items) {
+                        return view('admin.theme.Items._partials.action', compact('items'));
                     })
                     ->rawColumns(['action'])
                     ->make(true);
@@ -44,7 +49,10 @@ class ThemeItemsController extends Controller
      */
     public function create()
     {
-        return view('admin.theme.Items.create');
+        $categories = Category::get();
+        $tags = Tag::get();
+        // dd($category);
+        return view('admin.theme.Items.create', compact('categories', 'tags'));
     }
 
     /**
@@ -53,8 +61,10 @@ class ThemeItemsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ItemRequest $request)
     {
+        // dd($request->selectedCategory);
+        // dd(isset($request->selectedCategories));
 
         try {
             if(isset($request->status)){
@@ -78,7 +88,24 @@ class ThemeItemsController extends Controller
                 // 'featured_image' => ''
 
             ]);
-
+            //store Category
+            if(isset($request->selectedCategories)){
+                foreach($request->selectedCategories as $selectedCategory){
+                    $item_category = new Items_with_category();
+                    $item_category->item_id = $theme->id;
+                    $item_category->category_id = $selectedCategory;
+                    $item_category->save();
+                }
+            }
+            //store Tag
+            if(isset($request->selectedTags)){
+                foreach($request->selectedTags as $selectedTag){
+                    $item_tag = new ItemTag();
+                    $item_tag->item_id = $theme->id;
+                    $item_tag->tag_id = $selectedTag;
+                    $item_tag->save();
+                }
+            }
             //upload featured_image
             if ($request->hasFile('featured_image')) {
 
@@ -134,7 +161,7 @@ class ThemeItemsController extends Controller
      */
     public function edit($id)
     {
-        //
+        dd(11);
     }
 
     /**
@@ -157,6 +184,15 @@ class ThemeItemsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = Item::find($id);
+        $item->category()->delete();
+        $item->tag()->delete();
+        $item->delete();
+
     }
+
+    // public function abc(){
+    //     $item = Item::where('id',19)->with('category')->with('tag')->get();
+    //     dd($item);
+    // }
 }

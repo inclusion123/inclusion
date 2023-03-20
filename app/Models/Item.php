@@ -24,4 +24,13 @@ class Item extends Model
         'featured_image',
     ];
 
+    public function category()
+    {
+        return $this->hasMany(Items_with_category::class);
+    }
+    public function tag()
+    {
+        return $this->hasMany(ItemTag::class);
+    }
+
 }

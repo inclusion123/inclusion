@@ -134,6 +134,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="{{route('admin.theme.theme_tag.index')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Tag</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{route('admin.theme.items.index')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Items</p>

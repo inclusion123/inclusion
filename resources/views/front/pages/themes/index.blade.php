@@ -1,7 +1,7 @@
 @extends('front.layouts.master')
 
 @section('css')
-    
+
 @endsection
 
 @section('carousel')
@@ -36,29 +36,37 @@
                             <div class="hfilter__left">
                                 <p>Category</p>
                                 <select class="select">
-                                    <option>All</option>
-                                    <option>landing Page</option>
+                                    @if(isset($categories))
+                                    @foreach($categories as $category)
+                                    <option>{{$category->name}}</option>
+                                    @endforeach
+                                    @endif
+                                    {{-- <option>landing Page</option>
                                     <option>Forms</option>
                                     <option>All</option>
-                                    <option>All</option>
+                                    <option>All</option> --}}
                                 </select>
                             </div>
                             <div class="hfilter__right">
                                 <div class="techonology">
                                     <p>Technologies</p>
                                     <div class="techonology__check">
-                                        <label class="container-check">HTML
+                                        @if(isset($tags))
+                                        @foreach($tags as $tag)
+                                        <label class="container-check">{{$tag->name}}
                                             <input type="checkbox" checked="checked">
                                             <span class="checkmark"></span>
                                         </label>
-                                        <label class="container-check">Angular
+                                        @endforeach
+                                        @endif
+                                        {{-- <label class="container-check">Angular
                                             <input type="checkbox" checked="checked">
                                             <span class="checkmark"></span>
                                         </label>
                                         <label class="container-check">Vue
                                             <input type="checkbox" checked="checked">
                                             <span class="checkmark"></span>
-                                        </label>
+                                        </label> --}}
                                     </div>
                                 </div>
                                 <div class="techonology ml-2">
@@ -78,7 +86,7 @@
                         </div>
                     </section>
                 </div>
-            </div>            
+            </div>
             <hr class="mt-3 mb-5">
             <div class="row g-5">
                 <div class="col-lg-4 col-md-4 col-sm-6 col-12 wow slideInUp" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: slideInUp;">
@@ -96,7 +104,7 @@
                                 <a href="#!" class="download"><span title="Download" class="fas fa-download"></span></a>
                             </div>
                         </div>
-                    </div>                    
+                    </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6 col-12 wow slideInUp" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: slideInUp;">
                     <div class="template-card">
@@ -113,14 +121,14 @@
                                 <a href="#!" class="download"><span title="Download" class="fas fa-download"></span></a>
                             </div>
                         </div>
-                    </div>                    
+                    </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6 col-12 wow slideInUp" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: slideInUp;">
                     <div class="template-card">
                         <picture class="flex-shrink-0">
                             <a href="#!">
                                 <img src="https://inclusionsoft.com/storage/images/65ZT -Steinberger Superfoods - Mikronährstoffreich. Natürlich. Lecker..png" loading="lazy" class="img-fluid" alt="Arsha - Free Corporate Bootstrap HTML Template" width="800" height="600" />
-                                
+
                                 <div class="image__overlay">
                                 </div>
                             </a>
@@ -131,7 +139,7 @@
                                 <a href="#!" class="download"><span title="Download" class="fas fa-download"></span></a>
                             </div>
                         </div>
-                    </div>                    
+                    </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6 col-12 wow slideInUp" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: slideInUp;">
                     <div class="template-card">
@@ -148,7 +156,7 @@
                                 <a href="#!" class="download"><span title="Download" class="fas fa-download"></span></a>
                             </div>
                         </div>
-                    </div>                    
+                    </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6 col-12 wow slideInUp" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: slideInUp;">
                     <div class="template-card">
@@ -165,14 +173,14 @@
                                 <a href="#!" class="download"><span title="Download" class="fas fa-download"></span></a>
                             </div>
                         </div>
-                    </div>                    
+                    </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6 col-12 wow slideInUp" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: slideInUp;">
                     <div class="template-card">
                         <picture class="flex-shrink-0">
                             <a href="#!">
                                 <img src="https://inclusionsoft.com/storage/images/65ZT -Steinberger Superfoods - Mikronährstoffreich. Natürlich. Lecker..png" loading="lazy" class="img-fluid" alt="Arsha - Free Corporate Bootstrap HTML Template" width="800" height="600" />
-                                
+
                                 <div class="image__overlay">
                                 </div>
                             </a>
@@ -183,7 +191,7 @@
                                 <a href="#!" class="download"><span title="Download" class="fas fa-download"></span></a>
                             </div>
                         </div>
-                    </div>                    
+                    </div>
                 </div>
             </div>
         </div>

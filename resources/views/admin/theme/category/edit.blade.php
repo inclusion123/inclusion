@@ -27,7 +27,7 @@
                 <div class="card card-primary">
 
                     <div class="pull-right" style="margin: 20px;">
-                        <a class="btn btn-primary" href=""> Back </a>
+                        <a class="btn btn-primary" href="{{ route('admin.theme.index' ) }}"> Back </a>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
@@ -95,5 +95,19 @@
                     $(this).attr('value', 0);
                 }
             });
+
+            $("#catogoryServiceForm").validate({
+                    rules: {
+                        name: 'required',
+                        slug: 'required',
+                    },
+                    messages: {
+                        name: 'This field is required',
+                        slug: 'This field is required',
+                    },
+                    submitHandler: function(form) {
+                        form.submit();
+                    }
+                });
         </script>
     @endsection

@@ -31,7 +31,7 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form id="catogoryServiceForm" action="{{ route('admin.theme.items.store') }}" method="post"
+                    <form id="itemCreateForm" action="{{ route('admin.theme.items.store') }}" method="post"
                         enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">
@@ -43,40 +43,39 @@
                             <div class="form-group">
                                 <label for="serviceName">Name</label>
                                 <input type="name" name="name" class="form-control" id="themename"
-                                    placeholder="Enter ..." required value="{{ old('name') }}">
+                                    placeholder="Enter ..." value="{{ old('name') }}">
                             </div>
                             <div class="form-group">
                                 <label for="serviceName">Slug</label>
                                 <input type="slug" name="slug" class="form-control" id="themeslug"
-                                    placeholder="Enter ..." required value="{{ old('slug') }}">
+                                    placeholder="Enter ..." value="{{ old('slug') }}">
                             </div>
                             <div class="form-group">
                                 <label for="serviceName">Title</label>
                                 <input type="text" name="title" class="form-control" id="themetitle"
-                                    placeholder="Enter ..." required value="{{ old('title') }}">
+                                    placeholder="Enter ..." value="{{ old('title') }}">
                             </div>
                             <div class="form-group">
                                 <label for="serviceName">Title Description</label>
                                 <input type="text" name="title_description" class="form-control" id="themedescription"
-                                    placeholder="Enter ..." required value="{{ old('title_description') }}">
+                                    placeholder="Enter ..." value="{{ old('title_description') }}">
                             </div>
                             <div class="form-group">
                                 <label for="serviceName">Download Link</label>
                                 <input type="text" name="download_link" class="form-control" id="themedescription"
-                                    placeholder="Enter ..." required value="{{ old('title_description') }}">
+                                    placeholder="Enter ..." value="{{ old('title_description') }}">
                             </div>
-                            <div class="container">
-                                <label for="formFile" class="form-label">Featured Image</label>
-                                <div class="card card-primary">
+
+                            <label for="formFile" class="form-label">Featured Image</label>
+                            <div class="card card-primary">
                                 <div class="mb-2">
                                     <p><img id="output" width="200" /></p>
                                     <input class="form-control" name="featured_image" accept="image/*" type="file" id="formFile" onchange="loadFile(event)">
                                 </div>
-                                </div>
                             </div>
-                            <div class="container">
-                                <label for="formFile" class="form-label">Gallery</label>
-                                <div class="card card-primary">
+
+                            <label for="formFile" class="form-label">Gallery</label>
+                            <div class="card card-primary">
                                 <div class="mb-2">
                                     <div id="myImg">
 
@@ -85,6 +84,23 @@
                                     <p><img id="gallery_output" width="200" /></p> --}}
                                     <input class="form-control" name="gallery[]" accept="image/*" type="file" id="gallery" multiple >
                                 </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col container mt-5">
+                                    <select class="selectpicker" multiple aria-label="Default select example"  name="selectedCategories[]" data-live-search="true">
+                                        @foreach($categories as $category)
+                                      <option value="{{$category->id}}">{{$category->name}}</option>
+
+                                      @endforeach
+                                    </select>
+                                </div>
+                                <div class="col container mt-5">
+                                    <select class="selectpicker" multiple aria-label="Default select example" name="selectedTags[]" data-live-search="true">
+                                        @foreach($tags as $tag)
+                                      <option value="{{$tag->id}}">{{$tag->name}}</option>
+                                      @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="input_fields_wrap">
@@ -116,7 +132,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Description</label>
-                                <textarea id="summernote" class="form-control" name="description" rows="3" placeholder="Enter ..." required
+                                <textarea id="summernote" class="form-control" name="description" rows="3" placeholder="Enter ..."
                                     value="{{ old('description') }}"></textarea>
                             </div>
                             <div class="form-check form-switch">
@@ -155,12 +171,6 @@
                     $(this).attr('value', 0);
                 }
             });
-
-            //Image
-            var loadFile = function(event) {
-                var image = document.getElementById('output');
-                image.src = URL.createObjectURL(event.target.files[0]);
-            };
 
             //add input field
             var wrapper   		= $(".input_fields_wrap"); //Fields wrapper
@@ -204,27 +214,68 @@
                 e.preventDefault(); $(this).parent('div').parent('div').remove(); x--;
                 })
         </script>
-
         <script>
             $(function() {
-            $("#gallery").change(function() {
-                if (this.files && this.files[0]) {
-                for (var i = 0; i < this.files.length; i++) {
-                    var reader = new FileReader();
-                    reader.onload = imageIsLoaded;
-                    reader.readAsDataURL(this.files[i]);
-                }
-                }
-            });
+                $("#gallery").change(function() {
+                    if (this.files && this.files[0]) {
+                    for (var i = 0; i < this.files.length; i++) {
+                        var reader = new FileReader();
+                        reader.onload = imageIsLoaded;
+                        reader.readAsDataURL(this.files[i]);
+                    }
+                    }
+                });
+                });
+
+                function imageIsLoaded(e) {
+                $('#myImg').append('<img src=' + e.target.result + ' id="gallery_img" width="200">');
+                };
+
+                $('body').on('click','#gallery_img',function(){
+                $(this).remove();
             });
 
-            function imageIsLoaded(e) {
-            $('#myImg').append('<img src=' + e.target.result + ' id="gallery_img" width="200">');
+            //featured Image
+            var loadFile = function(event) {
+                var image = document.getElementById('output');
+                image.src = URL.createObjectURL(event.target.files[0]);
             };
-
-            $('body').on('click','#gallery_img',function(){
-            $(this).remove();
-
-        });
+        </script>
+        <script>
+            //Validation
+            $(document).ready(function() {
+                $("#itemCreateForm").validate({
+                    rules: {
+                        name: 'required',
+                        slug: 'required',
+                        title: {
+                            required: true,
+                        },
+                        title_description: {
+                            required: true,
+                        },
+                        download_link: {
+                            required: true,
+                        },
+                        featured_image: {
+                            required: true,
+                        },
+                        selectedCategories: {
+                            required: true,
+                        },
+                        highlight_details: {
+                            required: true,
+                        },
+                    },
+                    messages: {
+                        name: 'This field is required',
+                        slug: 'This field is required',
+                        title: 'This field is required',
+                    },
+                    submitHandler: function(form) {
+                        form.submit();
+                    }
+                });
+            });
         </script>
     @endsection
