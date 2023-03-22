@@ -56,15 +56,39 @@ class HomeController extends Controller
     {
         $categories = Category::get();
         $tags = Tag::get();
-        $items = Item::paginate(6);
+        $items = Item::orderBy('created_at', 'desc')->paginate(6);
+        $category_id = ($request->cat_id != '')?$request->cat_id:null;
+        $tag_ids = [6, 2,];
+
+        // $items = Item::whereHas('tag', function($q) use ($tag_ids){
+        //     $q->whereIN('tag_id', $tag_ids);
+        // })->orderBy('created_at', 'desc')->paginate(6);
         // dd($items);
+
         if ($request->ajax()) {
-            return view('front.pages.themes.data', compact('categories', 'tags', 'items'));
+            if($request->cat_id || $request->tag_id){
+                $items = Item::whereHas('category', function($q) use ($request){
+                    if(isset($request->cat_id) && !empty($request->cat_id)){
+                        $q->where('category_id','=', $request->cat_id);
+                    }
+                })->whereHas('tag', function($q) use ($request){
+                    if(isset($request->tag_id) && !empty($request->tag_id)){
+                    $q->whereIN('tag_id', $request->tag_id);
+                    // $q->whereIN('tag_id', [6]);
+                    }
+                })->orderBy('created_at', 'desc')->paginate(6);
+                // dd($items);
+            }
+
+            return view('front.pages.themes.data', compact( 'items'));
         }
         return view('front.pages.themes.index', compact('categories', 'tags', 'items'));
     }
-    public function theme_detail()
+    public function theme_detail($id)
     {
-        return view('front.pages.themes.detail');
+        $item =Item::where('id', $id)->with('gallery')->first();
+        // dd(count($item->gallery));
+
+        return view('front.pages.themes.detail', compact('item'));
     }
 }

@@ -31,8 +31,9 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form id="itemCreateForm" action="{{ route('admin.theme.items.store') }}" method="post"
+                    <form id="itemCreateForm" action="{{ isset($theme) ? route('admin.theme.items.update', $theme->id) : route('admin.theme.items.store') }}" method="post"
                         enctype="multipart/form-data">
+                        @if(isset($theme)) @method('put') @else @method('post') @endif
                         @csrf
                         <div class="card-body">
                             {{-- <div class="form-group">
@@ -43,27 +44,27 @@
                             <div class="form-group">
                                 <label for="serviceName">Name</label>
                                 <input type="name" name="name" class="form-control" id="themename"
-                                    placeholder="Enter ..." value="{{ old('name') }}">
+                                    placeholder="Enter ..." value="{{ old('name',isset($theme) ? $theme->name : '') }}">
                             </div>
                             <div class="form-group">
                                 <label for="serviceName">Slug</label>
                                 <input type="slug" name="slug" class="form-control" id="themeslug"
-                                    placeholder="Enter ..." value="{{ old('slug') }}">
+                                    placeholder="Enter ..." value="{{ old('slug', isset($theme) ? $theme->slug : '') }}">
                             </div>
                             <div class="form-group">
                                 <label for="serviceName">Title</label>
                                 <input type="text" name="title" class="form-control" id="themetitle"
-                                    placeholder="Enter ..." value="{{ old('title') }}">
+                                    placeholder="Enter ..." value="{{ old('title', isset($theme) ? $theme->title : '') }}">
                             </div>
                             <div class="form-group">
                                 <label for="serviceName">Title Description</label>
                                 <input type="text" name="title_description" class="form-control" id="themedescription"
-                                    placeholder="Enter ..." value="{{ old('title_description') }}">
+                                    placeholder="Enter ..." value="{{ old('title_description', isset($theme) ? $theme->title_description : '') }}">
                             </div>
                             <div class="form-group">
                                 <label for="serviceName">Download Link</label>
                                 <input type="text" name="download_link" class="form-control" id="themedescription"
-                                    placeholder="Enter ..." value="{{ old('title_description') }}">
+                                    placeholder="Enter ..." value="{{ old('title_description', isset($theme) ? $theme->download_link : '') }}">
                             </div>
 
                             <label for="formFile" class="form-label">Featured Image</label>
@@ -88,17 +89,26 @@
 
                             <div class="row">
                                 <div class="col container mt-5">
+                                    <label for="selectedCategories">Select Category</label>
                                     <select class="selectpicker" multiple aria-label="Default select example"  name="selectedCategories[]" data-live-search="true">
                                         @foreach($categories as $category)
-                                      <option value="{{$category->id}}">{{$category->name}}</option>
-
+                                        @if(isset($theme))
+                                      <option value="{{$category->id}}" {{ in_array($category->id, $theme_has_category) ? 'selected' : '' }}>{{$category->name}}</option>
+                                        @else
+                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                        @endif
                                       @endforeach
                                     </select>
                                 </div>
                                 <div class="col container mt-5">
+                                    <label for="selectedTags">Select Technologies</label>
                                     <select class="selectpicker" multiple aria-label="Default select example" name="selectedTags[]" data-live-search="true">
                                         @foreach($tags as $tag)
+                                        @if(isset($theme))
+                                      <option value="{{$tag->id}}" {{ in_array($tag->id, $theme_has_tag) ? 'selected' : '' }}>{{$tag->name}}</option>
+                                        @else
                                       <option value="{{$tag->id}}">{{$tag->name}}</option>
+                                      @endif
                                       @endforeach
                                     </select>
                                 </div>
@@ -108,9 +118,14 @@
                                 <div class="input-group mb-3">
                                 <input type="text" class="form-control mb-3" name="highlight_details[]" placeholder="Enter Price" aria-describedby="basic-addon2">
                                 <div class="input-group-append">
-                                    <button class="add_field_button">Add</button>
+                                    <button class="btn btn-outline-success add_field_button ">Add</button>
                                   </div>
                                 </div>
+                                @if(isset($theme))
+                                @foreach (explode(',', $theme->highlight_details) as $highlight_detail)
+                                <div class="input-group mb-3"><input placeholder="Enter Price" value="{{$highlight_detail}}" type="text" name="mytext[]" class="form-control"><div class="input-group-append"><button class="btn btn-outline-danger remove_field" type="button">Remove</button></div></div>
+                                @endforeach
+                                @endif
                             </div>
                             <div class="input_fields_included">
                                 <label for="serviceName">Included</label>
@@ -120,6 +135,11 @@
                                     <button class="add_field_included">Add</button>
                                   </div>
                                 </div>
+                                @if(isset($theme))
+                                @foreach (explode(',', $theme->included) as $included)
+                                <div class="input-group mb-3"><input placeholder="Enter Price" value="{{$included}}" type="text" name="included[]" class="form-control"><div class="input-group-append"><button class="btn btn-outline-danger remove_included" type="button">Remove</button></div></div>
+                                @endforeach
+                                @endif
                             </div>
                             <div class="input_fields_features">
                                 <label for="serviceName">Features</label>
@@ -129,15 +149,30 @@
                                     <button class="add_field_features">Add</button>
                                   </div>
                                 </div>
+                                @if(isset($theme))
+                                @foreach (explode(',', $theme->features) as $features)
+                                <div class="input-group mb-3"><input placeholder="Enter Price" value="{{$features}}" type="text" name="features[]" class="form-control"><div class="input-group-append"><button class="btn btn-outline-danger remove_features" type="button">Remove</button></div></div>
+                                @endforeach
+                                @endif
                             </div>
                             <div class="form-group">
                                 <label>Description</label>
+                                @if(isset($theme))
                                 <textarea id="summernote" class="form-control" name="description" rows="3" placeholder="Enter ..."
-                                    value="{{ old('description') }}"></textarea>
+                                    value="{{ old('description') }}">{{$theme->discription}}</textarea>
+                                @else
+                                <textarea id="summernote" class="form-control" name="description" rows="3" placeholder="Enter ..."
+                                value="{{ old('description') }}"></textarea>
+                                @endif
                             </div>
                             <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" name="status" role="switch" value= 0
+                                @if(isset($theme))
+                                <input class="form-check-input" type="checkbox" {{($theme->status == 1)? 'checked' : ''}}  name="status" role="switch" value= {{$theme->status}}
                                     id="flexSwitchCheckDefault">
+                                @else
+                                <input class="form-check-input" type="checkbox" checked="checked" name="status" role="switch" value= 1
+                                    id="flexSwitchCheckDefault">
+                                @endif
                                 <label class="form-check-label" for="flexSwitchCheckDefault">Status</label>
                             </div>
 
@@ -217,6 +252,7 @@
         <script>
             $(function() {
                 $("#gallery").change(function() {
+                    $('#myImg').html("");
                     if (this.files && this.files[0]) {
                     for (var i = 0; i < this.files.length; i++) {
                         var reader = new FileReader();
@@ -232,6 +268,7 @@
                 };
 
                 $('body').on('click','#gallery_img',function(){
+                    var newFileList = Array.from(event.target.files);
                 $(this).remove();
             });
 
@@ -244,6 +281,9 @@
         <script>
             //Validation
             $(document).ready(function() {
+                // var case = {!! $case !!};
+                if ("{{ $case }}" == 'POST') {
+
                 $("#itemCreateForm").validate({
                     rules: {
                         name: 'required',
@@ -276,6 +316,37 @@
                         form.submit();
                     }
                 });
+            } else {
+                $("#itemCreateForm").validate({
+                    rules: {
+                        name: 'sometimes',
+                        slug: 'sometimes',
+                        title: {
+                            sometimes: true,
+                        },
+                        title_description: {
+                            sometimes: true,
+                        },
+                        download_link: {
+                            sometimes: true,
+                        },
+                        selectedCategories: {
+                            sometimes: true,
+                        },
+                        highlight_details: {
+                            sometimes: true,
+                        },
+                    },
+                    messages: {
+                        name: 'This field is required',
+                        slug: 'This field is required',
+                        title: 'This field is required',
+                    },
+                    submitHandler: function(form) {
+                        form.submit();
+                    }
+                });
+            }
             });
         </script>
     @endsection

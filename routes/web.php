@@ -100,8 +100,8 @@ Route::name('front.')->group(function () {
 
     Route::get('privacy_policy', [App\Http\Controllers\Front\HomeController::class, 'privacy_policy'])->name('privacy_policy');
 
-    Route::get('uthemes', [App\Http\Controllers\Front\HomeController::class, 'themes'])->name('themes');
-    Route::get('theme-detail', [App\Http\Controllers\Front\HomeController::class, 'theme_detail'])->name('theme_detail');
+    Route::get('themes', [App\Http\Controllers\Front\HomeController::class, 'themes'])->name('themes');
+    Route::get('theme-detail/{id}', [App\Http\Controllers\Front\HomeController::class, 'theme_detail'])->name('theme_detail');
 
 
 

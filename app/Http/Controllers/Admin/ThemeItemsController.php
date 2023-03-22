@@ -52,7 +52,8 @@ class ThemeItemsController extends Controller
         $categories = Category::get();
         $tags = Tag::get();
         // dd($category);
-        return view('admin.theme.Items.create', compact('categories', 'tags'));
+        $case = 'POST';
+        return view('admin.theme.Items.create', compact('categories', 'tags','case'));
     }
 
     /**
@@ -111,7 +112,7 @@ class ThemeItemsController extends Controller
 
                 $image_name = Str::random(4).'.'.$request->file('featured_image')->extension();
                 // $upload_path = public_path('themes/featured_image');
-                $request->file('featured_image')->move(public_path('themes/featured_image'),$image_name);
+                $request->file('featured_image')->move(public_path('themes_image/featured_image'),$image_name);
                 $theme->featured_image = $image_name;
 
                 $theme->save();
@@ -124,7 +125,7 @@ class ThemeItemsController extends Controller
                 foreach($request->file('gallery') as $file)
                 {
                     $gallery_image_name = Str::random(10).'.'.$file->extension();
-                    $file->move(public_path('themes/theme_gallery'),$gallery_image_name);
+                    $file->move(public_path('themes_image/theme_gallery'),$gallery_image_name);
                     // $data[] = $gallery_image_name;
 
                     $item_gallery= new ItemGallery();
@@ -161,7 +162,22 @@ class ThemeItemsController extends Controller
      */
     public function edit($id)
     {
-        dd(11);
+        $categories = Category::get();
+        $tags = Tag::get();
+        $theme = Item::where('id', $id)->with('category')->with('tag')->first();
+        $theme_has_category = [];
+        $theme_has_tag = [];
+        foreach($theme->category as $category){
+            $theme_has_category[] =  $category->category_id;
+        }
+        foreach($theme->tag as $tag){
+            $theme_has_tag[] =  $tag->tag_id;
+        }
+        // dd($theme_has_tag);
+        $case = 'PUT';
+
+        // dd($theme->category);
+        return view('admin.theme.Items.create', compact('theme', 'categories', 'tags','case', 'theme_has_category', 'theme_has_tag'));
     }
 
     /**
@@ -173,7 +189,77 @@ class ThemeItemsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try{
+            if(isset($request->status)){
+                $status = $request->status;
+            }else{
+                $status = 0;
+            }
+            $item = Item::find($id);
+            $item_category = Items_with_category::where("item_id", $id)->get();
+            $item_tag = ItemTag::where("item_id", $id)->get();
+            $item_gallery = ItemGallery::where("item_id", $id)->get();
+            $item_gallery_images = [];
+            foreach($item_gallery as $one_item){
+                $item_gallery_images[] = $one_item->photo;
+            }
+            // dd($item_gallery_images);
+
+            $item->name              = $request->name;
+            $item->slug              = $request->slug;
+            $item->title             = $request->title;
+            $item->title_description = $request->title_description;
+            $item->download_link     = $request->download_link;
+            $item->discription       = $request->discription;
+            $item->status            = $status;
+            $item->highlight_details = implode(',', array_filter($request->highlight_details, fn($value) => !is_null($value) && $value !== ''));
+            $item->included          =  implode(',', array_filter($request->included, fn($value) => !is_null($value) && $value !== '')); //implode(',', (array) $request->included);
+            $item->features          =  implode(',', array_filter($request->features, fn($value) => !is_null($value) && $value !== '')); //implode(',', (array) $request->features);
+            $item->update();
+
+            if ($request->hasFile('featured_image')) {
+
+                // $upload_path = public_path('themes/featured_image');
+                if($item->featured_image != ''  && $item->featured_image != null){
+                    $file_old = public_path('themes_image/featured_image/').$item->featured_image;
+                    unlink($file_old);
+                }
+
+                $image_name = Str::random(4).'.'.$request->file('featured_image')->extension();
+                $request->file('featured_image')->move(public_path('themes_image/featured_image'),$image_name);
+                $item->featured_image = $image_name;
+
+                $item->update();
+            }
+
+            if ($request->hasfile('gallery')) {
+
+                if($item->gallery != ''  && $item->gallery != null){
+                    foreach($item_gallery_images as $one_image){
+                        unlink(public_path('themes_image/theme_gallery/').$one_image);
+                    }
+                    $item->gallery()->delete();
+                    foreach($request->file('gallery') as $file)
+                    {
+                        $gallery_image_name = Str::random(10).'.'.$file->extension();
+                        $file->move(public_path('themes_image/theme_gallery'),$gallery_image_name);
+                        // $data[] = $gallery_image_name;
+
+                        $item_gallery= new ItemGallery();
+                        $item_gallery->item_id = $item->id;
+                        $item_gallery->photo=$gallery_image_name;
+                        $item_gallery->save();
+                    }
+                }
+            }
+
+
+
+            return redirect()->route('admin.theme.items.index')->with('success', 'Theme is successfully updated.');
+        }catch (\Exception $e) {
+            report($e);
+            return redirect()->back()->withInput()->with('error', 'Something went Wrong: ' . $e->getMessage());
+        }
     }
 
     /**
@@ -185,8 +271,10 @@ class ThemeItemsController extends Controller
     public function destroy($id)
     {
         $item = Item::find($id);
+        // dd($item);
         $item->category()->delete();
         $item->tag()->delete();
+        $item->gallery()->delete();
         $item->delete();
 
     }

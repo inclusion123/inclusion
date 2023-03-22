@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules\Unique;
 
 class ItemRequest extends FormRequest
 {
@@ -25,12 +26,13 @@ class ItemRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'slug' => 'required',
+            'slug' => 'required|unique:items,slug',
             'title' => 'required',
             'title_description' => 'required',
             'download_link' => 'required',
             'highlight_details' => 'required',
             'featured_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'gallery' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
     public function messages()

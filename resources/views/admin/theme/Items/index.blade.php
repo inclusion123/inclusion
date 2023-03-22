@@ -66,7 +66,7 @@
     @endsection
     @section('script')
     <script>
-        $('#itemsTable').DataTable({
+      var themeItemTable =   $('#itemsTable').DataTable({
                 processing: true,
                 serverSide: true,
 
@@ -117,7 +117,7 @@
                     },
                     success: function(result) {
                         $("#delete-theme-category-modal").modal('hide');
-                        $('#tagsTable').DataTable().ajax.reload();
+                        $('#itemsTable').DataTable().ajax.reload();
 
                     }
                 });

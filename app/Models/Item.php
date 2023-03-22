@@ -32,5 +32,9 @@ class Item extends Model
     {
         return $this->hasMany(ItemTag::class);
     }
+    public function gallery()
+    {
+        return $this->hasMany(ItemGallery::class);
+    }
 
 }
