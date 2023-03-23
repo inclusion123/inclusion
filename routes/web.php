@@ -155,7 +155,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
             Route::get('/applicant', [AdminCareerController::class, 'applicant_index'])->name('index');
             Route::get('/applicant-data', [AdminCareerController::class, 'applicant_data'])->name('applicant_data');
         });
-
         //theme
         Route::group(['prefix' => 'theme', 'as' => 'theme.'], function () {
             Route::resource('/', ThemeCategoryController::class);
