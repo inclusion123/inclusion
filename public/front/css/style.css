@@ -135,6 +135,14 @@ h6,
     outline: none;
     transition: .5s;
 }
+.blinking:hover {
+    color: #fff !important;
+}
+.blinking span {
+    background-color: #ea1f2c;
+    padding: 3px 10px;
+    border-radius: 40px;
+}
 
 .sticky-top.navbar-dark .navbar-nav .nav-link {
     padding: 25px 0;
@@ -2445,3 +2453,5 @@ span.avtr figure {
 /* HIRE DEVELOPER PAGE CSS */
 
 /* HIRE DEVELOPER PAGE CSS END */
+
+
