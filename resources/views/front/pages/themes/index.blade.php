@@ -74,10 +74,10 @@
                                 <div class="techonology ml-2">
                                     <p>Price</p>
                                     <div class="techonology__check">
-                                        <label class="container-check">Pro
+                                        {{-- <label class="container-check">Pro
                                             <input type="checkbox" checked="checked">
                                             <span class="checkmark"></span>
-                                        </label>
+                                        </label> --}}
                                         <label class="container-check">Free
                                             <input type="checkbox" checked="checked">
                                             <span class="checkmark"></span>

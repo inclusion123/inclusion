@@ -84,11 +84,14 @@ class HomeController extends Controller
         }
         return view('front.pages.themes.index', compact('categories', 'tags', 'items'));
     }
-    public function theme_detail($id)
+    public function theme_detail($slug)
     {
-        $item =Item::where('id', $id)->with('gallery')->first();
-        // dd(count($item->gallery));
+        $item =Item::where('slug', $slug)->with('gallery')->first();
+        if(isset($item)){
+            return view('front.pages.themes.detail', compact('item'));
+        }else{
+            return redirect()->route('front.themes');
+        }
 
-        return view('front.pages.themes.detail', compact('item'));
     }
 }

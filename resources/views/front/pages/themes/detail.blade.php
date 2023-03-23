@@ -83,7 +83,7 @@
                             @endforeach
                         </ul>
 
-                        <a href="{{$item->download_link}}" target="" class="preview btn btn-primary py-md-3 px-md-5 me-3 preview">Download</a>
+                        <a href="{{$item->download_link}}" target="_blank" class="preview btn btn-primary py-md-3 px-md-5 me-3 preview">Download</a>
                         {{-- <a href="#!" class="download btn py-md-3 px-md-5 me-3">Download</a> --}}
                     </div>
                 </div>

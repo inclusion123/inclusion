@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Admin;
 
+use App\Models\Item;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Unique;
 
@@ -24,16 +25,43 @@ class ItemRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'name' => 'required',
-            'slug' => 'required|unique:items,slug',
-            'title' => 'required',
-            'title_description' => 'required',
-            'download_link' => 'required',
-            'highlight_details' => 'required',
-            'featured_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            // 'gallery' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ];
+        $id='';
+        $slug =  $this->slug?$this->slug:'';
+        if($slug !=''){
+            $item = Item::where('slug', $slug)->first();
+            if(isset($item)){
+                $id = $item->id;
+            }
+        }
+
+
+        if (in_array($this->method(), ['PUT', 'PATCH'])) {
+            return [
+                'name' => 'required',
+                'slug' => 'required','unique:items,slug' . $id,
+                'title' => 'required',
+                'title_description' => 'required',
+                'download_link' => 'required',
+                'selectedCategories' => 'required',
+                'selectedTags' => 'required',
+                'highlight_details' => 'required',
+                'featured_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'gallery' => 'image'
+            ];
+        }else{
+            return [
+                'name' => 'required',
+                'slug' => 'required|unique:items,slug',
+                'title' => 'required',
+                'title_description' => 'required',
+                'download_link' => 'required',
+                'selectedCategories' => 'required',
+                'selectedTags' => 'required',
+                'highlight_details' => 'required',
+                'featured_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'gallery' => 'image'
+            ];
+        }
     }
     public function messages()
     {

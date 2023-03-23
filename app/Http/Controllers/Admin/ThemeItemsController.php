@@ -82,9 +82,9 @@ class ThemeItemsController extends Controller
                 'download_link' => $request->download_link,
                 'discription' => $request->description,
                 'status' => $status,
-                'highlight_details' => implode(',', (array) $request->highlight_details),
-                'included' => implode(',', (array) $request->included),
-                'features' => implode(',', (array) $request->features),
+                'highlight_details' => implode(',', array_filter($request->highlight_details, fn($value) => !is_null($value) && $value !== '')),
+                'included' => implode(',', array_filter($request->included, fn($value) => !is_null($value) && $value !== '')),
+                'features' => implode(',', array_filter($request->features, fn($value) => !is_null($value) && $value !== '')),
 
                 // 'featured_image' => ''
 
@@ -160,11 +160,11 @@ class ThemeItemsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
         $categories = Category::get();
         $tags = Tag::get();
-        $theme = Item::where('id', $id)->with('category')->with('tag')->first();
+        $theme = Item::where('slug', $slug)->with('category')->with('tag')->first();
         $theme_has_category = [];
         $theme_has_tag = [];
         foreach($theme->category as $category){
@@ -187,18 +187,22 @@ class ThemeItemsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ItemRequest $request, $slug)
     {
+
+        // dd($request->selectedCategories);
         try{
             if(isset($request->status)){
                 $status = $request->status;
             }else{
                 $status = 0;
             }
-            $item = Item::find($id);
-            $item_category = Items_with_category::where("item_id", $id)->get();
-            $item_tag = ItemTag::where("item_id", $id)->get();
-            $item_gallery = ItemGallery::where("item_id", $id)->get();
+            $item = Item::where('slug', $slug)->first();
+            $item_category = Items_with_category::where("item_id", $item->id)->get();
+
+            $item_tag = ItemTag::where("item_id", $item->id)->get();
+            $item_gallery = ItemGallery::where("item_id", $item->id)->get();
+
             $item_gallery_images = [];
             foreach($item_gallery as $one_item){
                 $item_gallery_images[] = $one_item->photo;
@@ -217,6 +221,37 @@ class ThemeItemsController extends Controller
             $item->features          =  implode(',', array_filter($request->features, fn($value) => !is_null($value) && $value !== '')); //implode(',', (array) $request->features);
             $item->update();
 
+            $categories = [];
+            foreach($item_category as $one_category){
+                $categories[] = $one_category->category_id;
+            }
+            // dd(count($request->selectedCategories) == count($categories));
+            if(count($request->selectedCategories) != count($categories)){
+                $item->category()->delete();
+
+                foreach($request->selectedCategories as $selectedCategory){
+                    $item_category = new Items_with_category();
+                    $item_category->item_id = $item->id;
+                    $item_category->category_id = $selectedCategory;
+                    $item_category->save();
+                }
+            }
+
+            $tags = [];
+            foreach($item_tag as $one_tag){
+                $tags[] = $one_tag->tag_id;
+            }
+
+            if(count($request->selectedTags) != count($tags)){
+                $item->tag()->delete();
+
+                foreach($request->selectedTags as $selectedTag){
+                    $item_tag = new ItemTag();
+                    $item_tag->item_id = $item->id;
+                    $item_tag->tag_id = $selectedTag;
+                    $item_tag->save();
+                }
+            }
             if ($request->hasFile('featured_image')) {
 
                 // $upload_path = public_path('themes/featured_image');

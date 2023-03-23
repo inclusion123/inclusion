@@ -10,13 +10,14 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
+                        <a href="{{ route('front.themes') }}" class="nav-item nav-link ">Free Theme</a>
                         <a href="{{ route('front.index') }}" class="nav-item nav-link ">Home</a>
                         <a href="{{ route('front.about') }}" class="nav-item nav-link ">About</a>
                         <div class="nav-item dropdown">
                             <a href="{{ route('front.service') }}" class="nav-link dropdown-toggle">Services</a>
                             <div class="dropdown-menu m-0">
                                 @foreach ($navbars as $navbar)
-                                    
+
 
                                     <a href="{{ url('service') }}/{{$navbar->slug}}"
                                         class="dropdown-item">{{$navbar->name}}</a>
@@ -26,7 +27,7 @@
                         </div>
                         {{-- <div class="nav-item dropdown">
                             <a href="{{ route('front.blog_grid') }}" class="nav-item nav-link" >Blog</a>
-                         
+
                         </div> --}}
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Company</a>
