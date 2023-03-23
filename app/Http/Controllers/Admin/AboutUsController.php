@@ -19,6 +19,7 @@ class AboutUsController extends Controller
         return view('admin.aboutus.index');
     }
 
+
     /**
      * Show the form for creating a new resource.
      *
