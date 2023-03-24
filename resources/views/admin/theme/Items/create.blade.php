@@ -31,7 +31,13 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Add Theme </li>
+                            <li class="breadcrumb-item active">Theme </li>
+                            <li class="breadcrumb-item active">Themes </li>
+                            @if(isset($theme))
+                            <li class="breadcrumb-item active">Edit </li>
+                            @else
+                            <li class="breadcrumb-item active">Edit </li>
+                            @endif
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -68,28 +74,28 @@
                             <div class="form-group">
                                 <label for="serviceName">Name</label>
                                 <input type="name" name="name" class="form-control" id="themename"
-                                    placeholder="Enter ..." value="{{ old('name', isset($theme) ? $theme->name : '') }}">
+                                    placeholder="Enter Name ..." value="{{ old('name', isset($theme) ? $theme->name : '') }}">
                             </div>
                             <div class="form-group">
                                 <label for="serviceName">Slug</label>
                                 <input type="slug" name="slug" class="form-control" id="themeslug"
-                                    placeholder="Enter ..." value="{{ old('slug', isset($theme) ? $theme->slug : '') }}">
+                                    placeholder="Enter slug ..." value="{{ old('slug', isset($theme) ? $theme->slug : '') }}">
                             </div>
                             <div class="form-group">
                                 <label for="serviceName">Title</label>
                                 <input type="text" name="title" class="form-control" id="themetitle"
-                                    placeholder="Enter ..." value="{{ old('title', isset($theme) ? $theme->title : '') }}">
+                                    placeholder="Enter Title ..." value="{{ old('title', isset($theme) ? $theme->title : '') }}">
                             </div>
                             <div class="form-group">
                                 <label for="serviceName">Title Description</label>
                                 <input type="text" name="title_description" class="form-control" id="themedescription"
-                                    placeholder="Enter ..."
+                                    placeholder="Enter Title Description ..."
                                     value="{{ old('title_description', isset($theme) ? $theme->title_description : '') }}">
                             </div>
                             <div class="form-group">
                                 <label for="serviceName">Download Link</label>
                                 <input type="text" name="download_link" class="form-control" id="download_link"
-                                    placeholder="Enter ..."
+                                    placeholder="Enter Download Link ..."
                                     value="{{ old('title_description', isset($theme) ? $theme->download_link : '') }}">
                             </div>
 
@@ -151,14 +157,14 @@
                                 <label for="serviceName">Highlight Details</label>
                                 <div class="input-group mb-3 " id="highlight_details_1">
                                     <input type="text" class="form-control mb-3" name="highlight_details[]"
-                                        placeholder="Enter Price" aria-describedby="basic-addon2">
+                                        placeholder="Enter Highlight Detail" aria-describedby="basic-addon2">
                                     <div class="input-group-append">
                                         <button class="btn btn-outline-success add_field_button ">Add</button>
                                     </div>
                                 </div>
                                 @if (isset($theme))
                                     @foreach (explode(',', $theme->highlight_details) as $highlight_detail)
-                                        <div class="input-group mb-3"><input placeholder="Enter Price"
+                                        <div class="input-group mb-3"><input placeholder="Enter Highlight Detail"
                                                 value="{{ $highlight_detail }}" type="text" name="highlight_details[]"
                                                 class="form-control">
                                             <div class="input-group-append"><button
@@ -172,14 +178,14 @@
                                 <label for="serviceName">Included</label>
                                 <div class="input-group mb-3" id="highlight_Included_1">
                                     <input type="text" class="form-control mb-3" name="included[]"
-                                        placeholder="Enter Price" aria-describedby="basic-addon2">
+                                        placeholder="Enter " aria-describedby="basic-addon2">
                                     <div class="input-group-append">
                                         <button class="add_field_included">Add</button>
                                     </div>
                                 </div>
                                 @if (isset($theme))
                                     @foreach (explode(',', $theme->included) as $included)
-                                        <div class="input-group mb-3"><input placeholder="Enter Price"
+                                        <div class="input-group mb-3"><input placeholder="Enter "
                                                 value="{{ $included }}" type="text" name="included[]"
                                                 class="form-control">
                                             <div class="input-group-append"><button
@@ -193,14 +199,14 @@
                                 <label for="serviceName">Features</label>
                                 <div class="input-group mb-3" id="highlight_Features_1">
                                     <input type="text" class="form-control mb-3" name="features[]"
-                                        placeholder="Enter Price" aria-describedby="basic-addon2">
+                                        placeholder="Enter Features" aria-describedby="basic-addon2">
                                     <div class="input-group-append">
                                         <button class="add_field_features">Add</button>
                                     </div>
                                 </div>
                                 @if (isset($theme))
                                     @foreach (explode(',', $theme->features) as $features)
-                                        <div class="input-group mb-3"><input placeholder="Enter Price"
+                                        <div class="input-group mb-3"><input placeholder="Enter Features"
                                                 value="{{ $features }}" type="text" name="features[]"
                                                 class="form-control">
                                             <div class="input-group-append"><button
@@ -269,14 +275,14 @@
             });
 
             //add input field
-            var wrapper = $("#highlight_details_1"); //Fields wrapper
+            var wrapper = $(".input_fields_wrap"); //Fields wrapper
             var add_button = $(".add_field_button"); //Add button ID
 
             var x = 1; //initlal text box count
             $(add_button).click(function(e) { //on add input button click
                 e.preventDefault();
                 $(wrapper).append(
-                    '<div class="input-group mb-3"><input placeholder="Enter Price" type="text" name="highlight_details[]" class="form-control"><div class="input-group-append"><button class="btn btn-outline-danger remove_field" type="button">Remove</button></div></div>'
+                    '<div class="input-group mb-3"><input placeholder="Enter Highlight Detail" type="text" name="highlight_details[]" class="form-control"><div class="input-group-append"><button class="btn btn-outline-danger remove_field" type="button">Remove</button></div></div>'
                 ); //add input box
             });
 
@@ -287,14 +293,14 @@
             })
 
             //add included field
-            var included = $("#highlight_Included_1"); //Fields wrapper
+            var included = $(".input_fields_included"); //Fields wrapper
             var add_included = $(".add_field_included"); //Add button ID
 
             var x = 1; //initlal text box count
             $(add_included).click(function(e) { //on add input button click
                 e.preventDefault();
                 $(included).append(
-                    '<div class="input-group mb-3"><input placeholder="Enter Price" type="text" name="included[]" class="form-control"><div class="input-group-append"><button class="btn btn-outline-danger remove_included" type="button">Remove</button></div></div>'
+                    '<div class="input-group mb-3"><input placeholder="Enter Includ" type="text" name="included[]" class="form-control"><div class="input-group-append"><button class="btn btn-outline-danger remove_included" type="button">Remove</button></div></div>'
                 ); //add input box
             });
 
@@ -305,14 +311,14 @@
             })
 
             //add included field
-            var features = $("#highlight_Features_1"); //Fields wrapper
+            var features = $(".input_fields_features"); //Fields wrapper
             var add_features = $(".add_field_features"); //Add button ID
 
             var x = 1; //initlal text box count
             $(add_features).click(function(e) { //on add input button click
                 e.preventDefault();
                 $(features).append(
-                    '<div class="input-group mb-3"><input placeholder="Enter Price" type="text" name="features[]" class="form-control"><div class="input-group-append"><button class="btn btn-outline-danger remove_features" type="button">Remove</button></div></div>'
+                    '<div class="input-group mb-3"><input placeholder="Enter Feature" type="text" name="features[]" class="form-control"><div class="input-group-append"><button class="btn btn-outline-danger remove_features" type="button">Remove</button></div></div>'
                 ); //add input box
             });
 

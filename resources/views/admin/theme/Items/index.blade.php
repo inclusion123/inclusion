@@ -7,13 +7,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Thems</h1>
+                        <h1 class="m-0">Themes</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
+                            <li class="breadcrumb-item active">Theme</li>
                             <li class="breadcrumb-item active">Themes</li>
-                            <li class="breadcrumb-item active">Category</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -33,8 +33,8 @@
                             <div class="pull-right"
                                 style="text-align: -webkit-right;margin:20px;
                                                         ">
-                                <a class="btn btn-primary" href="{{ route('admin.theme.items.create') }}"> Create
-                                    Requirement </a>
+                                <a class="btn btn-primary" href="{{ route('admin.theme.items.create') }}"> Add Theme
+                                     </a>
                             </div>
                         </div>
                         <!-- /.box-header -->

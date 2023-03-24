@@ -22,7 +22,7 @@
             </a>
         </picture>
         <div class="details">
-            <h2><a href="#!" rel="bookmark">{{$item->title}}</a></h2>
+            <h2><a href="{{route('front.theme_detail', $item->slug)}}" rel="bookmark">{{$item->title}}</a></h2>
             <div class="buttons">
                 <a href="{{$item->download_link}}" target='_blank' class="download"><span title="Download" class="fas fa-download"></span></a>
             </div>
