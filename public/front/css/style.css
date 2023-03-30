@@ -2054,6 +2054,10 @@ span.avtr figure {
 
 /* THEME PAGE CSS */
 
+.theme_headDescripton {
+    font-size: 1.5rem;
+}
+
 .thems_Hfilter {
     display: flex;
     justify-content: space-between;

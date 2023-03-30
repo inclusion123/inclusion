@@ -25,10 +25,9 @@
     <div class="container-fluid py-4 wow fadeInUp thems__wrap" data-wow-delay="0.1s"
         style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
         <div class="container py-4">
-            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 800px;">
+            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 100%;">
                 <h5 class="fw-bold text-primary text-uppercase">Free Bootstrap Templates</h5>
-                <h1 class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h1>
-            </div>
+                <h1 class="mb-0 theme_headDescripton">Free HTML templates can empower novice designers to create professional-looking websites, while also offering experienced designers an opportunity to refine their skills and build their portfolios. Additionally, free templates can help make quality web design accessible to those on a tight budget. Overall, providing free HTML templates is a great way to foster creativity, encourage learning, and contribute to the web development community.</h1>            </div>
             <div class="row g-5">
                 <div class="col-lg-12 wow slideInUp" data-wow-delay="0.3s"
                     style="visibility: visible; animation-delay: 0.3s; animation-name: slideInUp;">
