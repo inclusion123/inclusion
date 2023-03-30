@@ -39,10 +39,14 @@
                                 <a href="{{ route ('front.quote') }}" class="dropdown-item">Free Quote</a>
                             </div>
                         </div>
-
+                        @php
+                           $items = App\Models\Item::all();
+                        @endphp
 
                         <a href="{{ route ('front.contact') }}" class="nav-item nav-link">Contact</a>
+                        @if(count($items))
                         <a href="{{ route('front.themes') }}" class="nav-item nav-link blinking"><span>Free Theme</span></a>
+                        @endif
                     </div>
 
                     <button type="button" class="btn text-primary ms-3" data-bs-toggle="modal"
