@@ -1,6 +1,8 @@
 /node_modules
 /vendor
 /public/storage
+/public/themes_image/featured_image
+/public/themes_image/theme_gallery
 /storage/*.key
 .env
 .env.backup
