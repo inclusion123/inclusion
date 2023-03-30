@@ -82,9 +82,9 @@ class ThemeItemsController extends Controller
                 'download_link' => $request->download_link,
                 'discription' => $request->description,
                 'status' => $status,
-                'highlight_details' => implode(',', array_filter($request->highlight_details, fn($value) => !is_null($value) && $value !== '')),
-                'included' => implode(',', array_filter($request->included, fn($value) => !is_null($value) && $value !== '')),
-                'features' => implode(',', array_filter($request->features, fn($value) => !is_null($value) && $value !== '')),
+                'highlight_details' => implode(',', array_filter($request->highlight_details, function($value) { return !is_null($value) && $value !== ''; })),
+                'included' => implode(',', array_filter($request->included, function($value) { return !is_null($value) && $value !== ''; })),
+                'features' => implode(',', array_filter($request->features, function($value) { return !is_null($value) && $value !== ''; })),
 
                 // 'featured_image' => ''
 
@@ -216,9 +216,9 @@ class ThemeItemsController extends Controller
             $item->download_link     = $request->download_link;
             $item->discription       = $request->discription;
             $item->status            = $status;
-            $item->highlight_details = implode(',', array_filter($request->highlight_details, fn($value) => !is_null($value) && $value !== ''));
-            $item->included          =  implode(',', array_filter($request->included, fn($value) => !is_null($value) && $value !== '')); //implode(',', (array) $request->included);
-            $item->features          =  implode(',', array_filter($request->features, fn($value) => !is_null($value) && $value !== '')); //implode(',', (array) $request->features);
+            $item->highlight_details = implode(',', array_filter($request->highlight_details, function($value) { return !is_null($value) && $value !== ''; }));
+            $item->included          =  implode(',', array_filter($request->included, function($value) { return !is_null($value) && $value !== ''; })); //implode(',', (array) $request->included);
+            $item->features          =  implode(',', array_filter($request->features, function($value) { return !is_null($value) && $value !== ''; })); //implode(',', (array) $request->features);
             $item->update();
 
             $categories = [];
