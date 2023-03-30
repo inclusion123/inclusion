@@ -126,30 +126,35 @@
                                     <label for="selectedCategories" class="d-block">Select Category</label>
                                     <select class="selectpicker mb-3 " multiple aria-label="Default select example"
                                         name="selectedCategories[]" data-live-search="true">
-                                        @foreach ($categories as $category)
-                                            @if (isset($theme))
-                                                <option value="{{ $category->id }}"
-                                                    {{ in_array($category->id, $theme_has_category) ? 'selected' : '' }}>
-                                                    {{ $category->name }}</option>
-                                            @else
-                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                            @endif
-                                        @endforeach
+                                        @if(count($categories))
+                                            @foreach ($categories as $category)
+                                                @if (isset($theme))
+                                                    <option value="{{ $category->id }}"
+                                                        {{ in_array($category->id, $theme_has_category) ? 'selected' : '' }}>
+                                                        {{ $category->name }}</option>
+                                                @else
+                                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                @endif
+                                            @endforeach
+                                        @endif
                                     </select>
                                 </div>
                                 <div class="col container mt-5 create_select">
                                     <label for="selectedTags" class="d-block">Select Technologies</label>
                                     <select class="selectpicker mb-3" multiple aria-label="Default select example"
                                         name="selectedTags[]" data-live-search="true">
-                                        @foreach ($tags as $tag)
-                                            @if (isset($theme))
-                                                <option value="{{ $tag->id }}"
-                                                    {{ in_array($tag->id, $theme_has_tag) ? 'selected' : '' }}>
-                                                    {{ $tag->name }}</option>
-                                            @else
-                                                <option value="{{ $tag->id }}">{{ $tag->name }}</option>
-                                            @endif
-                                        @endforeach
+
+                                        @if(count($tags))
+                                            @foreach ($tags as $tag)
+                                                @if (isset($theme))
+                                                    <option value="{{ $tag->id }}"
+                                                        {{ in_array($tag->id, $theme_has_tag) ? 'selected' : '' }}>
+                                                        {{ $tag->name }}</option>
+                                                @else
+                                                    <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                                                @endif
+                                            @endforeach
+                                        @endif
                                     </select>
                                 </div>
                             </div>
