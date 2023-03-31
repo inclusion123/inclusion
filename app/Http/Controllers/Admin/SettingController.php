@@ -35,6 +35,7 @@ class SettingController extends Controller
             $service->youtube = $request->youtube;
             $service->twitter = $request->twitter;
             $service->facebook = $request->facebook;
+            $service->github = $request->github;
             $service->save();
             return redirect()->route('admin.settings.index')->with('success', 'Setting is successfully updated.');
         } catch (\Exception $e) {

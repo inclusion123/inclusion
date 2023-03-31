@@ -94,7 +94,7 @@
                     <div class="theme__discription">
                         @if(isset($item->discription))
                         <h2>DESCRIPTION</h2>
-                        <p>{{$item->discription}}
+                        <p>{!! $item->discription !!}
                         </p>
                         @endif
                         {{-- <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.

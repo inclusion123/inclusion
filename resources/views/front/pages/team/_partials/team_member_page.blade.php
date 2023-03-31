@@ -14,6 +14,7 @@
             @endphp
             <div class="row g-5">
                 @foreach ($team as $team_member)
+                @if($team_member->status == 1)
                     <div class="col-lg-3 col-md-4 col-sm-6 col-12 wow slideInUp" data-wow-delay="0.3s">
                         {{-- <div class="team-item bg-light rounded overflow-hidden"> --}}
                         <div class="team-item rounded overflow-hidden">
@@ -38,6 +39,7 @@
                             </div>
                         </div>
                     </div>
+                @endif
                 @endforeach
 
             </div>

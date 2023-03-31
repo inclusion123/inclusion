@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 class Team extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'designation', 'image', 'instagram', 'linkedin', 'twitter', 'facebook'];
+    protected $fillable = ['name', 'designation', 'image', 'instagram', 'linkedin', 'twitter', 'facebook','status'];
 
     
     public function image_upload($image)

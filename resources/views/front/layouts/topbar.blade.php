@@ -33,6 +33,9 @@
                 <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2"
                     href="{{ $setting_helper->instagram }}" target="_blank"><i
                         class="fab fa-instagram fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2"
+                    href="{{ $setting_helper->github }}" target="_blank"><i
+                        class="fab fa-github fw-normal"></i></a>
                 {{-- <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle"
                     href="{{ $setting_helper->youtube }}" target="_blank"><i class="fab fa-youtube fw-normal"></i></a> --}}
             </div>

@@ -190,7 +190,7 @@ class ThemeItemsController extends Controller
     public function update(ItemRequest $request, $slug)
     {
 
-        // dd($request->selectedCategories);
+        // dd($request->description);
         try{
             if(isset($request->status)){
                 $status = $request->status;
@@ -214,7 +214,7 @@ class ThemeItemsController extends Controller
             $item->title             = $request->title;
             $item->title_description = $request->title_description;
             $item->download_link     = $request->download_link;
-            $item->discription       = $request->discription;
+            $item->discription       = $request->description;
             $item->status            = $status;
             $item->highlight_details = implode(',', array_filter($request->highlight_details, function($value) { return !is_null($value) && $value !== ''; }));
             $item->included          =  implode(',', array_filter($request->included, function($value) { return !is_null($value) && $value !== ''; })); //implode(',', (array) $request->included);
@@ -306,10 +306,24 @@ class ThemeItemsController extends Controller
     public function destroy($id)
     {
         $item = Item::find($id);
+        $item_gallery = ItemGallery::where("item_id", $item->id)->get();
         // dd($item);
+        $item_gallery_images = [];
+        foreach($item_gallery as $one_item){
+            $item_gallery_images[] = $one_item->photo;
+        }
+        if($item->gallery != ''  && $item->gallery != null){
+            foreach($item_gallery_images as $one_image){
+                unlink(public_path('themes_image/theme_gallery/').$one_image);
+            }
+        }
+        if($item->featured_image != ''  && $item->featured_image != null){
+            $file_old = public_path('themes_image/featured_image/').$item->featured_image;
+            unlink($file_old);
+        }
+        $item->gallery()->delete();
         $item->category()->delete();
         $item->tag()->delete();
-        $item->gallery()->delete();
         $item->delete();
 
     }

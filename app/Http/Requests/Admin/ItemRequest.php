@@ -46,7 +46,7 @@ class ItemRequest extends FormRequest
                 'selectedTags' => 'required',
                 'highlight_details' => 'required',
                 'featured_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-                'gallery' => 'image'
+                'gallery.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
             ];
         }else{
             return [
@@ -59,15 +59,17 @@ class ItemRequest extends FormRequest
                 'selectedTags' => 'required',
                 'highlight_details' => 'required',
                 'featured_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-                'gallery' => 'image'
+                'gallery.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
             ];
         }
     }
     public function messages()
     {
       return [
-        'featured_image.required' => "You must use the 'Choose file' button to select which file you wish to upload",
-        'featured_image.max' => "Maximum file size to upload is 2MB (2048 KB). If you are uploading a photo, try to reduce its resolution to make it under 2MB"
-      ];
+            'featured_image.required' => "You must use the 'Choose file' button to select which file you wish to upload",
+            'featured_image.max' => "Maximum file size to upload is 2MB (2048 KB). If you are uploading a photo, try to reduce its resolution to make it under 2MB",
+            'gallery.*.image' => "The Gallery must be an image",
+            'gallery.*.mimes' => "The gallery must be a file of type: jpeg, png, jpg, gif, svg."
+        ];
     }
 }
