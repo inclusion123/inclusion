@@ -257,7 +257,9 @@ class ThemeItemsController extends Controller
                 // $upload_path = public_path('themes/featured_image');
                 if($item->featured_image != ''  && $item->featured_image != null){
                     $file_old = public_path('themes_image/featured_image/').$item->featured_image;
-                    unlink($file_old);
+                    if(file_exists(storage_path($file_old))){
+                        unlink($file_old);
+                    }
                 }
 
                 $image_name = Str::random(4).'.'.$request->file('featured_image')->extension();
@@ -271,7 +273,9 @@ class ThemeItemsController extends Controller
 
                 if($item->gallery != ''  && $item->gallery != null){
                     foreach($item_gallery_images as $one_image){
-                        unlink(public_path('themes_image/theme_gallery/').$one_image);
+                        if(file_exists(storage_path(public_path('themes_image/theme_gallery/').$one_image))){
+                            unlink(public_path('themes_image/theme_gallery/').$one_image);
+                        }
                     }
                     $item->gallery()->delete();
                     foreach($request->file('gallery') as $file)
@@ -314,12 +318,16 @@ class ThemeItemsController extends Controller
         }
         if($item->gallery != ''  && $item->gallery != null){
             foreach($item_gallery_images as $one_image){
-                unlink(public_path('themes_image/theme_gallery/').$one_image);
+                if(file_exists(storage_path(public_path('themes_image/theme_gallery/').$one_image))){
+                    unlink(public_path('themes_image/theme_gallery/').$one_image);
+                }
             }
         }
         if($item->featured_image != ''  && $item->featured_image != null){
             $file_old = public_path('themes_image/featured_image/').$item->featured_image;
-            unlink($file_old);
+            if(file_exists(storage_path($file_old))){
+                unlink($file_old);
+            }
         }
         $item->gallery()->delete();
         $item->category()->delete();
