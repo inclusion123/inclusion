@@ -11,7 +11,9 @@
                 <h1 class="display-4 text-white animated zoomIn">Themes</h1>
                 <a href="{{ route('front.index') }}" class="h5 text-white">Home</a>
                 <i class="far fa-circle text-white px-2"></i>
-                <a href="#!" class="h5 text-white">Themes Detail</a>
+                <a href="{{route('front.themes')}}" class="h5 text-white">Themes</a>
+                <i class="far fa-dot-circle text-white px-2"></i>
+                <a href="" class="h5 text-white" >Themes Detail</a>
             </div>
         </div>
     </div>
@@ -83,7 +85,7 @@
                             @endforeach
                         </ul>
 
-                        <a href="{{$item->download_link}}" target="_blank" class="preview btn btn-primary py-md-3 px-md-5 me-3 preview">Download</a>
+                        <a href="{{$item->download_link}}" target="_blank" class="preview btn btn-primary py-md-3 px-md-5 me-3 preview"><span title="Download" class="fas fa-download">   Free Download</span></a>
                         {{-- <a href="#!" class="download btn py-md-3 px-md-5 me-3">Download</a> --}}
                     </div>
                 </div>

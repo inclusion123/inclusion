@@ -96,7 +96,7 @@
                                 <label for="serviceName">Download Link</label>
                                 <input type="text" name="download_link" class="form-control" id="download_link"
                                     placeholder="Enter Download Link ..."
-                                    value="{{ old('title_description', isset($theme) ? $theme->download_link : '') }}">
+                                    value="{{ old('download_link', isset($theme) ? $theme->download_link : '') }}">
                             </div>
 
                             <label for="formFile" class="form-label">Featured Image</label>
