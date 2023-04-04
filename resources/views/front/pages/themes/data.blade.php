@@ -1,7 +1,7 @@
 
 @if(!count($items))
 <div style="text-align: center;">
-    <h1 >Data not found</h1>
+    <h1 >Coming Soon...</h1>
     </div>
 
 {{-- <h1>Data not found</h1> --}}
