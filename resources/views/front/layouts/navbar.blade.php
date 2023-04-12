@@ -16,18 +16,18 @@
                             <a href="{{ route('front.service') }}" class="nav-link dropdown-toggle">Services</a>
                             <div class="dropdown-menu m-0">
                                 @foreach ($navbars as $navbar)
-                                    
 
-                                    <a href="{{ url('service') }}/{{$navbar->slug}}"
-                                        class="dropdown-item">{{$navbar->name}}</a>
 
-                                @endforeach
+                                <a href="{{ url('service') }}/{{$navbar->slug}}"
+                                    class="dropdown-item">{{$navbar->name}}</a>
+
+                                    @endforeach
+                                </div>
                             </div>
-                        </div>
-                        {{-- <div class="nav-item dropdown">
-                            <a href="{{ route('front.blog_grid') }}" class="nav-item nav-link" >Blog</a>
-                         
-                        </div> --}}
+                            {{-- <div class="nav-item dropdown">
+                                <a href="{{ route('front.blog_grid') }}" class="nav-item nav-link" >Blog</a>
+
+                            </div> --}}
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Company</a>
                             <div class="dropdown-menu m-0">
@@ -39,11 +39,18 @@
                                 <a href="{{ route ('front.quote') }}" class="dropdown-item">Free Quote</a>
                             </div>
                         </div>
+                        @php
+                           $items = App\Models\Item::all();
+                        @endphp
+
                         <a href="{{ route ('front.contact') }}" class="nav-item nav-link">Contact</a>
+                        @if(count($items))
+                        <a href="{{ route('front.themes') }}" class="nav-item nav-link blinking"><span>Free Theme</span></a>
+                        @endif
                     </div>
 
-                    <butaton type="button" class="btn text-primary ms-3" data-bs-toggle="modal"
-                        data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>
+                    <button type="button" class="btn text-primary ms-3" data-bs-toggle="modal"
+                        data-bs-target="#searchModal"><i class="fa fa-search"></i></button>
                     <!-- <a href="#!" class="btn btn-primary py-2 px-4 ms-3">Download</a> -->
                 </div>
             </nav>

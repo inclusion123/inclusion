@@ -50,6 +50,7 @@
                                             <th>Image</th>
                                             <th>Name</th>
                                             <th>Designation</th>
+                                            <th>Status</th>
                                           
                                             <th id="operations_column" class="operations-tour">Operations</th>
                                         </tr>
@@ -112,6 +113,11 @@
                         {
                             data: 'designation',
                             name: 'designation'
+                        },
+                        {
+                            data: 'status',
+                            searchable:false,
+                            orderable:false
                         },
                     
                         

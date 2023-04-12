@@ -98,6 +98,11 @@
                                             <td><input type="text" name="facebook" class="form-control" id="text"
                                                     value="{{$setting->facebook}}"></td>
                                         </tr>
+                                        <tr>
+                                            <th>{{ __('Github-Link') }}</th>
+                                            <td><input type="text" name="github" class="form-control" id="text"
+                                                    value="{{$setting->github}}"></td>
+                                        </tr>
     
     
     

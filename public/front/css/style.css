@@ -135,6 +135,14 @@ h6,
     outline: none;
     transition: .5s;
 }
+.blinking:hover {
+    color: #fff !important;
+}
+.blinking span {
+    background-color: #ea1f2c;
+    padding: 3px 10px;
+    border-radius: 40px;
+}
 
 .sticky-top.navbar-dark .navbar-nav .nav-link {
     padding: 25px 0;
@@ -2046,6 +2054,10 @@ span.avtr figure {
 
 /* THEME PAGE CSS */
 
+.theme_headDescripton {
+    font-size: 1.5rem;
+}
+
 .thems_Hfilter {
     display: flex;
     justify-content: space-between;
@@ -2075,7 +2087,7 @@ span.avtr figure {
 }
 .hfilter__left .select:focus-visible {
     outline: none;
-}   
+}
 .hfilter__right {
     display: flex;
 }
@@ -2125,7 +2137,7 @@ span.avtr figure {
 .container-check:last-child {
     margin-right: 0px;
 }
-  
+
   /* Hide the browser's default checkbox */
   .container-check input {
     position: absolute;
@@ -2134,7 +2146,7 @@ span.avtr figure {
     height: 0;
     width: 0;
   }
-  
+
   /* Create a custom checkbox */
   .container-check .checkmark {
     position: absolute;
@@ -2144,29 +2156,29 @@ span.avtr figure {
     width: 14px;
     background-color: #eee;
   }
-  
+
   /* On mouse-over, add a grey background color */
   .container-check:hover input ~ .checkmark {
     background-color: #ccc;
   }
-  
+
   /* When the checkbox is checked, add a blue background */
   .container-check input:checked ~ .checkmark {
     background-color: #eb0f26;
   }
-  
+
   /* Create the checkmark/indicator (hidden when not checked) */
   .checkmark:after {
     content: "";
     position: absolute;
     display: none;
   }
-  
+
   /* Show the checkmark when checked */
   .container-check input:checked ~ .checkmark:after {
     display: block;
   }
-  
+
   /* Style the checkmark/indicator */
   .container-check .checkmark:after {
     left: 5px;
@@ -2321,6 +2333,7 @@ span.avtr figure {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 .15rem 1.75rem 0 rgba(33,40,50,.15);
+    position: relative;
 }
 .themDetail_right h2 {
     color: #212121;
@@ -2374,6 +2387,9 @@ span.avtr figure {
     display: block;
     border-radius: 35px;
     margin-top: 30px;
+    position: absolute;
+    bottom: 15px;
+    width: -webkit-fill-available;
 }
 .themDetail_right .download {
     margin-top: 20px;
@@ -2432,9 +2448,14 @@ span.avtr figure {
     .theme-carousel .carousel-item {
         height: 300px;
     }
+    .themDetail_right .preview {
+        position: relative;
+    }
 }
 /* THEME DETAIL PAGE CSS END */
 
 /* HIRE DEVELOPER PAGE CSS */
 
 /* HIRE DEVELOPER PAGE CSS END */
+
+

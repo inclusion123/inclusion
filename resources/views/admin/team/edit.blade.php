@@ -81,7 +81,12 @@
                               </div>
 
                             </div>
-                          </div>
+                        </div>
+                        <label>Status</label>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" {{ $team->status == 1 ? 'checked' : '' }} name="status"
+                                    role="switch" value={{ $team->status }} id="flexSwitchCheckDefault">
+                        </div>
 
                     </div>
                     <!-- /.card-body -->
@@ -93,4 +98,19 @@
             </div>
         </div>
     </section>
+        <br />
+        <br />
+        <br />
+        <br />
+    @endsection
+    @section('script')
+    <script>
+        $("#flexSwitchCheckDefault").on('change', function() {
+                if ($(this).is(':checked')) {
+                    $(this).attr('value', 1);
+                } else {
+                    $(this).attr('value', 0);
+                }
+            });
+    </script>
     @endsection

@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use App\Models\BlackFridayEnquiry;
 use App\Jobs\BlackFridayEnquiryJob;
+use App\Models\Category;
+use App\Models\Item;
+use App\Models\Tag;
 
 class HomeController extends Controller
 {
@@ -49,12 +52,46 @@ class HomeController extends Controller
         }
 
     }
-    public function themes()
+    public function themes(Request $request)
     {
-        return view('front.pages.themes.index');
+        $categories = Category::get();
+        $tags = Tag::get();
+        $items = Item::orderBy('created_at', 'desc')->paginate(6);
+        $category_id = ($request->cat_id != '')?$request->cat_id:null;
+        $tag_ids = [6, 2,];
+
+        // $items = Item::whereHas('tag', function($q) use ($tag_ids){
+        //     $q->whereIN('tag_id', $tag_ids);
+        // })->orderBy('created_at', 'desc')->paginate(6);
+        // dd($items);
+
+        if ($request->ajax()) {
+            if($request->cat_id || $request->tag_id){
+                $items = Item::whereHas('category', function($q) use ($request){
+                    if(isset($request->cat_id) && !empty($request->cat_id)){
+                        $q->where('category_id','=', $request->cat_id);
+                    }
+                })->whereHas('tag', function($q) use ($request){
+                    if(isset($request->tag_id) && !empty($request->tag_id)){
+                    $q->whereIN('tag_id', $request->tag_id);
+                    // $q->whereIN('tag_id', [6]);
+                    }
+                })->orderBy('created_at', 'desc')->paginate(6);
+                // dd($items);
+            }
+
+            return view('front.pages.themes.data', compact( 'items'));
+        }
+        return view('front.pages.themes.index', compact('categories', 'tags', 'items'));
     }
-    public function theme_detail()
+    public function theme_detail($slug)
     {
-        return view('front.pages.themes.detail');
+        $item =Item::where('slug', $slug)->with('gallery')->first();
+        if(isset($item)){
+            return view('front.pages.themes.detail', compact('item'));
+        }else{
+            return redirect()->route('front.themes');
+        }
+
     }
 }

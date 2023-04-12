@@ -16,6 +16,7 @@ class TeamController extends Controller
      */
     public function index()
     {
+        // dd(22);
         return view('admin.team.index');
     }
 
@@ -38,6 +39,11 @@ class TeamController extends Controller
     public function store(Request $request)
     {
         try {
+            if(isset($request->status)){
+                $status = $request->status;
+            }else{
+                $status = 0;
+            }
             $team = Team::create([
 
                 'name' => $request->name,
@@ -46,6 +52,7 @@ class TeamController extends Controller
                 'facebook' => $request->facebook,
                 'linkedin' => $request->linkedin,
                 'twitter' => $request->twitter,
+                'status' => $status,
 
                 'image' => ''
 
@@ -100,6 +107,11 @@ class TeamController extends Controller
             'image' => 'sometimes|mimes:png,jpeg,gif',
         ]);
         try {
+            if(isset($request->status)){
+                $status = $request->status;
+            }else{
+                $status = 0;
+            }
             $team = Team::find($id);
             $team->name = $request->name;
             $team->designation = $request->designation;
@@ -107,6 +119,7 @@ class TeamController extends Controller
             $team->facebook = $request->facebook;
             $team->linkedin = $request->linkedin;
             $team->twitter = $request->twitter;
+            $team->status = $status;
 
             if ($request->hasFile('image')) {
                 // dd(44);
@@ -141,13 +154,25 @@ class TeamController extends Controller
                 ->addColumn('image', function ($row) {
                     return view('admin.team._partials.icon', compact('row'));
                 })
+                ->addColumn('status', function ($row) {
+                    if(isset($row->status)){
+                        if($row->status == 1){
+                            return ' <button class="btn btn-primary"> Active </button>';
+                        }else{
+                            return '<button class="btn btn-danger"> Inactive </button>';
+                        }
+
+                    }else{
+                        return '';
+                    }
+                })
 
                 ->addColumn("action", function ($row) {
                     return view('admin.team._partials.action', compact('row'));
                 })
 
 
-                ->rawColumns(['image', 'action'])
+                ->rawColumns(['image', 'action' ,'status'])
                 ->make(true);
             return $datatable;
         } catch (\Exception $e) {
