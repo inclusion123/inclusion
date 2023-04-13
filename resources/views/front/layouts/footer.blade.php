@@ -78,7 +78,7 @@
                             <a class="text-light mb-2" href="{{ route('front.contact') }}"><i
                                     class="bi bi-arrow-right text-primary me-2"></i>Contact Us</a>
                             <a class="text-light" href="{{ route('front.themes') }}"><i
-                                    class="bi bi-arrow-right text-primary me-2"></i>Free Theme</a>
+                                    class="bi bi-arrow-right text-primary me-2"></i>Free Templates</a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">

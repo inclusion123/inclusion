@@ -45,7 +45,7 @@
 
                         <a href="{{ route ('front.contact') }}" class="nav-item nav-link">Contact</a>
                         @if(count($items))
-                        <a href="{{ route('front.themes') }}" class="nav-item nav-link blinking"><span>Free Theme</span></a>
+                        <a href="{{ route('front.themes') }}" class="nav-item nav-link blinking"><span>Free Templates</span></a>
                         @endif
                     </div>
 

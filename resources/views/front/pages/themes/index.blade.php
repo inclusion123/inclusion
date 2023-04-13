@@ -7,10 +7,10 @@
     <div class="container-fluid bg-primary py-4 mb-0 bg-header" style="">
         <div class="row py-4">
             <div class="col-12 pt-lg-5 mt-lg-5 text-center">
-                <h1 class="display-4 text-white animated zoomIn">Themes</h1>
+                <h1 class="display-4 text-white animated zoomIn">Templates</h1>
                 <a href="{{ route('front.index') }}" class="h5 text-white">Home</a>
                 <i class="far fa-dot-circle text-white px-2"></i>
-                <a href="{{route('front.themes')}}" class="h5 text-white">Themes</a>
+                <a href="{{route('front.themes')}}" class="h5 text-white">Templates</a>
             </div>
         </div>
     </div>
@@ -42,10 +42,6 @@
                                             <option value="{{ $category->id }}">{{ $category->name }}</option>
                                         @endforeach
                                     @endif
-                                    {{-- <option>landing Page</option>
-                                    <option>Forms</option>
-                                    <option>All</option>
-                                    <option>All</option> --}}
                                 </select>
                             </div>
                             <div class="hfilter__right">
@@ -60,23 +56,11 @@
                                                 </label>
                                             @endforeach
                                         @endif
-                                        {{-- <label class="container-check">Angular
-                                            <input type="checkbox" checked="checked">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                        <label class="container-check">Vue
-                                            <input type="checkbox" checked="checked">
-                                            <span class="checkmark"></span>
-                                        </label> --}}
                                     </div>
                                 </div>
                                 <div class="techonology ml-2">
                                     <p>Price</p>
                                     <div class="techonology__check">
-                                        {{-- <label class="container-check">Pro
-                                            <input type="checkbox" checked="checked">
-                                            <span class="checkmark"></span>
-                                        </label> --}}
                                         <label class="container-check">Free
                                             <input type="checkbox" checked="checked">
                                             <span class="checkmark"></span>

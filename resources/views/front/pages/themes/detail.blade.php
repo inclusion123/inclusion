@@ -7,12 +7,12 @@
     <div class="container-fluid bg-primary py-4 mb-0 bg-header" style="">
         <div class="row py-4">
             <div class="col-12 pt-lg-5 mt-lg-5 text-center">
-                <h1 class="display-4 text-white animated zoomIn">Themes</h1>
+                <h1 class="display-4 text-white animated zoomIn">Templates</h1>
                 <a href="{{ route('front.index') }}" class="h5 text-white">Home</a>
                 <i class="far fa-circle text-white px-2"></i>
-                <a href="{{ route('front.themes') }}" class="h5 text-white">Themes</a>
+                <a href="{{ route('front.themes') }}" class="h5 text-white">Templates</a>
                 <i class="far fa-dot-circle text-white px-2"></i>
-                <a href="" class="h5 text-white">Themes Detail</a>
+                <a href="" class="h5 text-white">Template Detail</a>
             </div>
         </div>
     </div>
@@ -36,78 +36,24 @@
                     style="visibility: visible; animation-delay: 0.3s; animation-name: slideInUp;">
                     <div class="themDetail_left">
 
-                        {{-- <picture class="flex-shrink-0">
-                            <a href="#!">
-                                <img src="https://inclusionsoft.com/storage/images/tVdt -HuW4Klekktic (1).png" loading="lazy" class="img-fluid" alt="Arsha - Free Corporate Bootstrap HTML Template" width="800" height="600" />
-                            </a>
-                        </picture> --}}
-                        <div id="theme-carousel" class="carousel theme-carousel slide carousel-fade mb-0 d-none"
-                            data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                @if (count($item->gallery))
-                                    @foreach ($item->gallery as $index => $gallery)
-                                        <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
-                                            <img class="w-100"
-                                                src="{{ asset('themes_image/theme_gallery/' . $gallery->photo) }}"
-                                                alt="Image" />
-                                            {{-- <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                                        </div> --}}
-                                        </div>
-                                    @endforeach
-                                @else
-                                    <div class="carousel-item active">
-                                        <img class="w-100"
-                                            src="{{ asset('themes_image/featured_image/' . $item->featured_image) }}"
-                                            alt="Image" />
-                                        {{-- <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                                    </div> --}}
-                                    </div>
-                                @endif
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#theme-carousel"
-                                data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#theme-carousel"
-                                data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-
                         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
 
                             <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="https://codingyaar.com/wp-content/uploads/bootstrap-carousel-slide-2.jpg"
+                                @foreach ($item->gallery as $index => $gallery)
+                                <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                                    <img src="{{ asset('themes_image/theme_gallery/' . $gallery->photo) }}"
                                         class="d-block w-100" alt="...">
                                 </div>
-                                <div class="carousel-item">
-                                    <img src="https://codingyaar.com/wp-content/uploads/bootstrap-carousel-slide-1.jpg"
-                                        class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="https://codingyaar.com/wp-content/uploads/bootstrap-carousel-slide-3.jpg"
-                                        class="d-block w-100" alt="...">
-                                </div>
+                                @endforeach
                             </div>
                             <div class="carousel-indicators">
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                                    class="active thumbnail" aria-current="true" aria-label="Slide 1">
-                                    <img src="https://codingyaar.com/wp-content/uploads/bootstrap-carousel-slide-2.jpg"
+                                @foreach ($item->gallery as $index => $gallery)
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{$index}}"
+                                    class="{{ $index == 0 ? 'active' : '' }} thumbnail"  aria-label="Slide {{$index + 1}}">
+                                    <img src="{{ asset('themes_image/theme_gallery/' . $gallery->photo) }}"
                                         class="d-block w-100" alt="...">
                                 </button>
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                                    class="thumbnail" aria-label="Slide 2">
-                                    <img src="https://codingyaar.com/wp-content/uploads/bootstrap-carousel-slide-1.jpg"
-                                        class="d-block w-100" alt="...">
-                                </button>
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                                    class="thumbnail" aria-label="Slide 3">
-                                    <img src="https://codingyaar.com/wp-content/uploads/bootstrap-carousel-slide-3.jpg"
-                                        class="d-block w-100" alt="...">
-                                </button>
+                                @endforeach
                             </div>
                         </div>
 
@@ -123,11 +69,6 @@
                                 <li>
                                     <p>{{ $highlight_detail }}</p>
                                 </li>
-                                {{-- <li><p>Lorem Ipsum is simply dummy tex</p></li>
-                            <li><p>Lorem Ipsum is simply dummy tex</p></li>
-                            <li><p>Lorem Ipsum is simply dummy tex</p></li>
-                            <li><p>Lorem Ipsum is simply dummy tex</p></li>
-                            <li><p>Lorem Ipsum is simply dummy tex</p></li> --}}
                             @endforeach
                         </ul>
 
@@ -145,15 +86,8 @@
                     <div class="theme__discription">
                         @if (isset($item->discription))
                             <h4>DESCRIPTION</h4>
-                            <p>{!! $item->discription !!}
-                            </p>
+                            <p>{{str_replace('&nbsp;','', preg_replace('#(<[a-z ]*)(style=("|\')(.*?)("|\'))([a-z ]*>)#', '\\1\\6',strip_tags($item->discription)))}}</p>
                         @endif
-                        {{-- <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                            when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                            It has survived not only five centuries, but also the leap into electronic typesetting,
-                            remaining essentially unchanged.
-                        </p> --}}
                         @if (isset($item->included))
                             <h4>INCLUDED</h4>
                             <ul>
@@ -161,10 +95,6 @@
                                     <li>
                                         <p>{{ $included }}</p>
                                     </li>
-                                    {{-- <li><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p></li>
-                            <li><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p></li>
-                            <li><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p></li>
-                            <li><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p></li> --}}
                                 @endforeach
                             </ul>
                         @endif
@@ -175,10 +105,6 @@
                                     <li>
                                         <p>{{ $feature }}</p>
                                     </li>
-                                    {{-- <li><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p></li>
-                            <li><p>Lorem Ipsum is simply dummy text of the printing </p></li>
-                            <li><p>Lorem Ipsum is simply dummy text of the printing</p></li>
-                            <li><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p></li> --}}
                                 @endforeach
                             </ul>
                         @endif
