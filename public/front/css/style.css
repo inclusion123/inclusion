@@ -2721,8 +2721,9 @@ span.avtr figure {
 
 .carousel-indicators {
     position: static;
-    display: block;
-    margin: 0 0 4px 8px;
+    display: flex;
+    height: 80px;
+    margin: -9px 0 0px 0px;
 }
 
 @media screen and (min-width: 992px) {
