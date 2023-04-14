@@ -38,7 +38,7 @@
 
                         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
 
-                            <div class="carousel-inner">
+                            <div class="carousel-inner theme_carousel_inner">
                                 @foreach ($item->gallery as $index => $gallery)
                                 <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
                                     <img src="{{ asset('themes_image/theme_gallery/' . $gallery->photo) }}"
@@ -46,7 +46,7 @@
                                 </div>
                                 @endforeach
                             </div>
-                            <div class="carousel-indicators">
+                            <div class="carousel-indicators theme_carousel_indicators">
                                 @foreach ($item->gallery as $index => $gallery)
                                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{$index}}"
                                     class="{{ $index == 0 ? 'active' : '' }} thumbnail"  aria-label="Slide {{$index + 1}}">

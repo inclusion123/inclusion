@@ -2725,6 +2725,14 @@ span.avtr figure {
     height: 80px;
     margin: -9px 0 0px 0px;
 }
+.theme_carousel_inner .carousel-item img {
+    height: 390px;
+    object-fit: cover;
+}
+.theme_carousel_indicators .thumbnail img {
+    height: 70px;
+    object-fit: cover;
+}
 
 @media screen and (min-width: 992px) {
     .carousel {
