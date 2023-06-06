@@ -38,19 +38,19 @@
                         @method('PUT')
                         @include('alerts.alerts')
                         <div class="card">
-    
+
                             <!-- Nested Row within Card Body -->
                             <div class="card-body">
                                 <div class="gd-responsive-table">
                                     <table class="table table-bordered table-striped">
                                         <tr>
                                             <th>{{ __('Name') }}</th>
-                                            <td> <input type="text" name="name" class="form-control" 
+                                            <td> <input type="text" name="name" class="form-control"
                                                     value="{{$setting->name}}"></td>
                                         </tr>
                                         <tr>
                                             <th>{{ __('Address') }}</th>
-                                            <td> <input type="text" name="address" class="form-control" 
+                                            <td> <input type="text" name="address" class="form-control"
                                                     value="{{$setting->address}}"></td>
                                         </tr>
                                         <tr>
@@ -103,9 +103,9 @@
                                             <td><input type="text" name="github" class="form-control" id="text"
                                                     value="{{$setting->github}}"></td>
                                         </tr>
-    
-    
-    
+
+
+
                                     </table>
                                     <button type="submit" class="btn btn-primary">Save Changes</button>
                                 </div>
